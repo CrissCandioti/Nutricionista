@@ -5,6 +5,7 @@
  */
 package nutricionista;
 
+import Vista.Principal;
 import service.ComidaService;
 
 /**
@@ -17,6 +18,12 @@ public class Nutricionista {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        Principal p = new Principal();
+        p.setVisible(true);
+        p.setLocationRelativeTo(null);
+        
+        
         // TODO code application logic here
         ComidaService cs = new ComidaService();
         //cs.crearComida("Arroz", "El arroz debe ser integral", 150);
