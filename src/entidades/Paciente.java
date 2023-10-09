@@ -12,6 +12,7 @@ package entidades;
 public class Paciente {
 
     private int idPaciente;
+    private String apellido;
     private String nombre;
     private int dni;
     private String domicilio;
@@ -20,15 +21,17 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String nombre, int dni, String domicilio, String telefono) {
+    public Paciente(String apellido, String nombre, int dni, String domicilio, String telefono) {
+        this.apellido = apellido;
         this.nombre = nombre;
         this.dni = dni;
         this.domicilio = domicilio;
         this.telefono = telefono;
     }
 
-    public Paciente(int idPaciente, String nombre, int dni, String domicilio, String telefono) {
+    public Paciente(int idPaciente, String apellido, String nombre, int dni, String domicilio, String telefono) {
         this.idPaciente = idPaciente;
+        this.apellido = apellido;
         this.nombre = nombre;
         this.dni = dni;
         this.domicilio = domicilio;
@@ -41,6 +44,14 @@ public class Paciente {
 
     public void setIdPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getNombre() {
@@ -77,7 +88,7 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return "Paciente{" + "idPaciente=" + idPaciente + ", nombre=" + nombre + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono + '}';
+        return "Paciente{" + "idPaciente=" + idPaciente + ", apellido=" + apellido + ", nombre=" + nombre + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono + '}';
     }
 
 }
