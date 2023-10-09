@@ -78,7 +78,7 @@ public final class PacienteDAO extends DAO {
 
     public ArrayList<Paciente> listaPaciente() {
         try {
-            String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente`";
+            String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente` ORDER BY apellido ASC";
             consultarBaseDatos(sql);
             ArrayList<Paciente> listaRetornar = new ArrayList<>();
             while (resultado.next()) {
@@ -92,4 +92,5 @@ public final class PacienteDAO extends DAO {
         }
         return null;
     }
+    
 }
