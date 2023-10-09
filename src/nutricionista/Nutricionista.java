@@ -5,7 +5,9 @@
  */
 package nutricionista;
 
+import java.time.LocalDate;
 import service.ComidaService;
+import service.DietaService;
 
 /**
  *
@@ -24,6 +26,9 @@ public class Nutricionista {
         //cs.eliminarComida(3);
         //System.out.println(cs.buscarComida(2));
         //System.out.println(cs.listaComida());
+        DietaService ds = new DietaService();
+        System.out.println(ds.pacientesDietaVigente(LocalDate.now()));
+        System.out.println(ds.pacientesDietaTerminada(LocalDate.now()));
     }
     
 }
