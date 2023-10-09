@@ -5,8 +5,9 @@
  */
 package nutricionista;
 
-import Vista.Principal;
+import java.time.LocalDate;
 import service.ComidaService;
+import service.DietaService;
 
 /**
  *
@@ -18,12 +19,6 @@ public class Nutricionista {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Principal p = new Principal();
-        p.setVisible(true);
-        p.setLocationRelativeTo(null);
-        
-        
         // TODO code application logic here
         ComidaService cs = new ComidaService();
         //cs.crearComida("Arroz", "El arroz debe ser integral", 150);
@@ -31,6 +26,9 @@ public class Nutricionista {
         //cs.eliminarComida(3);
         //System.out.println(cs.buscarComida(2));
         //System.out.println(cs.listaComida());
+        DietaService ds = new DietaService();
+        System.out.println(ds.pacientesDietaVigente(LocalDate.now()));
+        System.out.println(ds.pacientesDietaTerminada(LocalDate.now()));
     }
     
 }
