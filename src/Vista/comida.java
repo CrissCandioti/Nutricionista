@@ -54,6 +54,7 @@ public class comida extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 91, 86));
         setClosable(true);
         setIconifiable(true);
         setTitle("Gestión Comida");
@@ -70,6 +71,7 @@ public class comida extends javax.swing.JInternalFrame {
             }
         });
 
+        panelComida.setBackground(new java.awt.Color(253, 127, 40));
         panelComida.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Comida", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
 
         jLabel1.setFont(new java.awt.Font("Blackadder ITC", 1, 24)); // NOI18N
@@ -136,6 +138,7 @@ public class comida extends javax.swing.JInternalFrame {
                 .addGap(112, 112, 112))
         );
 
+        tablaComidas.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         tablaComidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
