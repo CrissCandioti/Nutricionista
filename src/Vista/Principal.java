@@ -55,6 +55,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.setText("Archivo");
 
         menuPaciente.setText("Paciente");
+        menuPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPacienteActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuPaciente);
 
         menuDieta.setText("Comida");
@@ -66,6 +71,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(menuDieta);
 
         jMenuItem3.setText("Dieta");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
@@ -93,10 +103,20 @@ public class Principal extends javax.swing.JFrame {
 
     private void menuDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDietaActionPerformed
        
-        comida c = new comida();
+        GestionComida c = new GestionComida();
         ControlaInstancia(c);
         
     }//GEN-LAST:event_menuDietaActionPerformed
+
+    private void menuPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPacienteActionPerformed
+       GestionPaciente gp = new GestionPaciente();
+        ControlaInstancia(gp);
+    }//GEN-LAST:event_menuPacienteActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        GestionDieta gd = new GestionDieta();
+        ControlaInstancia(gd);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
   
 
