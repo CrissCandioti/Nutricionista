@@ -69,6 +69,17 @@ public final class DietaDAO extends DAO {
         }
         return null;
     }
-    
-    
+
+    //➢	Se necesita listar los pacientes que a la fecha de culminación, no han llegado al peso buscado. 
+    public ArrayList<Paciente> listaPacientePesoNoLlegado() {
+        try {
+            String sql = "";
+            consultarBaseDatos(sql);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al retornar los pacientes cuya fecha de culminacion no haga llegado al peso buscado");
+        } finally {
+            desconectarBaseDatos();
+        }
+        return null;
+    }
 }
