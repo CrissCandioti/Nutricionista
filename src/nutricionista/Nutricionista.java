@@ -8,6 +8,8 @@ package nutricionista;
 import java.time.LocalDate;
 import service.ComidaService;
 import service.DietaService;
+import service.HistorialService;
+import service.PacienteService;
 
 /**
  *
@@ -27,8 +29,12 @@ public class Nutricionista {
         //System.out.println(cs.buscarComida(2));
         //System.out.println(cs.listaComida());
         DietaService ds = new DietaService();
-        System.out.println(ds.pacientesDietaVigente(LocalDate.now()));
-        System.out.println(ds.pacientesDietaTerminada(LocalDate.now()));
+//        System.out.println(ds.pacientesDietaVigente(LocalDate.now()));
+//        System.out.println(ds.pacientesDietaTerminada(LocalDate.now()));
+        PacienteService ps = new PacienteService();
+//        ps.crearPaciente("Merlo", "Carlitox", 3312, "JR VIñas", "0342");
+        HistorialService hs = new HistorialService();
+//        System.out.println(hs.listaHistorialesPorPaciente(1));
     }
-    
+
 }
