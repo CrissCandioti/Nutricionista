@@ -72,9 +72,8 @@ public class DietaService {
 
     public ArrayList<Dieta> listaDietas() {
         try {
-            DietaDAO dd = new DietaDAO();
-            return dd.listaDietaBaseDatos();
-
+            DietaDAO dao = new DietaDAO();
+            return dao.listaDieta();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al retornar la lista de dietas");
         }
@@ -84,8 +83,8 @@ public class DietaService {
     
     public Dieta buscarDietaPorId(int id){
         try {
-            DietaDAO dd = new DietaDAO();
-            return dd.buscarDietaPorId(id);
+            DietaDAO dao = new DietaDAO();
+            return dao.buscarDietaPorId(id);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al buscar dieta por id");
         }
@@ -97,7 +96,7 @@ public class DietaService {
             DietaDAO dao = new DietaDAO();
             return dao.pacientesDietaVigente(fecha);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Se produjo un error al buscar los pacientes cuya dieta esté vigente");
+            JOptionPane.showMessageDialog(null, "Error al buscar los pacientes cuya dieta esté vigente");
         }
         return null;
     }
@@ -107,7 +106,7 @@ public class DietaService {
             DietaDAO dao = new DietaDAO();
             return dao.pacientesDietaTerminada(fecha);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Se produjo un error al buscar los pacientes cuya dieta esté terminada");
+            JOptionPane.showMessageDialog(null, "Error al buscar los pacientes cuya dieta esté terminada");
         }
         return null;
     }

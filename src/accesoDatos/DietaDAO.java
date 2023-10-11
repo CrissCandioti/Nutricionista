@@ -36,6 +36,56 @@ public final class DietaDAO extends DAO {
         }
     }
 
+    public ArrayList<Dieta> listaDieta() {
+        try {
+            String sql = "SELECT `idDieta`, `nombre`, `idPaciente`, `fechaInicial`, `pesoInicial`, `pesoFinal`, `fechaFinal` FROM `dieta`";
+            consultarBaseDatos(sql);
+            PacienteService ps = new PacienteService();
+            ArrayList<Dieta> listaRetornar = new ArrayList<>();
+            while (resultado.next()) {
+                Integer IDPaciente = resultado.getInt(3);
+                //fechaInicial
+                java.sql.Date fechaSQLFechaInicial = resultado.getDate(4);
+                LocalDate fechaInicial = fechaSQLFechaInicial.toLocalDate();
+                //fechaFinal
+                java.sql.Date fechaSQLFechaFinal = resultado.getDate(7);
+                LocalDate fechaFinal = fechaSQLFechaFinal.toLocalDate();
+                listaRetornar.add(new Dieta(resultado.getInt(1), resultado.getString(2), ps.buscarPacientePorID(IDPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal));
+            }
+            return listaRetornar;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al retornar la lista de dietas de la base de datos");
+        } finally {
+            desconectarBaseDatos();
+        }
+        return null;
+    }
+
+    public Dieta buscarDietaPorId(int id) {
+        try {
+            String sql = "SELECT `idDieta`, `nombre`, `idPaciente`, `fechaInicial`, `pesoInicial`, `pesoFinal`, `fechaFinal` FROM `dieta` WHERE idDieta = " + id;
+            consultarBaseDatos(sql);
+            PacienteService ps = new PacienteService();
+            Dieta aux = null;
+            while (resultado.next()) {
+                Integer IDPaciente = resultado.getInt(3);
+                //fechaInicial
+                java.sql.Date fechaSQLFechaInicial = resultado.getDate(4);
+                LocalDate fechaInicial = fechaSQLFechaInicial.toLocalDate();
+                //fechaFinal
+                java.sql.Date fechaSQLFechaFinal = resultado.getDate(7);
+                LocalDate fechaFinal = fechaSQLFechaFinal.toLocalDate();
+                aux = new Dieta(id, resultado.getString(2), ps.buscarPacientePorID(IDPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal);
+            }
+            return aux;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al buscar la dieta en la base de datos");
+        } finally {
+            desconectarBaseDatos();
+        }
+        return null;
+    }
+
     public ArrayList<Paciente> pacientesDietaVigente(LocalDate fecha) {
         try {
             String sql = "SELECT `idPaciente` FROM `dieta` WHERE `fechaFinal` > '" + fecha + "'"; //Para dietas vigentes o futuras
@@ -49,6 +99,8 @@ public final class DietaDAO extends DAO {
             return listaRetornar;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al buscar los pacientes cuya dieta esté vigente en la base de datos");
+        } finally {
+            desconectarBaseDatos();
         }
         return null;
     }
