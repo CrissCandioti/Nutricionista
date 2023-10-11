@@ -10,10 +10,11 @@ package entidades;
  * @author criss
  */
 public enum Horario {
-    
+
     DESAYUNO,
     ALMUERZO,
-    MERIENDA,
-    CENA;
-    
+    MERIENMUERDA,
+    CENA,
+    COLACION;
+
 }

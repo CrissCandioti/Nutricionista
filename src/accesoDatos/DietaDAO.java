@@ -125,7 +125,7 @@ public final class DietaDAO extends DAO {
     //➢	Se necesita listar los pacientes que a la fecha de culminación, no han llegado al peso buscado. 
     public ArrayList<Paciente> listaPacientePesoNoLlegado() {
         try {
-            String sql = "";
+            String sql = "SELECT idPaciente from dieta inner join historial on dieta.idPaciente=historial.idPaciente AND dieta.pesoFinal<>historial.peso and historial.fechaRegistro=dieta.fechaFinal";
             consultarBaseDatos(sql);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al retornar los pacientes cuya fecha de culminacion no haga llegado al peso buscado");
