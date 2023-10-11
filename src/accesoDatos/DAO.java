@@ -71,7 +71,26 @@ public abstract class DAO {
                 sentencia.close();
             }
             if (coneccion != null) {
+                /**
+                 * Dentro de esta condición, se verifica si la conexión a la
+                 * base de datos no está en modo de "auto commit." En una base
+                 * de datos, el modo de "auto commit" significa que cada
+                 * sentencia SQL individual se confirma automáticamente y se
+                 * convierte en una transacción independiente. Si
+                 * getAutoCommit() devuelve false, significa que la conexión
+                 * está configurada para trabajar en modo de transacciones, lo
+                 * que permite agrupar varias operaciones en una transacción y
+                 * confirmarlas o revertirlas en conjunto.
+                 */
                 if (!coneccion.getAutoCommit()) {
+                    /**
+                     * Si la conexión no está en modo de "auto commit," se
+                     * ejecuta un rollback en la conexión. El rollback deshace
+                     * cualquier cambio pendiente en la transacción actual. Esto
+                     * es útil si, por alguna razón, la transacción no se
+                     * completó con éxito y se desean deshacer los cambios antes
+                     * de cerrar la conexión.
+                     */
                     coneccion.rollback();
                 }
                 coneccion.close();
@@ -143,8 +162,5 @@ public abstract class DAO {
  * base de datos no quede en un estado inconsistente si ocurre un error durante
  * una transacción. Por ejemplo, se refiere a una operación en una base de datos
  * que revierte una transacción a su estado previo, anulando todos los cambios
- * que se han realizado en el transcurso de la transacción. El rollback es una
- * parte fundamental de la gestión de transacciones en sistemas de bases de
- * datos y se utiliza para garantizar la integridad y consistencia de los datos,
- * especialmente en situaciones de errores o fallos.
+ * que se han realizado en el transcurso de la transacción.
  */
