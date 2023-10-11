@@ -10,11 +10,20 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author criss
+ * Las clases de entidades DAO heredan los metodos de DAO,la cual consiste en la
+ * coneccion a la base de datos, la desconecion a la base de datos, y los
+ * metodos de consultas propios de DAO. Esta clase ademas de heredar se declara
+ * como "final", debido a que no queremos que continue con la jerarquia de la
+ * herencia. Esta clase de ComidaDAO va a contener los metodos necesarios para
+ * la comunicacion de la base de datos por medio de los propios comandos.
  */
 public final class ComidaDAO extends DAO {
 
+    /*
+     * El metodo guardarComidaBaseDatos es la encargadar de comunicarse con la base de
+     * datos, realizar el comando para insertar y llamar al metodo
+     * insertarModificarEliminarBaseDatos de la clase que hereda.
+     */
     public void guardarComidaBaseDatos(Comida aux) {
         try {
             String sql = "INSERT INTO `comida`(`nombre`, `detalle`, `cantCalorias`) VALUES ('" + aux.getNombre() + "','" + aux.getDetalle() + "'," + aux.getCantCalorias() + ")";
@@ -33,6 +42,10 @@ public final class ComidaDAO extends DAO {
         }
     }
 
+    /*
+     * //El metodo eliminarEliminarAlumno recibe por parametro un dato entero
+     * llamado id, el metodo elimina la comida definitivamente de la base de datos
+     */
     public void eliminarComidaBaseDatos(int ID) {
         try {
             String sql = "DELETE FROM `comida` WHERE idComida = " + ID;
@@ -42,6 +55,10 @@ public final class ComidaDAO extends DAO {
         }
     }
 
+    /*
+     * Este metodo recibe por parametro un dato entero llamado id, la cual se
+     * encarga de buscar la comida y retornarlo.
+     */
     public Comida buscarComidaBaseDatos(int ID) {
         try {
             String sql = "SELECT `idComida`, `nombre`, `detalle`, `cantCalorias` FROM `comida` WHERE idComida = " + ID;
@@ -59,6 +76,10 @@ public final class ComidaDAO extends DAO {
         return null;
     }
 
+    /**
+     * El metodo listaComidaBaseDatos se encarga de retornar todas las comidas
+     * que estan registradas en la base de datos.
+     */
     public ArrayList<Comida> listaComidaBaseDatos() {
         try {
             String sql = "SELECT `idComida`, `nombre`, `detalle`, `cantCalorias` FROM `comida` ORDER BY nombre ASC";
@@ -76,6 +97,13 @@ public final class ComidaDAO extends DAO {
         return null;
     }
 
+    /**
+     * El metodo comidasMenorCalorias se encarga de retornar una lista con las
+     * comidas que contiene calorias minimas, este metodo recibe por parametro
+     * un entero llamado calorias la cual se realiza una comparacion con ese
+     * dato y retorna la lista con comidas que tengan menos calorias al pasado
+     * por parametro.
+     */
     public ArrayList<Comida> comidasMenorCalorias(int calorias) {
         try {
             String sql = "SELECT `idComida`, `nombre`, `detalle`, `cantCalorias` FROM `comida` WHERE cantCalorias < " + calorias;

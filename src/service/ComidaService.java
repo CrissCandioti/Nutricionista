@@ -11,15 +11,32 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author criss
+ * El paquete Service contiene las clases comidaService, dietaService,
+ * dietaComidaService, historialService y pacienteService. Estas clases estan en
+ * constante comunicacion con el paquete "Vista" y con el paquete "Acceso a
+ * Datos" Estas clases primero reciben los datos obtenidos de las "Vistas",
+ * luego cada uno de los metodos ubicados dentro de las clases Services se
+ * encargan de analizar y de cumplir las restricciones programas. Una vez de
+ * desempeñar con la tarea asignada cada metodo establece una comunicacion con
+ * el paquete "AccesoDatos", la cual se encarga de enviarle esta informacion.
  */
 public class ComidaService {
-//detalle 100 carateres
 
+    /*
+     * El metodo "ComidaService" recibe toda la informacion establecida en la
+     * vistas para completar el registro de los alumnos
+     */
     public void crearComida(String nombre, String detalle, int cantCalorias) {
+        /**
+         * Dentro de un bloque try-catch el metodo procede a analizar estos
+         * datos con las restricciones
+         */
         try {
             ComidaDAO dao = new ComidaDAO();
+            /**
+             * Las restricciones realizada mas adelante se encargan de
+             * desempeñar distintas condiciones.
+             */
             if (nombre.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "La celda del nombre no puede estar vacia");
                 return;
@@ -47,7 +64,15 @@ public class ComidaService {
                 JOptionPane.showMessageDialog(null, "La celda del detalle no puede contener mas de 100 caracteres");
                 return;
             }
+            /**
+             * Se establece la comunicacion con el paquete "AccesoDatos" la cual
+             * se envia por argumentos la comida instanciada para registrar en
+             * la base de datos
+             */
             dao.guardarComidaBaseDatos(new Comida(nombre, detalle, cantCalorias));
+            /**
+             * Por ultimo se muestra un mensaje
+             */
             JOptionPane.showMessageDialog(null, "Se agrego correctamente la comida");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al intentar crear la comida");
@@ -95,6 +120,9 @@ public class ComidaService {
         }
     }
 
+    /*
+     * El metodo eliminarComida se encarga de eliminar la comida de la base de datos
+     */
     public void eliminarComida(int ID) {
         try {
             ComidaDAO dao = new ComidaDAO();
@@ -109,6 +137,10 @@ public class ComidaService {
         }
     }
 
+    /*
+     * El metodo buscarComida recibe por parametro un entero con el dato del id
+     * para buscar la comida en la base de datos
+     */
     public Comida buscarComida(int ID) {
         try {
             ComidaDAO dao = new ComidaDAO();
@@ -119,6 +151,10 @@ public class ComidaService {
         return null;
     }
 
+    /*
+     * El metodo listaComida se utiliza para retornar una lista con todas las
+     * comidas registradas
+     */
     public ArrayList<Comida> listaComida() {
         try {
             ComidaDAO dao = new ComidaDAO();
@@ -128,7 +164,12 @@ public class ComidaService {
         }
         return null;
     }
-    
+
+    /*
+     * El metodo listaComidaBajaCalorias recibe por parametro las calorias para
+     * traer una lista de comidas que tengan una cantidad menor de un
+     * determinado número de calorías.
+     */
     public ArrayList<Comida> listaComidaBajaCalorias(int calorias) {
         try {
             ComidaDAO dao = new ComidaDAO();
