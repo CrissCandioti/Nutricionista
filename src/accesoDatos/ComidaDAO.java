@@ -75,4 +75,21 @@ public final class ComidaDAO extends DAO {
         }
         return null;
     }
+
+    public ArrayList<Comida> comidasMenorCalorias(int calorias) {
+        try {
+            String sql = "SELECT `idComida`, `nombre`, `detalle`, `cantCalorias` FROM `comida` WHERE cantCalorias < " + calorias;
+            consultarBaseDatos(sql);
+            ArrayList<Comida> listaRetornar = new ArrayList<>();
+            while (resultado.next()) {
+                listaRetornar.add(new Comida(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getInt(4)));
+            }
+            return listaRetornar;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al retornar las comida con menor calorias de la base de datos");
+        } finally {
+            desconectarBaseDatos();
+        }
+        return null;
+    }
 }

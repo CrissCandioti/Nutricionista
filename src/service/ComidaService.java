@@ -128,4 +128,14 @@ public class ComidaService {
         }
         return null;
     }
+    
+    public ArrayList<Comida> listaComidaBajaCalorias(int calorias) {
+        try {
+            ComidaDAO dao = new ComidaDAO();
+            return dao.comidasMenorCalorias(calorias);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al intentar retornar las comida con menor calorias");
+        }
+        return null;
+    }
 }
