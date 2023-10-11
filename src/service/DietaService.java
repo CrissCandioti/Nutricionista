@@ -70,6 +70,28 @@ public class DietaService {
         }
     }
 
+    public ArrayList<Dieta> listaDietas() {
+        try {
+            DietaDAO dd = new DietaDAO();
+            return dd.listaDietaBaseDatos();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al retornar la lista de dietas");
+        }
+
+        return null;
+    }
+    
+    public Dieta buscarDietaPorId(int id){
+        try {
+            DietaDAO dd = new DietaDAO();
+            return dd.buscarDietaPorId(id);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al buscar dieta por id");
+        }
+        return null;
+    }
+
     public ArrayList<Paciente> pacientesDietaVigente(LocalDate fecha) {
         try {
             DietaDAO dao = new DietaDAO();
