@@ -350,7 +350,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
         try {
             ComidaService cs = new ComidaService();
 
-            ArrayList guardian = cs.listaComida();
+            ArrayList comidas = cs.listaComida();
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
@@ -364,9 +364,9 @@ public class GestionComida extends javax.swing.JInternalFrame {
             //creo un vector para guardar los datos del array y que luego el modelo de la tabla pueda agregarlo a la tabla.
             Object comida[] = null;
 
-            for (int i = 0; i < guardian.size(); i++) {
+            for (int i = 0; i < comidas.size(); i++) {
                 modelo.addRow(comida);
-                Comida getC = (Comida) guardian.get(i);
+                Comida getC = (Comida) comidas.get(i);
 
                 modelo.setValueAt(getC.getIdComida(), i, 0);
                 modelo.setValueAt(getC.getNombre(), i, 1);
@@ -375,7 +375,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
 
             }
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "No tenemos registros de Guardianes en la base de datos");
+            JOptionPane.showMessageDialog(null, "No tenemos registros de comidas en la base de datos");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
