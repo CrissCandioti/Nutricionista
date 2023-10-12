@@ -86,8 +86,8 @@ public class DietaService {
 
         return null;
     }
-    
-    public Dieta buscarDietaPorId(int id){
+
+    public Dieta buscarDietaPorId(int id) {
         try {
             DietaDAO dao = new DietaDAO();
             return dao.buscarDietaPorId(id);
@@ -113,6 +113,16 @@ public class DietaService {
             return dao.pacientesDietaTerminada(fecha);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al buscar los pacientes cuya dieta esté terminada");
+        }
+        return null;
+    }
+
+    public ArrayList<Paciente> listaPacientePesoNoLlegado() {
+        try {
+            DietaDAO dao = new DietaDAO();
+            return dao.listaPacientePesoNoLlegado();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al retornar los pacientes cuya fecha de culminacion no haga llegado al peso buscado");
         }
         return null;
     }

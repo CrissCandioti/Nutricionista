@@ -122,13 +122,20 @@ public final class DietaDAO extends DAO {
         return null;
     }
 
-    //➢	Se necesita listar los pacientes que a la fecha de culminación, no han llegado al peso buscado. 
+    //Se necesita listar los pacientes que a la fecha de culminación, no han llegado al peso buscado. 
     public ArrayList<Paciente> listaPacientePesoNoLlegado() {
         try {
-            String sql = "SELECT idPaciente from dieta inner join historial on dieta.idPaciente=historial.idPaciente AND dieta.pesoFinal<>historial.peso and historial.fechaRegistro=dieta.fechaFinal";
+            String sql = "SELECT idPaciente from dieta inner join historial on dieta.idPaciente = historial.idPaciente AND dieta.pesoFinal<>historial.peso and historial.fechaRegistro=dieta.fechaFinal";
             consultarBaseDatos(sql);
+            ArrayList<Paciente> listaRetornar = new ArrayList<>();
+            PacienteService ps = new PacienteService();
+            while (resultado.next()) {
+                Integer IDPaciente = resultado.getInt(1);
+                listaRetornar.add(ps.buscarPacientePorID(IDPaciente));
+            }
+            return listaRetornar;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Se produjo un error al retornar los pacientes cuya fecha de culminacion no haga llegado al peso buscado");
+            JOptionPane.showMessageDialog(null, "Se produjo un error al retornar los pacientes cuya fecha de culminacion no haga llegado al peso buscado en la base de datos");
         } finally {
             desconectarBaseDatos();
         }
