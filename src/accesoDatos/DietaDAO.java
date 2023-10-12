@@ -13,11 +13,20 @@ import javax.swing.JOptionPane;
 import service.PacienteService;
 
 /**
- *
- * @author criss
+ * Las clases de entidades DAO heredan los metodos de DAO,la cual consiste en la
+ * coneccion a la base de datos, la desconecion a la base de datos, y los
+ * metodos de consultas propios de DAO. Esta clase ademas de heredar se declara
+ * como "final", debido a que no queremos que continue con la jerarquia de la
+ * herencia. Esta clase de ComidaDAO va a contener los metodos necesarios para
+ * la comunicacion de la base de datos por medio de los propios comandos.
  */
 public final class DietaDAO extends DAO {
 
+    /*
+     * El metodo guardarDieta es la encargadar de comunicarse con la base de
+     * datos, realizar el comando para insertar y llamar al metodo
+     * insertarModificarEliminarBaseDatos de la clase que hereda.
+     */
     public void guardarDieta(Dieta aux) {
         try {
             String sql = "INSERT INTO `dieta`(`nombre`, `idPaciente`, `fechaInicial`, `pesoInicial`, `pesoFinal`, `fechaFinal`) VALUES ('" + aux.getNombre() + "'," + aux.getIdPaciente().getIdPaciente() + ",'" + aux.getFechaInicial() + "'," + aux.getPesoInicial() + "," + aux.getPesoFinal() + ",'" + aux.getFechaFinal() + "')";
@@ -27,6 +36,10 @@ public final class DietaDAO extends DAO {
         }
     }
 
+    /*
+     * El metodo modificarDieta recibe por parametro un alimento y se
+     * encarga de modificar la comida establecida en la base de datos.
+     */
     public void modificarDieta(Dieta aux) {
         try {
             String sql = "UPDATE `dieta` SET `nombre`='" + aux.getNombre() + "',`idPaciente`=" + aux.getIdPaciente().getIdPaciente() + ",`fechaInicial`='" + aux.getFechaInicial() + "',`pesoInicial`='" + aux.getPesoInicial() + "',`pesoFinal`=" + aux.getPesoFinal() + ",`fechaFinal`='" + aux.getFechaFinal() + "' WHERE idDieta = " + aux.getIdDieta();
@@ -36,9 +49,13 @@ public final class DietaDAO extends DAO {
         }
     }
 
+    /*
+     * El metodo listaDieta se encarga de retornar todas las dietas
+     * que estan registradas en la base de datos.
+     */
     public ArrayList<Dieta> listaDieta() {
         try {
-            String sql = "SELECT `idDieta`, `nombre`, `idPaciente`, `fechaInicial`, `pesoInicial`, `pesoFinal`, `fechaFinal` FROM `dieta`";
+            String sql = "SELECT  *  FROM `dieta` INNER JOIN paciente ON dieta.idPaciente = paciente.idPaciente ORDER BY paciente.apellido ASC ";
             consultarBaseDatos(sql);
             PacienteService ps = new PacienteService();
             ArrayList<Dieta> listaRetornar = new ArrayList<>();
@@ -61,6 +78,10 @@ public final class DietaDAO extends DAO {
         return null;
     }
 
+    /*
+     * Este metodo recibe por parametro un dato entero llamado id, la cual se
+     * encarga de buscar la dieta y retornarlo.
+     */
     public Dieta buscarDietaPorId(int id) {
         try {
             String sql = "SELECT `idDieta`, `nombre`, `idPaciente`, `fechaInicial`, `pesoInicial`, `pesoFinal`, `fechaFinal` FROM `dieta` WHERE idDieta = " + id;
@@ -86,6 +107,10 @@ public final class DietaDAO extends DAO {
         return null;
     }
 
+    /*
+     * Los proximos dos metodos se encargan de listar todos los pacientes cuya dieta
+     * esté terminada o vigente, y cuando es la fecha de culminación.
+     */
     public ArrayList<Paciente> pacientesDietaVigente(LocalDate fecha) {
         try {
             String sql = "SELECT `idPaciente` FROM `dieta` WHERE `fechaFinal` > '" + fecha + "'"; //Para dietas vigentes o futuras

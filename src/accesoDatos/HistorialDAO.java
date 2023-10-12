@@ -6,18 +6,26 @@
 package accesoDatos;
 
 import entidades.Historial;
-import entidades.Paciente;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import service.PacienteService;
 
 /**
- *
- * @author criss
+ * Las clases de entidades DAO heredan los metodos de DAO,la cual consiste en la
+ * coneccion a la base de datos, la desconecion a la base de datos, y los
+ * metodos de consultas propios de DAO. Esta clase ademas de heredar se declara
+ * como "final", debido a que no queremos que continue con la jerarquia de la
+ * herencia. Esta clase de ComidaDAO va a contener los metodos necesarios para
+ * la comunicacion de la base de datos por medio de los propios comandos.
  */
 public final class HistorialDAO extends DAO {
 
+    /*
+     * El metodo guardarHistorial es la encargadar de comunicarse con la base de
+     * datos, realizar el comando para insertar y llamar al metodo
+     * insertarModificarEliminarBaseDatos de la clase que hereda.
+     */
     public void guardarHistorial(Historial aux) {
         try {
             String sql = "INSERT INTO `historial`(`idPaciente`, `peso`, `fechaRegistro`) VALUES (" + aux.getIdPaciente().getIdPaciente() + "," + aux.getPeso() + ",'" + aux.getFechaRegistro() + "')";
@@ -27,6 +35,10 @@ public final class HistorialDAO extends DAO {
         }
     }
 
+    /*
+     * El metodo modificarHistorial recibe por parametro un historial y se
+     * encarga de modificar el historial establecida en la base de datos.
+     */
     public void modificarHistorial(Historial aux) {
         try {
             String sql = "UPDATE `historial` SET `idPaciente`=" + aux.getIdPaciente().getIdPaciente() + ",`peso`=" + aux.getPeso() + ",`fechaRegistro`='" + aux.getFechaRegistro() + "' WHERE idHistorial = " + aux.getIDHistorial();
@@ -36,6 +48,10 @@ public final class HistorialDAO extends DAO {
         }
     }
 
+    /*
+     * //El metodo eliminarHistorial recibe por parametro un dato entero
+     * llamado id, el metodo elimina el historial definitivamente de la base de datos
+     */
     public void eliminarHistorial(int ID) {
         try {
             String sql = "DELETE FROM `historial` WHERE idHistorial = " + ID;
@@ -45,6 +61,10 @@ public final class HistorialDAO extends DAO {
         }
     }
 
+    /*
+     * Este metodo recibe por parametro un dato entero llamado id, la cual se
+     * encarga de buscar el historial y retornarlo.
+     */
     public Historial buscarHistorialPorID(int ID) {
         try {
             String sql = "SELECT `idHistorial`, `idPaciente`, `peso`, `fechaRegistro` FROM `historial` WHERE idHistorial = " + ID;
@@ -68,6 +88,10 @@ public final class HistorialDAO extends DAO {
         return null;
     }
 
+    /*
+     * Este metodo recibe por parametro un dato entero llamado IDPaciente, la cual se
+     * encarga de buscar el historial por paciente y retornarlo.
+     */
     public Historial buscarHistorialPorPaciente(int IDPaciente) {
         try {
             String sql = "SELECT `idHistorial`, `idPaciente`, `peso`, `fechaRegistro` FROM `historial` WHERE idPaciente = " + IDPaciente;
@@ -90,6 +114,10 @@ public final class HistorialDAO extends DAO {
         return null;
     }
 
+    /*
+     * El metodo listaHistorial se encarga de retornar todos los historiales
+     * que estan registradas en la base de datos.
+     */
     public ArrayList<Historial> listaHistorial() {
         try {
             String sql = "SELECT `idHistorial`, `idPaciente`, `peso`, `fechaRegistro` FROM `historial`";
@@ -111,6 +139,11 @@ public final class HistorialDAO extends DAO {
         return null;
     }
 
+    /*
+     * El metodo listaHistorialPorPaciente recibe por parametro un dato entero 
+     * indicando el ID del Paciente, para retornar todos los historiales que 
+     * contenga ese paciente en la base de datos.
+     */
     public ArrayList<Historial> listaHistorialPorPaciente(int IDPaciente) {
         try {
             String sql = "SELECT `idHistorial`, `idPaciente`, `peso`, `fechaRegistro` FROM `historial` WHERE idPaciente = " + IDPaciente;

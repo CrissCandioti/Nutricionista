@@ -33,6 +33,10 @@ public final class ComidaDAO extends DAO {
         }
     }
 
+    /*
+     * El metodo modificarComidaBaseDatos recibe por parametro un alimento y se
+     * encarga de modificar la comida establecida en la base de datos.
+     */
     public void modificarComidaBaseDatos(Comida aux) {
         try {
             String sql = "UPDATE `comida` SET `nombre`='" + aux.getNombre() + "',`detalle`='" + aux.getDetalle() + "',`cantCalorias`=" + aux.getCantCalorias() + " WHERE idComida = " + aux.getIdComida();
@@ -43,7 +47,7 @@ public final class ComidaDAO extends DAO {
     }
 
     /*
-     * //El metodo eliminarEliminarAlumno recibe por parametro un dato entero
+     * //El metodo eliminarComidaBaseDatos recibe por parametro un dato entero
      * llamado id, el metodo elimina la comida definitivamente de la base de datos
      */
     public void eliminarComidaBaseDatos(int ID) {
@@ -76,7 +80,7 @@ public final class ComidaDAO extends DAO {
         return null;
     }
 
-    /**
+    /*
      * El metodo listaComidaBaseDatos se encarga de retornar todas las comidas
      * que estan registradas en la base de datos.
      */

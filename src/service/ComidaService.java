@@ -35,7 +35,9 @@ public class ComidaService {
             ComidaDAO dao = new ComidaDAO();
             /**
              * Las restricciones realizada mas adelante se encargan de
-             * desempeñar distintas condiciones.
+             * desempeñar distintas condiciones. Las siguientes restricciones se
+             * encargan de verificar si los datos estan vacios.Muestra un
+             * mensaje de ser asi.
              */
             if (nombre.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "La celda del nombre no puede estar vacia");
@@ -45,21 +47,37 @@ public class ComidaService {
                 JOptionPane.showMessageDialog(null, "La celda del detalle no puede estar vacia");
                 return;
             }
+            /**
+             * La siguientes restriccion se encarga que el nombre contenga mas
+             * de 3 caracteres.
+             */
             if (nombre.length() < 3) {
                 JOptionPane.showMessageDialog(null, "El nombre no pueden tener menos de 3 caracteres");
                 return;
             }
+            /**
+             * La siguientes restriccion se encarga que el nombre no pueda
+             * comenzar con caracteres numericos.
+             */
             char primerCaracterN = nombre.charAt(0);
             if (Character.isDigit(primerCaracterN)) {
                 JOptionPane.showMessageDialog(null, "El nombre no puede comenzar con numeros");
                 return;
             }
+            /**
+             * La siguientes restriccion se encarga que el nombre no pueda
+             * contener numeros dentro de el.
+             */
             for (char caracter : nombre.toCharArray()) {
                 if (Character.isDigit(caracter)) {
                     JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
                     return;
                 }
             }
+            /**
+             * La siguientes restriccion se encarga que el dato de los detalles
+             * cumpla la condicion que no pueda exederse en los caracteres
+             */
             if (detalle.length() >= 100) {
                 JOptionPane.showMessageDialog(null, "La celda del detalle no puede contener mas de 100 caracteres");
                 return;
@@ -79,6 +97,11 @@ public class ComidaService {
         }
     }
 
+    /*
+     * El siguiente metodo actua muy similar con guardar comida con respecto a
+     * las restricciones, se diferencia en su tarea principal que es la de
+     * modificar la comida que esta registrada en la base de datos.
+     */
     public void modificarComida(int idComida, String nombre, String detalle, int cantCalorias) {
         try {
             ComidaDAO dao = new ComidaDAO();
