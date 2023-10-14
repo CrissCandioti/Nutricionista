@@ -6,6 +6,7 @@
 package service;
 
 import accesoDatos.DietaComidaDAO;
+import entidades.Comida;
 import entidades.DietaComida;
 import entidades.Horario;
 import java.util.ArrayList;
@@ -103,6 +104,16 @@ public class DietaComidaService {
             return dao.listaDietaComida();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al retornar la lista de la asociación de la dieta con la comida");
+        }
+        return null;
+    }
+
+    public Comida comidaDietaEspecifica(int IDDietaComida) {
+        try {
+            DietaComidaDAO dao = new DietaComidaDAO();
+            return dao.comidaDietaEspecifica(IDDietaComida);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al buscar la comida especifica de la dieta");
         }
         return null;
     }

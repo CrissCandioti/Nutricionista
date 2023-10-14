@@ -5,6 +5,7 @@
  */
 package accesoDatos;
 
+import entidades.Comida;
 import entidades.DietaComida;
 import entidades.Horario;
 import java.util.ArrayList;
@@ -83,5 +84,23 @@ public final class DietaComidaDAO extends DAO {
         }
         return null;
     }
-    
+
+    public Comida comidaDietaEspecifica(int IDDietaComida) {
+        try {
+            String sql = "SELECT `idComida` FROM `dietacomida` WHERE idDietaComida = " + IDDietaComida;
+            consultarBaseDatos(sql);
+            ComidaService cs = new ComidaService();
+            Comida aux = null;
+            while (resultado.next()) {
+                Integer IDComida = resultado.getInt(1);
+                aux = cs.buscarComida(IDComida);
+            }
+            return aux;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al retornar la comida especifica de la asociación de la dieta con la comida");
+        } finally {
+            desconectarBaseDatos();
+        }
+        return null;
+    }
 }

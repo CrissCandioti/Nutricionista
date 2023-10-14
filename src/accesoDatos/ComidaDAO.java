@@ -101,7 +101,7 @@ public final class ComidaDAO extends DAO {
         return null;
     }
 
-    /**
+    /*
      * El metodo comidasMenorCalorias se encarga de retornar una lista con las
      * comidas que contiene calorias minimas, este metodo recibe por parametro
      * un entero llamado calorias la cual se realiza una comparacion con ese
