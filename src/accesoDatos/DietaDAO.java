@@ -166,4 +166,13 @@ public final class DietaDAO extends DAO {
         }
         return null;
     }
+
+    public void eliminarDieta(int idDieta) {
+        try {
+            String sql = "DELETE FROM `dieta` WHERE idDieta = " + idDieta;
+            insertarModificarEliminarBaseDatos(sql);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al eliminar la dieta de la base de datos");
+        }
+    }
 }

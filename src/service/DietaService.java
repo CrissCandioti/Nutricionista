@@ -126,4 +126,14 @@ public class DietaService {
         }
         return null;
     }
+
+    public void eliminarDieta(int idDieta) {
+        try {
+            DietaDAO dao = new DietaDAO();
+            dao.eliminarDieta(idDieta);
+            JOptionPane.showMessageDialog(null, "Se elimino con exito la dieta seleccionada");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar la dieta seleccionada");
+        }
+    }
 }
