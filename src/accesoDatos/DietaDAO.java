@@ -55,7 +55,10 @@ public final class DietaDAO extends DAO {
      */
     public ArrayList<Dieta> listaDieta() {
         try {
+
             String sql = "SELECT  *  FROM `dieta` INNER JOIN paciente ON dieta.idPaciente = paciente.idPaciente ORDER BY paciente.apellido ASC ";
+           
+
             consultarBaseDatos(sql);
             PacienteService ps = new PacienteService();
             ArrayList<Dieta> listaRetornar = new ArrayList<>();
@@ -167,12 +170,15 @@ public final class DietaDAO extends DAO {
         return null;
     }
 
-    public void eliminarDieta(int idDieta) {
+
+
+     public void eliminarDieta(int ID) {
         try {
-            String sql = "DELETE FROM `dieta` WHERE idDieta = " + idDieta;
+            String sql = "DELETE FROM `dieta` WHERE idDieta = " + ID;
             insertarModificarEliminarBaseDatos(sql);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Se produjo un error al eliminar la dieta de la base de datos");
+            JOptionPane.showMessageDialog(null, "Se produjo un error al eliminar la dieta en la base de datos");
+
         }
     }
 }

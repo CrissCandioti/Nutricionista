@@ -69,7 +69,7 @@ public class DietaService {
                     return;
                 }
             }
-            dao.guardarDieta(new Dieta(idDieta, nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal));
+            dao.modificarDieta(new Dieta(idDieta, nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal));
             JOptionPane.showMessageDialog(null, "Se modificar correctamente la dieta");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al modificar la dieta");
@@ -127,13 +127,14 @@ public class DietaService {
         return null;
     }
 
-    public void eliminarDieta(int idDieta) {
+    public void eliminarDieta(int id) {
         try {
-            DietaDAO dao = new DietaDAO();
-            dao.eliminarDieta(idDieta);
-            JOptionPane.showMessageDialog(null, "Se elimino con exito la dieta seleccionada");
+            DietaDAO dd = new DietaDAO();
+            dd.eliminarDieta(id);
+            JOptionPane.showMessageDialog(null, "Se elimino correctamente la dieta");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar la dieta seleccionada");
+            JOptionPane.showMessageDialog(null, "Error al eliminar dieta" + e);
+
         }
     }
 }

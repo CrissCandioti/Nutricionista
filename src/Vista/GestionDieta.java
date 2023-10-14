@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import service.ComidaService;
 import service.DietaService;
+import service.HistorialService;
 import service.PacienteService;
 
 /**
@@ -314,6 +315,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try {
             DietaService ds = new DietaService();
+            HistorialService hs = new HistorialService();
 
             String nombre = txtNombre.getText();
 
@@ -326,7 +328,9 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             int pesoF = Integer.parseInt(txtPesoFinal.getText());
 
             ds.crearDieta(nombre, idPaciente, LocalDate.parse(fechaI), pesoI, pesoF, LocalDate.parse(fechaF));
+            hs.crearHistorial(idPaciente, pesoI, LocalDate.parse(fechaI));
             limpiar();
+            
         } catch (NumberFormatException e) {
             System.out.println(e);
         }catch(Exception ex){

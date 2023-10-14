@@ -35,6 +35,7 @@ public class Principal extends javax.swing.JFrame {
         menuPaciente = new javax.swing.JMenuItem();
         menuDieta = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        menuHistorial = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,6 +79,14 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
+        menuHistorial.setText("Historial");
+        menuHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuHistorialActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuHistorial);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
@@ -118,6 +127,11 @@ public class Principal extends javax.swing.JFrame {
         ControlaInstancia(gd);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void menuHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHistorialActionPerformed
+       GestionHistorial gh = new GestionHistorial();
+        ControlaInstancia(gh);
+    }//GEN-LAST:event_menuHistorialActionPerformed
+
   
 
 
@@ -128,6 +142,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem menuDieta;
+    private javax.swing.JMenuItem menuHistorial;
     private javax.swing.JMenuItem menuPaciente;
     // End of variables declaration//GEN-END:variables
  public void ControlaInstancia(JInternalFrame inter) {
