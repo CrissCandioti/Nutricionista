@@ -5,9 +5,11 @@
  */
 package Vista;
 
+import static Vista.Principal.escritorio;
 import entidades.Comida;
 import entidades.Paciente;
 import java.util.ArrayList;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import service.ComidaService;
@@ -57,6 +59,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         tablaListaPacientes = new javax.swing.JTable();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnAgregarDieta = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -198,6 +201,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tablaListaPacientes);
 
+        btnModificar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnModificar.setText("MODIFICAR");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,10 +209,19 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             }
         });
 
+        btnEliminar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnAgregarDieta.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnAgregarDieta.setText("AGREGAR DIETA");
+        btnAgregarDieta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarDietaActionPerformed(evt);
             }
         });
 
@@ -217,11 +230,12 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         panelListaPacientesLayout.setHorizontalGroup(
             panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListaPacientesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelListaPacientesLayout.createSequentialGroup()
+                .addComponent(btnAgregarDieta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnModificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panelListaPacientesLayout.setVerticalGroup(
@@ -231,10 +245,12 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
+                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarDieta))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        btnSalir.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,9 +267,9 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGap(0, 16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +282,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                         .addComponent(panelListaPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31))))
         );
@@ -290,6 +306,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             String telefono = txtTelefono.getText();
 
             ps.crearPaciente(apellido, nombre, dni, domicilio, telefono);
+            limpiar();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en dni Por Favor!");
         }
@@ -331,7 +348,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formMouseClicked
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-
+        try{
         PacienteService ps = new PacienteService();
         int id = Integer.parseInt(txtId.getText());
 
@@ -343,7 +360,11 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
         if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
             ps.modificarPaciente(id, apellido, nombre, dni, domicilio, telefono);
+            limpiar();
             llenarTabla();
+        }
+        }catch(NumberFormatException e){
+            System.out.println(e);
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
@@ -355,11 +376,29 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE ELIMINAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
             ps.eliminarPaciente(id);
             llenarTabla();
+            limpiar();
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnAgregarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDietaActionPerformed
+        GestionDieta gs = new GestionDieta();
+        ControlaInstancia(gs);
+        
+        DefaultTableModel modelo = (DefaultTableModel) tablaListaPacientes.getModel();
+            int id = (int) modelo.getValueAt(tablaListaPacientes.getSelectedRow(), 0);
+        
+            PacienteService ps = new PacienteService();
+            Paciente p = new Paciente();
+            p = ps.buscarPacientePorID(id);
+            
+        GestionDieta.cmbPaciente.removeAllItems();
+        GestionDieta.cmbPaciente.addItem(p);
+        this.dispose();
+    }//GEN-LAST:event_btnAgregarDietaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarDieta;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
@@ -418,12 +457,14 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         btnGuardar.setEnabled(false);
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
+        btnAgregarDieta.setEnabled(true);
     }
 
     public void desabilitarBotones() {
         btnGuardar.setEnabled(true);
         btnModificar.setEnabled(false);
         btnEliminar.setEnabled(false);
+        btnAgregarDieta.setEnabled(false);
     }
 
     public void limpiar() {
@@ -433,5 +474,19 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         txtNombre.setText("");
         txtTelefono.setText("");
         txtapellido.setText("");
+    }
+     public void ControlaInstancia(JInternalFrame inter) {
+
+        for (JInternalFrame frame : escritorio.getAllFrames()) {
+            if (frame.getClass().equals(inter.getClass())) {
+                frame.toFront(); // Si está abierto, tráelo al frente
+                return;
+            }
+        }
+
+        // Si no está abierto, crea una nueva instancia 
+        
+        escritorio.add(inter);
+        inter.setVisible(true);
     }
 }

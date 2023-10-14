@@ -54,7 +54,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 91, 86));
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
         setTitle("Gestión Comida");
@@ -64,7 +64,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
             }
         });
 
-        panelComida.setBackground(new java.awt.Color(253, 127, 40));
+        panelComida.setBackground(new java.awt.Color(255, 255, 255));
         panelComida.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Comida", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
 
         jLabel1.setFont(new java.awt.Font("Bodoni Bk BT", 1, 24)); // NOI18N
@@ -252,6 +252,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
 
             c.crearComida(nombre, detalle, calorias);
             JOptionPane.showMessageDialog(this, "Comida Agregada!");
+            limpiar();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en 'Calorias'");
         }
@@ -261,12 +262,12 @@ public class GestionComida extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         panelTablaComidas.setVisible(true);
-       
+        limpiar();
         llenarTabla();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void tablaComidasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaComidasMouseClicked
-        
+
         abilitarBotones();
         try {
             DefaultTableModel modelo = (DefaultTableModel) tablaComidas.getModel();
@@ -298,6 +299,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
 
         if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR COMIDA?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
             cs.modificarComida(id, nombre, detalle, calorias);
+            limpiar();
             llenarTabla();
         }
     }//GEN-LAST:event_btnModificarActionPerformed
@@ -318,6 +320,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
         if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE ELIMINAR LA COMIDA?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
             cs.eliminarComida(id);
             llenarTabla();
+            limpiar();
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
