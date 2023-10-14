@@ -6,6 +6,7 @@
 package nutricionista;
 
 import Vista.Principal;
+import accesoDatos.DietaComidaDAO;
 import java.time.LocalDate;
 import service.ComidaService;
 import service.DietaService;
@@ -39,6 +40,8 @@ public class Nutricionista {
         Principal p =new Principal();
         p.setVisible(true);
         p.setLocationRelativeTo(null);
+        DietaComidaDAO dao = new DietaComidaDAO();
+        System.out.println(dao.buscarDietaComidaBaseDatos(1));
     }
 
 }
