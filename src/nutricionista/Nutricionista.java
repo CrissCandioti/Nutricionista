@@ -41,7 +41,7 @@ public class Nutricionista {
         p.setVisible(true);
         p.setLocationRelativeTo(null);
         DietaComidaDAO dao = new DietaComidaDAO();
-        System.out.println(dao.buscarDietaComidaBaseDatos(1));
+        System.out.println(dao.buscarDietaComidaPorId(1));
     }
 
 }
