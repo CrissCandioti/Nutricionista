@@ -7,6 +7,7 @@ package nutricionista;
 
 import Vista.Principal;
 import accesoDatos.DietaComidaDAO;
+import entidades.Horario;
 import java.time.LocalDate;
 import service.ComidaService;
 import service.DietaService;
@@ -41,7 +42,7 @@ public class Nutricionista {
         p.setVisible(true);
         p.setLocationRelativeTo(null);
         DietaComidaDAO dao = new DietaComidaDAO();
-        System.out.println(dao.comidaDietaEspecifica(1));
+        System.out.println(dao.PorHorario(Horario.DESAYUNO));
     }
 
 }
