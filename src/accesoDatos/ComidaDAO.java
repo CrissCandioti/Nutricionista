@@ -73,7 +73,7 @@ public final class ComidaDAO extends DAO {
             }
             return aux;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Se produjo un error al buscar la comida en la base de datos");
+            JOptionPane.showMessageDialog(null, "Se produjo un error al buscar la comida en la base de datos"+e);
         } finally {
             desconectarBaseDatos();
         }

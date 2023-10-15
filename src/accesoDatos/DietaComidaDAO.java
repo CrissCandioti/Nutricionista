@@ -20,11 +20,11 @@ import service.DietaService;
 public final class DietaComidaDAO extends DAO {
 
     public void guardarDietaComida(DietaComida aux) {
-        try {
-            String sql = "INSERT INTO `dietacomida`(`idComida`, `idDieta`, `Horario`) VALUES ('" + aux.getIdComida() + "','" + aux.getIdDieta() + "','" + aux.getHorario().name() + "')";
+        try {//no saben lo que me hizo doler la cabeza este método como estaba. jaja ...   en los valores solo tenia aux.getIdComida, eso devolvia una comida, y nosotros necesitabamos un entero...
+            String sql = "INSERT INTO `dietacomida`(`idComida`, `idDieta`, `Horario`) VALUES (" + aux.getIdComida().getIdComida() + "," + aux.getIdDieta().getIdDieta() + ",'" + aux.getHorario().toString()+ "')";
             insertarModificarEliminarBaseDatos(sql);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Se produjo un error al guardar dietaComida en la base de datos");
+            JOptionPane.showMessageDialog(null, e+"Se produjo un error al guardar dietaComida en la base de datos");
         }
     }
 

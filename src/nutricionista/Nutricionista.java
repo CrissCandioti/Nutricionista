@@ -7,6 +7,7 @@ package nutricionista;
 
 import Vista.Principal;
 import accesoDatos.DietaComidaDAO;
+import entidades.DietaComida;
 import entidades.Horario;
 import java.time.LocalDate;
 import service.ComidaService;
@@ -38,11 +39,15 @@ public class Nutricionista {
 ////        ps.crearPaciente("Merlo", "Carlitox", 3312, "JR VIñas", "0342");
 //        HistorialService hs = new HistorialService();
 ////        System.out.println(hs.listaHistorialesPorPaciente(1));
-        Principal p =new Principal();
+        Principal p = new Principal();
         p.setVisible(true);
         p.setLocationRelativeTo(null);
 //        DietaComidaDAO dao = new DietaComidaDAO();
-//        System.out.println(dao.PorHorario(Horario.DESAYUNO));
+//        ComidaService cs = new ComidaService();
+//        DietaService ds = new DietaService();
+        //        System.out.println(dao.PorHorario(Horario.DESAYUNO));
+//        dao.guardarDietaComida(new DietaComida(cs.buscarComida(24), ds.buscarDietaPorId(15), Horario.ALMUERZO));
+        
     }
 
 }
