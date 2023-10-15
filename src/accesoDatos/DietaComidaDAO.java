@@ -122,4 +122,40 @@ public final class DietaComidaDAO extends DAO {
         }
         return null;
     }
+       public DietaComida PorDieta(int id) {
+        try {
+            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE idDieta = " + id + "";
+            consultarBaseDatos(sql);
+            DietaComida aux = null;
+            ComidaService comida = new ComidaService();
+            DietaService dieta = new DietaService();
+            while (resultado.next()) {
+                aux = new DietaComida(resultado.getInt(1), comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4)));
+            }
+            return aux;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al buscar la asociación de la dieta con la comida en el horario especifico");
+        } finally {
+            desconectarBaseDatos();
+        }
+        return null;
+    }
+       public ArrayList<DietaComida> listaDietaComida(int id) {
+        try {
+            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` where idDieta = "+id+"";
+            consultarBaseDatos(sql);
+            ArrayList<DietaComida> listaRetornar = new ArrayList<>();
+            ComidaService comida = new ComidaService();
+            DietaService dieta = new DietaService();
+            while (resultado.next()) {
+                listaRetornar.add(new DietaComida(resultado.getInt(1), comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4))));
+            }
+            return listaRetornar;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al retornar la lista de la asociación de la dieta con la comida");
+        } finally {
+            desconectarBaseDatos();
+        }
+        return null;
+    }
 }

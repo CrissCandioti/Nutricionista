@@ -129,4 +129,22 @@ public class DietaComidaService {
         }
         return null;
     }
+    public DietaComida PorDieta (int id){
+        try {
+            DietaComidaDAO dao = new DietaComidaDAO();
+            return dao.PorDieta(id);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+     public ArrayList<DietaComida> listaDietaComida(int id) {
+        try {
+            DietaComidaDAO dao = new DietaComidaDAO();
+            return dao.listaDietaComida(id);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al retornar la lista de la asociación de la dieta con la comida");
+        }
+        return null;
+    }
 }
