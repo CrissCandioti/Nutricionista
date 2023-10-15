@@ -183,6 +183,8 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
         panelListaPacientes.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista Pacientes"));
 
+        tablaListaPacientes.setAutoCreateRowSorter(true);
+        tablaListaPacientes.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         tablaListaPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -431,6 +433,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
             modelo.addColumn("Id");
+            modelo.addColumn("Apellido");
             modelo.addColumn("Nombre");
 
             tablaListaPacientes.setModel(modelo);
@@ -443,7 +446,8 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 Paciente getP = (Paciente) paciente.get(i);
 
                 modelo.setValueAt(getP.getIdPaciente(), i, 0);
-                modelo.setValueAt(getP.getNombre(), i, 1);
+                modelo.setValueAt(getP.getApellido(), i, 1);
+                modelo.setValueAt(getP.getNombre(), i, 2);
 
             }
         } catch (NullPointerException e) {

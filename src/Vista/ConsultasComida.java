@@ -47,12 +47,18 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         jLabel1.setText("Ingrese Cantidad de Calorias");
 
+        txtCalorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCaloriasActionPerformed(evt);
+            }
+        });
         txtCalorias.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCaloriasKeyReleased(evt);
             }
         });
 
+        tablaComiida.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         tablaComiida.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -118,6 +124,10 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
             System.out.println(e);
         }
     }//GEN-LAST:event_txtCaloriasKeyReleased
+
+    private void txtCaloriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCaloriasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCaloriasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -13,7 +13,7 @@ public enum Horario {
 
     DESAYUNO,
     ALMUERZO,
-    MERIENMUERDA,
+    MERIENDA,
     CENA,
     COLACION;
 
