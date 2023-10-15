@@ -41,8 +41,8 @@ public class Nutricionista {
         Principal p =new Principal();
         p.setVisible(true);
         p.setLocationRelativeTo(null);
-        DietaComidaDAO dao = new DietaComidaDAO();
-        System.out.println(dao.PorHorario(Horario.DESAYUNO));
+//        DietaComidaDAO dao = new DietaComidaDAO();
+//        System.out.println(dao.PorHorario(Horario.DESAYUNO));
     }
 
 }

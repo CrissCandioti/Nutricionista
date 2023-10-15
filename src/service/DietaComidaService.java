@@ -9,6 +9,7 @@ import accesoDatos.DietaComidaDAO;
 import entidades.Comida;
 import entidades.DietaComida;
 import entidades.Horario;
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -42,10 +43,11 @@ public class DietaComidaService {
                 JOptionPane.showMessageDialog(null, "No selecciono un horario correspondiente a la dieta");
                 return;
             }
+          
             dao.guardarDietaComida(new DietaComida(cs.buscarComida(idComida), ds.buscarDietaPorId(idDieta), horario));
             JOptionPane.showMessageDialog(null, "Se guardo con exito la asociación de la dieta con la comida");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar la asociación de la dieta con la comida");
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error al guardar la asociación de la dieta con la comida"+e);
         }
     }
 

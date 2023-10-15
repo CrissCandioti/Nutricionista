@@ -36,6 +36,9 @@ public class Principal extends javax.swing.JFrame {
         menuDieta = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         menuHistorial = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,7 +90,27 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(menuHistorial);
 
+        jMenuItem1.setText("Agregar Comida a Dieta");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
+
+        jMenu3.setText("Consultas");
+
+        jMenuItem2.setText("Comida por calorias");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu3);
 
         jMenu2.setText("Salir");
         jMenuBar1.add(jMenu2);
@@ -132,6 +155,16 @@ public class Principal extends javax.swing.JFrame {
         ControlaInstancia(gh);
     }//GEN-LAST:event_menuHistorialActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       GestionDietaComida dc = new GestionDietaComida();
+        ControlaInstancia(dc);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ConsultasComida cc= new ConsultasComida();
+        ControlaInstancia(cc);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
   
 
 
@@ -139,7 +172,10 @@ public class Principal extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem menuDieta;
     private javax.swing.JMenuItem menuHistorial;

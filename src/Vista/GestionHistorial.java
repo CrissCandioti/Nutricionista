@@ -32,7 +32,7 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
         llenarComboPaciente();
         llenarTabla();
         panelHistorialPeso.setVisible(false);
-        panelRegistrarPeso.setVisible(false);
+        txtId.setVisible(false);
      
         
     }
@@ -57,8 +57,7 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         txtPeso = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        panelRegistrarPeso = new javax.swing.JPanel();
-        btnRegsitrar2 = new javax.swing.JButton();
+        txtId = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -145,27 +144,7 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelRegistrarPeso.setBorder(javax.swing.BorderFactory.createTitledBorder("Registrar Peso"));
-
-        btnRegsitrar2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        btnRegsitrar2.setText("Registrar Peso Actual");
-
-        javax.swing.GroupLayout panelRegistrarPesoLayout = new javax.swing.GroupLayout(panelRegistrarPeso);
-        panelRegistrarPeso.setLayout(panelRegistrarPesoLayout);
-        panelRegistrarPesoLayout.setHorizontalGroup(
-            panelRegistrarPesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegistrarPesoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnRegsitrar2, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panelRegistrarPesoLayout.setVerticalGroup(
-            panelRegistrarPesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRegistrarPesoLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(btnRegsitrar2)
-                .addGap(0, 44, Short.MAX_VALUE))
-        );
+        txtId.setText("txtId");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,10 +163,9 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(panelRegistrarPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -197,15 +175,15 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cmbPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
-                .addGap(38, 38, 38)
+                .addGap(44, 44, 44)
                 .addComponent(panelHistorialPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelRegistrarPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         pack();
@@ -236,7 +214,6 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar1;
-    private javax.swing.JButton btnRegsitrar2;
     private javax.swing.JComboBox<Paciente> cmbPaciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -245,8 +222,8 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JPanel panelHistorialPeso;
-    private javax.swing.JPanel panelRegistrarPeso;
     private javax.swing.JTable tablaHistorial;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtPeso;
     // End of variables declaration//GEN-END:variables
 public void llenarComboPaciente() {
