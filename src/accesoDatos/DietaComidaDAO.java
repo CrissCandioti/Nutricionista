@@ -128,7 +128,7 @@ public final class DietaComidaDAO extends DAO {
             String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE Horario = '" + index + "'";
             consultarBaseDatos(sql);
             ArrayList<DietaComida> lsitaRetornar = new ArrayList<>();
-            DietaComida aux = null;
+           
             ComidaService comida = new ComidaService();
             DietaService dieta = new DietaService();
             while (resultado.next()) {
