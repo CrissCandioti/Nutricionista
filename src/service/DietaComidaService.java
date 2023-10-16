@@ -127,4 +127,14 @@ public class DietaComidaService {
         }
         return null;
     }
+    
+    public ArrayList<DietaComida> listaPorHorario (Horario index) {
+        try {
+            DietaComidaDAO dao = new DietaComidaDAO();
+            return dao.listaPorHorario(index);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al buscar la asociación de la dieta con la comida en el horario especifico");
+        }
+        return null;
+    }
 }
