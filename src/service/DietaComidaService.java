@@ -137,4 +137,14 @@ public class DietaComidaService {
         }
         return null;
     }
+    
+    public ArrayList<DietaComida> listaDietaComidaPorID(int id) {
+        try {
+            DietaComidaDAO dao = new DietaComidaDAO();
+            return dao.listaDietaComidaPorID(id);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al retornar la lista de la asociación de la dieta con la comida");
+        }
+        return null;
+    }
 }

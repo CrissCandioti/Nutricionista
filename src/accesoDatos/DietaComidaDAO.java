@@ -21,7 +21,7 @@ public final class DietaComidaDAO extends DAO {
 
     public void guardarDietaComida(DietaComida aux) {
         try {
-            String sql = "INSERT INTO `dietacomida`(`idComida`, `idDieta`, `Horario`) VALUES ('" + aux.getIdComida().getIdComida() + "','" + aux.getIdDieta().getIdDieta() + "','" + aux.getHorario().toString() + "')";
+            String sql = "INSERT INTO `dietacomida`(`idComida`, `idDieta`, `Horario`) VALUES (" + aux.getIdComida().getIdComida() + "," + aux.getIdDieta().getIdDieta() + ",'" + aux.getHorario().toString() + "')";
             insertarModificarEliminarBaseDatos(sql);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al guardar dietaComida en la base de datos");
