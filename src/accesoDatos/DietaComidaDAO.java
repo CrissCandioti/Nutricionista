@@ -20,11 +20,11 @@ import service.DietaService;
 public final class DietaComidaDAO extends DAO {
 
     public void guardarDietaComida(DietaComida aux) {
-        try {//no saben lo que me hizo doler la cabeza este método como estaba. jaja ...   en los valores solo tenia aux.getIdComida, eso devolvia una comida, y nosotros necesitabamos un entero...
-            String sql = "INSERT INTO `dietacomida`(`idComida`, `idDieta`, `Horario`) VALUES (" + aux.getIdComida().getIdComida() + "," + aux.getIdDieta().getIdDieta() + ",'" + aux.getHorario().toString()+ "')";
+        try {
+            String sql = "INSERT INTO `dietacomida`(`idComida`, `idDieta`, `Horario`) VALUES ('" + aux.getIdComida() + "','" + aux.getIdDieta() + "','" + aux.getHorario() + "')";
             insertarModificarEliminarBaseDatos(sql);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e+"Se produjo un error al guardar dietaComida en la base de datos");
+            JOptionPane.showMessageDialog(null, "Se produjo un error al guardar dietaComida en la base de datos");
         }
     }
 
@@ -122,37 +122,21 @@ public final class DietaComidaDAO extends DAO {
         }
         return null;
     }
-       public DietaComida PorDieta(int id) {
+    
+    public ArrayList<DietaComida> listaPorHorario(Horario index) {
         try {
-            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE idDieta = " + id + "";
+            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE Horario = '" + index + "'";
             consultarBaseDatos(sql);
+            ArrayList<DietaComida> lsitaRetornar = new ArrayList<>();
             DietaComida aux = null;
             ComidaService comida = new ComidaService();
             DietaService dieta = new DietaService();
             while (resultado.next()) {
-                aux = new DietaComida(resultado.getInt(1), comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4)));
+                lsitaRetornar.add(new DietaComida(resultado.getInt(1), comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), index));
             }
-            return aux;
+            return lsitaRetornar;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al buscar la asociación de la dieta con la comida en el horario especifico");
-        } finally {
-            desconectarBaseDatos();
-        }
-        return null;
-    }
-       public ArrayList<DietaComida> listaDietaComida(int id) {
-        try {
-            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` where idDieta = "+id+"";
-            consultarBaseDatos(sql);
-            ArrayList<DietaComida> listaRetornar = new ArrayList<>();
-            ComidaService comida = new ComidaService();
-            DietaService dieta = new DietaService();
-            while (resultado.next()) {
-                listaRetornar.add(new DietaComida(resultado.getInt(1), comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4))));
-            }
-            return listaRetornar;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Se produjo un error al retornar la lista de la asociación de la dieta con la comida");
         } finally {
             desconectarBaseDatos();
         }
