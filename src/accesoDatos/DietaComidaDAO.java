@@ -21,7 +21,7 @@ public final class DietaComidaDAO extends DAO {
 
     public void guardarDietaComida(DietaComida aux) {
         try {
-            String sql = "INSERT INTO `dietacomida`(`idComida`, `idDieta`, `Horario`) VALUES ('" + aux.getIdComida() + "','" + aux.getIdDieta() + "','" + aux.getHorario() + "')";
+            String sql = "INSERT INTO `dietacomida`(`idComida`, `idDieta`, `Horario`) VALUES ('" + aux.getIdComida().getIdComida() + "','" + aux.getIdDieta().getIdDieta() + "','" + aux.getHorario().toString() + "')";
             insertarModificarEliminarBaseDatos(sql);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al guardar dietaComida en la base de datos");
@@ -137,6 +137,24 @@ public final class DietaComidaDAO extends DAO {
             return lsitaRetornar;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al buscar la asociación de la dieta con la comida en el horario especifico");
+        } finally {
+            desconectarBaseDatos();
+        }
+        return null;
+    }
+    public ArrayList<DietaComida> listaDietaComidaPorID(int id) {
+        try {
+            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE idDietaComida = " + id;
+            consultarBaseDatos(sql);
+            ArrayList<DietaComida> listaRetornar = new ArrayList<>();
+            ComidaService comida = new ComidaService();
+            DietaService dieta = new DietaService();
+            while (resultado.next()) {
+                listaRetornar.add(new DietaComida(id, comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4))));
+            }
+            return listaRetornar;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al retornar la lista de la asociación de la dieta con la comida");
         } finally {
             desconectarBaseDatos();
         }
