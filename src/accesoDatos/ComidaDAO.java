@@ -110,7 +110,7 @@ public final class ComidaDAO extends DAO {
      */
     public ArrayList<Comida> comidasMenorCalorias(int calorias) {
         try {
-            String sql = "SELECT `idComida`, `nombre`, `detalle`, `cantCalorias` FROM `comida` WHERE cantCalorias <= " + calorias;
+            String sql = "SELECT `idComida`, `nombre`, `detalle`, `cantCalorias` FROM `comida` WHERE cantCalorias <= " + calorias +" ORDER BY cantCalorias DESC";
             consultarBaseDatos(sql);
             ArrayList<Comida> listaRetornar = new ArrayList<>();
             while (resultado.next()) {

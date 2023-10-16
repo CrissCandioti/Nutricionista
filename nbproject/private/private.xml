@@ -8,6 +8,7 @@
         </group>
         <group name="Guias">
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/Principal.java</file>
+            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/accesoDatos/HistorialDAO.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/GestionDietaComida.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/accesoDatos/DietaDAO.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/entidades/Horario.java</file>
@@ -17,6 +18,7 @@
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/entidades/Dieta.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/accesoDatos/DietaComidaDAO.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/ConsultaDietas.java</file>
+            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/service/DietaService.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/GestionPaciente.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/entidades/DietaComida.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/GestionComida.java</file>

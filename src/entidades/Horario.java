@@ -15,6 +15,6 @@ public enum Horario {
     ALMUERZO,
     MERIENDA,
     CENA,
-    COLACION;
+    SNACK;
 
 }

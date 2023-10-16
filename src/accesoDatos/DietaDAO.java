@@ -57,7 +57,6 @@ public final class DietaDAO extends DAO {
         try {
 
             String sql = "SELECT  *  FROM `dieta` INNER JOIN paciente ON dieta.idPaciente = paciente.idPaciente ORDER BY paciente.apellido ASC ";
-           
 
             consultarBaseDatos(sql);
             PacienteService ps = new PacienteService();
@@ -153,7 +152,17 @@ public final class DietaDAO extends DAO {
     //Se necesita listar los pacientes que a la fecha de culminación, no han llegado al peso buscado. 
     public ArrayList<Paciente> listaPacientePesoNoLlegado() {
         try {
-            String sql = "SELECT idPaciente from dieta inner join historial on dieta.idPaciente = historial.idPaciente AND dieta.pesoFinal<>historial.peso and historial.fechaRegistro=dieta.fechaFinal";
+            String sql = "SELECT dieta.idPaciente\n"
+                    + "FROM dieta\n"
+                    + "WHERE dieta.pesoFinal < (\n"
+                    + "    SELECT historial.peso\n"
+                    + "    FROM historial\n"
+                    + "    WHERE historial.idPaciente = dieta.idPaciente\n"
+                    + "    ORDER BY historial.fechaRegistro DESC\n"
+                    + "    LIMIT 1\n"
+                    + ")\n"
+                    + "AND dieta.fechaFinal <= CURRENT_DATE;";
+            
             consultarBaseDatos(sql);
             ArrayList<Paciente> listaRetornar = new ArrayList<>();
             PacienteService ps = new PacienteService();
@@ -170,9 +179,7 @@ public final class DietaDAO extends DAO {
         return null;
     }
 
-
-
-     public void eliminarDieta(int ID) {
+    public void eliminarDieta(int ID) {
         try {
             String sql = "DELETE FROM `dieta` WHERE idDieta = " + ID;
             insertarModificarEliminarBaseDatos(sql);

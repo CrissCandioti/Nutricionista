@@ -49,13 +49,13 @@ public final class DietaComidaDAO extends DAO {
     public DietaComida buscarDietaComidaPorId(int ID) {
 
         try {
-            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE idDietaComida= " + ID;
+            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE idDieta= " + ID ;
             consultarBaseDatos(sql);
             DietaComida aux = null;
             ComidaService comida = new ComidaService();
             DietaService dieta = new DietaService();
             while (resultado.next()) {
-                aux = new DietaComida(ID, comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4)));
+                aux = new DietaComida(resultado.getInt(1), comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4)));
             }
             return aux;
         } catch (Exception e) {
@@ -144,13 +144,16 @@ public final class DietaComidaDAO extends DAO {
     }
     public ArrayList<DietaComida> listaDietaComidaPorID(int id) {
         try {
-            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE idDietaComida = " + id;
+            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE idDieta = " + id;
             consultarBaseDatos(sql);
             ArrayList<DietaComida> listaRetornar = new ArrayList<>();
-            ComidaService comida = new ComidaService();
-            DietaService dieta = new DietaService();
+            ComidaService cs = new ComidaService();
+            DietaService ds = new DietaService();
             while (resultado.next()) {
-                listaRetornar.add(new DietaComida(id, comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4))));
+                Integer IDComida = resultado.getInt(2);
+                Integer IDDieta = resultado.getInt(3);
+                listaRetornar.add(new DietaComida(resultado.getInt(1), cs.buscarComida(IDComida), ds.buscarDietaPorId(IDDieta), Horario.valueOf(resultado.getString(4))));
+//                listaRetornar.add(new DietaComida(resultado.getInt(1), comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4))));
             }
             return listaRetornar;
         } catch (Exception e) {

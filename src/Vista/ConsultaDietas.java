@@ -122,6 +122,7 @@ public class ConsultaDietas extends javax.swing.JInternalFrame {
     private void cmbDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDietaActionPerformed
        
         int id = cmbDieta.getItemAt(cmbDieta.getSelectedIndex()).getIdDieta();
+        System.out.println(id);
         llenarTabla(id);
         
     }//GEN-LAST:event_cmbDietaActionPerformed
@@ -153,7 +154,7 @@ public void llenarTabla(int id) {
             DietaComidaService dc = new DietaComidaService();
 
             
-            ArrayList dietComida = dc.listaDietaComida(id);
+            ArrayList dietComida = dc.listaDietaComidaPorID(id);
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
