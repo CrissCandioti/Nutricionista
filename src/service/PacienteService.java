@@ -26,6 +26,21 @@ public class PacienteService {
     public void crearPaciente(String apellido, String nombre, int dni, String domicilio, String telefono) {
         try {
             PacienteDAO dao = new PacienteDAO();
+            /**
+             * Se crean dos variables con los nombre dniReglamentarioMinimo y
+             * dniReglamentarioMaximo, estas variables de tipo de dato entero
+             * sirven para la restriccion del documento establecido mas adelante
+             */
+            int dniReglamentarioMinimo = 1234567;
+            int dniReglamentarioMaximo = 123456789;
+            /**
+             * Se procede a pasar el dato dni y las variables
+             * cadenaDniReglamentarioMinimo y cadenaDniReglamentarioMaximo a
+             * cadena de texto para proceder con su restriccion
+             */
+            String cadenaDni = Integer.toString(dni);
+            String cadenaDniReglamentarioMinimo = Integer.toString(dniReglamentarioMinimo);
+            String cadenaDniReglamentarioMaximo = Integer.toString(dniReglamentarioMaximo);
             if (apellido.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
                 return;
@@ -44,6 +59,14 @@ public class PacienteService {
             }
             if (dao.buscarPacientePorDNI(dni) != null) {
                 JOptionPane.showMessageDialog(null, "Tenemos registrado un paciente con el mismo numero de documento");
+                return;
+            }
+            /**
+             * Esta restriccion es la encarga de analizar la cantidad minima de
+             * caracter que aceptan los datos del nombre y apellido
+             */
+            if (nombre.length() < 3 || apellido.length() < 3) {
+                JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
                 return;
             }
             char primerCaracterA = apellido.charAt(0);
@@ -67,6 +90,18 @@ public class PacienteService {
                     JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
                     return;
                 }
+            }
+            /**
+             * Esta restriccion se encarga de analizar la cantidad de caracteres
+             * que se ingresa por el documento.
+             */
+            if (cadenaDni.length() > cadenaDniReglamentarioMaximo.length()) {
+                JOptionPane.showMessageDialog(null, "El documento ingresado es mayor al reglamentario");
+                return;
+            }
+            if (cadenaDni.length() < cadenaDniReglamentarioMinimo.length()) {
+                JOptionPane.showMessageDialog(null, "El documento ingresado es menor al reglamentario");
+                return;
             }
             if (!domicilio.matches("[a-zA-Z0-9 ñÑ]+")) {
                 JOptionPane.showMessageDialog(null, "El domicilio contiene caracteres no permitidos");
@@ -86,6 +121,11 @@ public class PacienteService {
     public void modificarPaciente(int id, String apellido, String nombre, int dni, String domicilio, String telefono) {
         try {
             PacienteDAO dao = new PacienteDAO();
+            int dniReglamentarioMinimo = 1234567;
+            int dniReglamentarioMaximo = 123456789;
+            String cadenaDni = Integer.toString(dni);
+            String cadenaDniReglamentarioMinimo = Integer.toString(dniReglamentarioMinimo);
+            String cadenaDniReglamentarioMaximo = Integer.toString(dniReglamentarioMaximo);
             if (apellido.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
                 return;
@@ -104,6 +144,10 @@ public class PacienteService {
             }
             if (dao.buscarPacientePorDNI(dni) != null) {
                 JOptionPane.showMessageDialog(null, "Tenemos registrado un paciente con el mismo numero de documento");
+                return;
+            }
+            if (nombre.length() < 3 || apellido.length() < 3) {
+                JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
                 return;
             }
             char primerCaracterA = apellido.charAt(0);
@@ -127,6 +171,14 @@ public class PacienteService {
                     JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
                     return;
                 }
+            }
+            if (cadenaDni.length() > cadenaDniReglamentarioMaximo.length()) {
+                JOptionPane.showMessageDialog(null, "El documento ingresado es mayor al reglamentario");
+                return;
+            }
+            if (cadenaDni.length() < cadenaDniReglamentarioMinimo.length()) {
+                JOptionPane.showMessageDialog(null, "El documento ingresado es menor al reglamentario");
+                return;
             }
             if (!domicilio.matches("[a-zA-Z0-9 ñÑ]+")) {
                 JOptionPane.showMessageDialog(null, "El domicilio contiene caracteres no permitidos");
