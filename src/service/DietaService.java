@@ -97,7 +97,7 @@ public class DietaService {
         return null;
     }
 
-    public ArrayList<Paciente> pacientesDietaVigente(LocalDate fecha) {
+    public ArrayList<Dieta> pacientesDietaVigente(LocalDate fecha) {
         try {
             DietaDAO dao = new DietaDAO();
             return dao.pacientesDietaVigente(fecha);
@@ -107,7 +107,7 @@ public class DietaService {
         return null;
     }
 
-    public ArrayList<Paciente> pacientesDietaTerminada(LocalDate fecha) {
+    public ArrayList<Dieta> pacientesDietaTerminada(LocalDate fecha) {
         try {
             DietaDAO dao = new DietaDAO();
             return dao.pacientesDietaTerminada(fecha);
@@ -117,7 +117,7 @@ public class DietaService {
         return null;
     }
 
-    public ArrayList<Paciente> listaPacientePesoNoLlegado() {
+    public ArrayList<Dieta> listaPacientePesoNoLlegado() {
         try {
             DietaDAO dao = new DietaDAO();
             return dao.listaPacientePesoNoLlegado();

@@ -10,6 +10,7 @@ import entidades.Paciente;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import service.DietaService;
 import service.PacienteService;
 
 /**
@@ -113,15 +114,16 @@ public final class DietaDAO extends DAO {
      * Los proximos dos metodos se encargan de listar todos los pacientes cuya dieta
      * esté terminada o vigente, y cuando es la fecha de culminación.
      */
-    public ArrayList<Paciente> pacientesDietaVigente(LocalDate fecha) {
+    public ArrayList<Dieta> pacientesDietaVigente(LocalDate fecha) {
         try {
-            String sql = "SELECT `idPaciente` FROM `dieta` WHERE `fechaFinal` > '" + fecha + "'"; //Para dietas vigentes o futuras
+            String sql = "SELECT * FROM `dieta` WHERE `fechaFinal` > '" + fecha + "'"; //Para dietas vigentes o futuras
             consultarBaseDatos(sql);
-            ArrayList<Paciente> listaRetornar = new ArrayList<>();
+            ArrayList<Dieta> listaRetornar = new ArrayList<>();
             PacienteService ps = new PacienteService();
+            DietaService ds = new DietaService();
             while (resultado.next()) {
-                Integer IDPaciente = resultado.getInt(1);
-                listaRetornar.add(ps.buscarPacientePorID(IDPaciente));
+                Integer idDieta = resultado.getInt(1);
+                listaRetornar.add(ds.buscarDietaPorId(idDieta));
             }
             return listaRetornar;
         } catch (Exception e) {
@@ -132,15 +134,15 @@ public final class DietaDAO extends DAO {
         return null;
     }
 
-    public ArrayList<Paciente> pacientesDietaTerminada(LocalDate fecha) {
+    public ArrayList<Dieta> pacientesDietaTerminada(LocalDate fecha) {
         try {
-            String sql = "SELECT `idPaciente` FROM `dieta` WHERE `fechaFinal` <= '" + fecha + "'"; //Para dietas terminadas
+            String sql = "SELECT * FROM `dieta` WHERE `fechaFinal` <= '" + fecha + "'"; //Para dietas terminadas
             consultarBaseDatos(sql);
-            ArrayList<Paciente> listaRetornar = new ArrayList<>();
-            PacienteService ps = new PacienteService();
+            ArrayList<Dieta> listaRetornar = new ArrayList<>();
+           DietaService ds = new DietaService();
             while (resultado.next()) {
-                Integer IDPaciente = resultado.getInt(1);
-                listaRetornar.add(ps.buscarPacientePorID(IDPaciente));
+                Integer idDieta = resultado.getInt(1);
+                listaRetornar.add(ds.buscarDietaPorId(idDieta));
             }
             return listaRetornar;
         } catch (Exception e) {
@@ -150,9 +152,9 @@ public final class DietaDAO extends DAO {
     }
 
     //Se necesita listar los pacientes que a la fecha de culminación, no han llegado al peso buscado. 
-    public ArrayList<Paciente> listaPacientePesoNoLlegado() {
+    public ArrayList<Dieta> listaPacientePesoNoLlegado() {
         try {
-            String sql = "SELECT dieta.idPaciente\n"
+            String sql = "SELECT *\n"
                     + "FROM dieta\n"
                     + "WHERE dieta.pesoFinal < (\n"
                     + "    SELECT historial.peso\n"
@@ -162,13 +164,14 @@ public final class DietaDAO extends DAO {
                     + "    LIMIT 1\n"
                     + ")\n"
                     + "AND dieta.fechaFinal <= CURRENT_DATE;";
-            
+
             consultarBaseDatos(sql);
-            ArrayList<Paciente> listaRetornar = new ArrayList<>();
-            PacienteService ps = new PacienteService();
+            ArrayList<Dieta> listaRetornar = new ArrayList<>();
+//            PacienteService ps = new PacienteService();
+            DietaService ds = new DietaService();
             while (resultado.next()) {
-                Integer IDPaciente = resultado.getInt(1);
-                listaRetornar.add(ps.buscarPacientePorID(IDPaciente));
+                Integer idDieta = resultado.getInt(1);
+                listaRetornar.add(ds.buscarDietaPorId(idDieta));
             }
             return listaRetornar;
         } catch (Exception e) {

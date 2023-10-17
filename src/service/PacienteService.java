@@ -7,6 +7,7 @@ package service;
 
 import accesoDatos.PacienteDAO;
 import entidades.Paciente;
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -119,17 +120,17 @@ public class PacienteService {
                     return;
                 }
             }
-            if (!domicilio.matches("[a-zA-Z0-9 ñÑ]+")) {
-                JOptionPane.showMessageDialog(null, "El domicilio contiene caracteres no permitidos");
-                return;
-            }
+//            if (!domicilio.matches("[a-zA-Z0-9 ñÑ]+")) {
+//                JOptionPane.showMessageDialog(null, "El domicilio contiene caracteres no permitidos");
+//                return;
+//            }
             if (!telefono.matches("\\d+")) {
                 JOptionPane.showMessageDialog(null, "El telefono solamente debe contener digitos numericos");
                 return;
             }
             dao.modificarPaciente(new Paciente(id, apellido, nombre, dni, domicilio, telefono));
             JOptionPane.showMessageDialog(null, "Se modifico con exito el paciente");
-        } catch (Exception e) {
+        } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "Error al modificar el paciente");
         }
     }

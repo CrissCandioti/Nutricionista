@@ -212,6 +212,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="sansserif" size="18" style="0"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Primera Mayuscula, no puede Contener Numeros"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDni">
@@ -219,6 +220,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="sansserif" size="18" style="0"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese solo Numeros"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDomicilio">
@@ -226,6 +228,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="sansserif" size="18" style="0"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese letras y numeros"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNombre">
@@ -233,6 +236,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="sansserif" size="18" style="0"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Primera Mayuscula, no puede Contener Numeros"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTelefono">
@@ -240,6 +244,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="sansserif" size="18" style="0"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese solo numeros"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnGuardar">
@@ -253,6 +258,7 @@
         <Component class="javax.swing.JButton" name="btnBuscar">
           <Properties>
             <Property name="text" type="java.lang.String" value="BUSCAR"/>
+            <Property name="toolTipText" type="java.lang.String" value="Busca todos los pacientes de la base de dato"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
@@ -338,6 +344,7 @@
               <Font name="sansserif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="MODIFICAR"/>
+            <Property name="toolTipText" type="java.lang.String" value="Modificar algun dato del paciente seleccionado"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarActionPerformed"/>
@@ -349,6 +356,7 @@
               <Font name="sansserif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+            <Property name="toolTipText" type="java.lang.String" value="Elimina al Paciente seleccionado"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
@@ -360,6 +368,7 @@
               <Font name="sansserif" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="AGREGAR DIETA"/>
+            <Property name="toolTipText" type="java.lang.String" value="Agregar dieta al paciente seleccionado"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarDietaActionPerformed"/>
@@ -373,6 +382,7 @@
           <Font name="sansserif" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="SALIR"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cierra la ventana"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>

@@ -92,14 +92,19 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         jLabel5.setText("Telefono");
 
         txtapellido.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtapellido.setToolTipText("Primera Mayuscula, no puede Contener Numeros");
 
         txtDni.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtDni.setToolTipText("Ingrese solo Numeros");
 
         txtDomicilio.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtDomicilio.setToolTipText("Ingrese letras y numeros");
 
         txtNombre.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtNombre.setToolTipText("Primera Mayuscula, no puede Contener Numeros");
 
         txtTelefono.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtTelefono.setToolTipText("Ingrese solo numeros");
 
         btnGuardar.setText("GUARDAR");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +114,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         });
 
         btnBuscar.setText("BUSCAR");
+        btnBuscar.setToolTipText("Busca todos los pacientes de la base de dato");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -205,6 +211,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
         btnModificar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnModificar.setText("MODIFICAR");
+        btnModificar.setToolTipText("Modificar algun dato del paciente seleccionado");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -213,6 +220,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
         btnEliminar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.setToolTipText("Elimina al Paciente seleccionado");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -221,6 +229,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
         btnAgregarDieta.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnAgregarDieta.setText("AGREGAR DIETA");
+        btnAgregarDieta.setToolTipText("Agregar dieta al paciente seleccionado");
         btnAgregarDieta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarDietaActionPerformed(evt);
@@ -254,6 +263,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
         btnSalir.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnSalir.setText("SALIR");
+        btnSalir.setToolTipText("Cierra la ventana");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
