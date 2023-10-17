@@ -42,6 +42,10 @@ public class PacienteService {
                 JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
                 return;
             }
+            if (dao.buscarPacientePorDNI(dni) != null) {
+                JOptionPane.showMessageDialog(null, "Tenemos registrado un paciente con el mismo numero de documento");
+                return;
+            }
             char primerCaracterA = apellido.charAt(0);
             if (Character.isDigit(primerCaracterA)) {
                 JOptionPane.showMessageDialog(null, "El apellido no puede comenzar con numeros");
@@ -98,6 +102,10 @@ public class PacienteService {
                 JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
                 return;
             }
+            if (dao.buscarPacientePorDNI(dni) != null) {
+                JOptionPane.showMessageDialog(null, "Tenemos registrado un paciente con el mismo numero de documento");
+                return;
+            }
             char primerCaracterA = apellido.charAt(0);
             if (Character.isDigit(primerCaracterA)) {
                 JOptionPane.showMessageDialog(null, "El apellido no puede comenzar con numeros");
@@ -120,10 +128,10 @@ public class PacienteService {
                     return;
                 }
             }
-//            if (!domicilio.matches("[a-zA-Z0-9 ñÑ]+")) {
-//                JOptionPane.showMessageDialog(null, "El domicilio contiene caracteres no permitidos");
-//                return;
-//            }
+            if (!domicilio.matches("[a-zA-Z0-9 ñÑ]+")) {
+                JOptionPane.showMessageDialog(null, "El domicilio contiene caracteres no permitidos");
+                return;
+            }
             if (!telefono.matches("\\d+")) {
                 JOptionPane.showMessageDialog(null, "El telefono solamente debe contener digitos numericos");
                 return;
