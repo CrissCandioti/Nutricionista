@@ -22,6 +22,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
      */
     public ConsultasComida() {
         initComponents();
+        panelComida.setVisible(false);
     }
 
     /**
@@ -33,30 +34,22 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txtCalorias = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        panelComida = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaComiida = new javax.swing.JTable();
+        txtCalorias = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        rbTodas = new javax.swing.JRadioButton();
+        rbCantCalorias = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Consultas Comidas"));
         setClosable(true);
         setIconifiable(true);
         setTitle("Listado Comida");
-
-        jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
-        jLabel1.setText("Ingrese Cantidad de Calorias");
-
-        txtCalorias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCaloriasActionPerformed(evt);
-            }
-        });
-        txtCalorias.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCaloriasKeyReleased(evt);
-            }
-        });
 
         tablaComiida.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         tablaComiida.setModel(new javax.swing.table.DefaultTableModel(
@@ -72,44 +65,118 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablaComiida);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(192, Short.MAX_VALUE))
+        txtCalorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCaloriasActionPerformed(evt);
+            }
+        });
+        txtCalorias.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCaloriasKeyReleased(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel1.setText("Ingrese Cantidad de Calorias");
+
+        javax.swing.GroupLayout panelComidaLayout = new javax.swing.GroupLayout(panelComida);
+        panelComida.setLayout(panelComidaLayout);
+        panelComidaLayout.setHorizontalGroup(
+            panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelComidaLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelComidaLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        panelComidaLayout.setVerticalGroup(
+            panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelComidaLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        buttonGroup1.add(rbTodas);
+        rbTodas.setText("Todas las comidas");
+        rbTodas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbTodasActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(rbCantCalorias);
+        rbCantCalorias.setText("Comidas por cantidad de calorias");
+        rbCantCalorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCantCaloriasActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel2.setText("Listado de Comidas");
+
+        jButton1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jButton1.setText("SALIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addGap(159, 159, 159)
+                        .addComponent(rbTodas)
+                        .addGap(111, 111, 111)
+                        .addComponent(rbCantCalorias))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(286, 286, 286)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(panelComida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbTodas)
+                    .addComponent(rbCantCalorias))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelComida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(12, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(22, 22, 22))))
         );
 
         pack();
@@ -129,11 +196,35 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCaloriasActionPerformed
 
+    private void rbTodasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbTodasActionPerformed
+        panelComida.setVisible(true);
+          txtCalorias.setVisible(false);
+       jLabel1.setVisible(false);
+       llenarTablaTodas();
+        
+    }//GEN-LAST:event_rbTodasActionPerformed
+
+    private void rbCantCaloriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCantCaloriasActionPerformed
+     panelComida.setVisible(true);
+     txtCalorias.setVisible(true);
+     jLabel1.setVisible(true);
+    }//GEN-LAST:event_rbCantCaloriasActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel panelComida;
+    private javax.swing.JRadioButton rbCantCalorias;
+    private javax.swing.JRadioButton rbTodas;
     private javax.swing.JTable tablaComiida;
     private javax.swing.JTextField txtCalorias;
     // End of variables declaration//GEN-END:variables
@@ -165,6 +256,41 @@ public void llenarTabla(int id) {
                 modelo.setValueAt(getC.getNombre(), i, 1);
          
                 modelo.setValueAt(getC.getCantCalorias(), i, 2);
+
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "No tenemos registros de comidas en la base de datos");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
+ public void llenarTablaTodas() {
+
+        try {
+            ComidaService cs = new ComidaService();
+
+            ArrayList comidas = cs.listaComida();
+
+            //le otorgo un modelo a la tabla
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("Id");
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Detalle");
+            modelo.addColumn("Calorias");
+
+            tablaComiida.setModel(modelo);
+
+            //creo un vector para guardar los datos del array y que luego el modelo de la tabla pueda agregarlo a la tabla.
+            Object comida[] = null;
+
+            for (int i = 0; i < comidas.size(); i++) {
+                modelo.addRow(comida);
+                Comida getC = (Comida) comidas.get(i);
+
+                modelo.setValueAt(getC.getIdComida(), i, 0);
+                modelo.setValueAt(getC.getNombre(), i, 1);
+                modelo.setValueAt(getC.getDetalle(), i, 2);
+                modelo.setValueAt(getC.getCantCalorias(), i, 3);
 
             }
         } catch (NullPointerException e) {

@@ -105,7 +105,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu3.setText("Consultas");
 
-        jMenuItem2.setText("Comida por calorias");
+        jMenuItem2.setText("Listado de Comidas");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -113,7 +113,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem2);
 
-        jMenuItem4.setText("Dietas");
+        jMenuItem4.setText("Listado de Dietas");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -129,7 +129,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem5);
 
-        jMenuItem6.setText(" Lista Pacientes");
+        jMenuItem6.setText(" Listado de Pacientes");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);

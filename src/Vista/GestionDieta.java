@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import com.toedter.calendar.JTextFieldDateEditor;
 import entidades.Comida;
 import entidades.Dieta;
 import entidades.Paciente;
@@ -34,6 +35,10 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         panelDieta.setVisible(false);
         txtId.setVisible(false);
         desabilitarBotones();
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) dateInicio.getDateEditor();
+         editor.setEditable(false);
+         JTextFieldDateEditor editor1 = (JTextFieldDateEditor) dateFin.getDateEditor();
+         editor1.setEditable(false);
     }
 
     /**
@@ -85,6 +90,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel2.setText("Paciente");
 
+        dateInicio.setToolTipText("Seleccione fecha Inicio de Dieta");
         dateInicio.setDateFormatString("yyyy-MM-dd");
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -93,7 +99,8 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel4.setText("Fecha Fin");
 
-        dateFin.setDateFormatString("yyyy-MM-dd");
+        dateFin.setToolTipText("Seleccione Fecha final de Dieta");
+        dateFin.setDateFormatString("yyyy-MM-dd"); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel5.setText("Peso Inicial");
@@ -102,14 +109,19 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         jLabel6.setText("Peso Final");
 
         txtPesoFinal.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtPesoFinal.setToolTipText("ngrese solo numeros separado por punto");
 
         txtPesoInicial.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtPesoInicial.setToolTipText("Ingrese solo numeros separado por punto");
 
         txtNombre.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtNombre.setToolTipText("Primera Mayuscula");
 
         cmbPaciente.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        cmbPaciente.setToolTipText("Seleccione un Paciente");
 
         btnGuardar.setText("GUARDAR");
+        btnGuardar.setToolTipText("Guardar la dieta");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -117,6 +129,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         });
 
         btnBuscar.setText("BUSCAR");
+        btnBuscar.setToolTipText("Buscar dietas en la base de dato");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -229,6 +242,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
         btnModificar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnModificar.setText("MODIFICAR");
+        btnModificar.setToolTipText(" Modifica algun dato de la dieta seleccionada");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -237,6 +251,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
         btnEliminar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.setToolTipText("Elimina la dieta selecionada");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -270,6 +285,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
         btnSalir.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnSalir.setText("SALIR");
+        btnSalir.setToolTipText("Cierra la ventana");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
