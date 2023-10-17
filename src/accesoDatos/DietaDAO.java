@@ -139,7 +139,7 @@ public final class DietaDAO extends DAO {
             String sql = "SELECT * FROM `dieta` WHERE `fechaFinal` <= '" + fecha + "'"; //Para dietas terminadas
             consultarBaseDatos(sql);
             ArrayList<Dieta> listaRetornar = new ArrayList<>();
-           DietaService ds = new DietaService();
+            DietaService ds = new DietaService();
             while (resultado.next()) {
                 Integer idDieta = resultado.getInt(1);
                 listaRetornar.add(ds.buscarDietaPorId(idDieta));
@@ -190,5 +190,24 @@ public final class DietaDAO extends DAO {
             JOptionPane.showMessageDialog(null, "Se produjo un error al eliminar la dieta en la base de datos");
 
         }
+    }
+
+    public Dieta dietaPorPaciente(int idPaciente) {
+        try {
+            String sql = "SELECT `idDieta` FROM `dieta` WHERE idPaciente = " + idPaciente;
+            consultarBaseDatos(sql);
+            Dieta aux = null;
+            while (resultado.next()) {
+                Integer idDieta = resultado.getInt(1);
+                aux = new Dieta();
+                aux.setIdDieta(idDieta);
+            }
+            return aux;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error buscar la dieta en la base de datos");
+        } finally {
+            desconectarBaseDatos();
+        }
+        return null;
     }
 }

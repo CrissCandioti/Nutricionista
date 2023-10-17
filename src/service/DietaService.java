@@ -43,6 +43,10 @@ public class DietaService {
                     return;
                 }
             }
+            if (dao.dietaPorPaciente(idPaciente) != null) {
+                JOptionPane.showMessageDialog(null, "El paciente ya esta registrado a una dieta, modifique u elimine la que ya tiene");
+                return;
+            }
             dao.guardarDieta(new Dieta(nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal));
             JOptionPane.showMessageDialog(null, "Se guardo correctamente la dieta");
         } catch (Exception e) {
@@ -134,7 +138,16 @@ public class DietaService {
             JOptionPane.showMessageDialog(null, "Se elimino correctamente la dieta");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al eliminar dieta" + e);
-
         }
+    }
+
+    public Dieta dietaPorPaciente(int idPaciente) {
+        try {
+            DietaDAO dao = new DietaDAO();
+            return dao.dietaPorPaciente(idPaciente);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al buscar la dieta por paciente");
+        }
+        return null;
     }
 }
