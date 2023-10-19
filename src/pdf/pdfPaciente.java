@@ -18,6 +18,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Font;
+import entidades.Paciente;
 
 /**
  *
@@ -25,7 +26,7 @@ import com.itextpdf.text.Font;
  */
 public final class pdfPaciente extends DAO {
 
-    public void creadorPDFPaciente() {
+    public void pdfTablaPacientes() {
         try {
             String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente`";
             consultarBaseDatos(sql);
@@ -45,7 +46,7 @@ public final class pdfPaciente extends DAO {
             documento.open();
             documento.add(header);
             documento.add(parrafo);
-            
+
             PdfPTable tabla = new PdfPTable(6);
             tabla.addCell("ID");
             tabla.addCell("Apellido");
@@ -66,6 +67,50 @@ public final class pdfPaciente extends DAO {
             }
             documento.close();
             JOptionPane.showMessageDialog(null, "Se genero con exito el reporte");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
+        }
+    }
+
+    public void pdfPorPaciente(int id) {
+        try {
+            String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente` WHERE idPaciente = " + id;
+            consultarBaseDatos(sql);
+
+            Document documento = new Document();
+            String ruta = System.getProperty("user.home");
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/OneDrive/Escritorio/Reporte_Pacientes.pdf"));
+            Image header = Image.getInstance("src/pdf/nutricion.png");
+            header.scaleToFit(650, 1000);
+            header.setAlignment(Chunk.ALIGN_CENTER);
+
+            Paragraph parrafo = new Paragraph();
+            parrafo.setAlignment(Paragraph.ALIGN_CENTER);
+            parrafo.add("Clinica Nutricional © \n\n");
+            parrafo.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.DARK_GRAY));
+            parrafo.add("Pacientes Registrados \n\n");
+
+            Paragraph texto = new Paragraph();
+            texto.setAlignment(Paragraph.ALIGN_LEFT);
+
+            while (resultado.next()) {
+                Paciente aux = new Paciente(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getInt(4), resultado.getString(5), resultado.getString(6));
+
+                texto.add("ID: " + aux.getIdPaciente() + "\n\n");
+                texto.add("APELLIDO: " + aux.getApellido() + "\n\n");
+                texto.add("NOMBRE: " + aux.getNombre() + "\n\n");
+                texto.add("DOCUMENTO: " + aux.getDni() + "\n\n");
+                texto.add("DOMICILIO: " + aux.getDomicilio() + "\n\n");
+                texto.add("TELEFONO: " + aux.getTelefono() + "\n\n");
+            }
+
+            documento.open();
+            documento.add(header);
+            documento.add(parrafo);
+            documento.add(texto);
+
+            documento.close();
+            JOptionPane.showMessageDialog(null, "Se generó con éxito el reporte");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
         }

@@ -51,8 +51,8 @@ public class Nutricionista {
 //            System.out.println(dao.buscarDietaComidaPorId(17));
 
         pdfPaciente pp = new pdfPaciente();
-        pp.creadorPDFPaciente();
-
+        pp.pdfPorPaciente(1);
+        
     }
-
+    
 }

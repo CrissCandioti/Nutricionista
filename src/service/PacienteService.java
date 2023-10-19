@@ -198,6 +198,7 @@ public class PacienteService {
     public void eliminarPaciente(int ID) {
         try {
             PacienteDAO dao = new PacienteDAO();
+            
             dao.eliminarPaciente(ID);
             JOptionPane.showMessageDialog(null, "Se elimino con exito el paciente");
         } catch (Exception e) {
