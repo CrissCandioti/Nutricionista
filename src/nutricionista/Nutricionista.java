@@ -7,10 +7,10 @@ package nutricionista;
 
 import Vista.Principal;
 import accesoDatos.DietaComidaDAO;
-import accesoDatos.PDFDAO;
 import entidades.DietaComida;
 import entidades.Horario;
 import java.time.LocalDate;
+import pdf.pdfPaciente;
 import service.ComidaService;
 import service.DietaService;
 import service.HistorialService;
@@ -49,8 +49,10 @@ public class Nutricionista {
 //                System.out.println(dao.PorHorario(Horario.DESAYUNO));
 //        dao.guardarDietaComida(new DietaComida(cs.buscarComida(24), ds.buscarDietaPorId(15), Horario.ALMUERZO));
 //            System.out.println(dao.buscarDietaComidaPorId(17));
-        PDFDAO pdf = new PDFDAO();
-        pdf.creadorPDFPaciente();
+
+        pdfPaciente pp = new pdfPaciente();
+        pp.creadorPDFPaciente();
+
     }
 
 }
