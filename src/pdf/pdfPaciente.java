@@ -32,7 +32,7 @@ public final class pdfPaciente extends DAO {
             consultarBaseDatos(sql);
             Document documento = new Document();
             String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/OneDrive/Escritorio/Reporte_Pacientes.pdf"));
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/OneDrive/Escritorio/Tabla_Pacientes.pdf"));
             Image header = Image.getInstance("src/pdf/nutricion.png");
             header.scaleToFit(650, 1000);
             header.setAlignment(Chunk.ALIGN_CENTER);

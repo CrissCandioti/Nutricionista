@@ -52,7 +52,7 @@ public class Nutricionista {
 
         pdfPaciente pp = new pdfPaciente();
         pp.pdfPorPaciente(1);
-        
+        pp.pdfTablaPacientes();
     }
     
 }
