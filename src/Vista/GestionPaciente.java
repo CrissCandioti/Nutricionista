@@ -310,33 +310,33 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
-            PacienteService ps = new PacienteService();
-             PacienteDAO dao = new PacienteDAO();
-            /**
-             * Se crean dos variables con los nombre dniReglamentarioMinimo y
-             * dniReglamentarioMaximo, estas variables de tipo de dato entero
-             * sirven para la restriccion del documento establecido mas adelante
-             */
-            int dniReglamentarioMinimo = 1234567;
-            int dniReglamentarioMaximo = 123456789;
-            /**
-             * Se procede a pasar el dato dni y las variables
-             * cadenaDniReglamentarioMinimo y cadenaDniReglamentarioMaximo a
-             * cadena de texto para proceder con su restriccion
-             */
-            
-          try{
+
+        PacienteService ps = new PacienteService();
+        PacienteDAO dao = new PacienteDAO();
+        /**
+         * Se crean dos variables con los nombre dniReglamentarioMinimo y
+         * dniReglamentarioMaximo, estas variables de tipo de dato entero sirven
+         * para la restriccion del documento establecido mas adelante
+         */
+        int dniReglamentarioMinimo = 1234567;
+        int dniReglamentarioMaximo = 123456789;
+        /**
+         * Se procede a pasar el dato dni y las variables
+         * cadenaDniReglamentarioMinimo y cadenaDniReglamentarioMaximo a cadena
+         * de texto para proceder con su restriccion
+         */
+
+        try {
             String apellido = txtapellido.getText();
             String nombre = txtNombre.getText();
             int dni = Integer.parseInt(txtDni.getText());
             String domicilio = txtDomicilio.getText();
             String telefono = txtTelefono.getText();
-            
+
             String cadenaDni = Integer.toString(dni);
             String cadenaDniReglamentarioMinimo = Integer.toString(dniReglamentarioMinimo);
             String cadenaDniReglamentarioMaximo = Integer.toString(dniReglamentarioMaximo);
-            
+
             if (apellido.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
                 return;
@@ -353,7 +353,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
                 return;
             }
-             /**
+            /**
              * Esta restriccion es la encarga de analizar la cantidad minima de
              * caracter que aceptan los datos del nombre y apellido
              */
@@ -383,7 +383,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                     return;
                 }
             }
-                 /* Esta restriccion se encarga de analizar la cantidad de caracteres
+            /* Esta restriccion se encarga de analizar la cantidad de caracteres
              * que se ingresa por el documento.
              */
             if (cadenaDni.length() > cadenaDniReglamentarioMaximo.length()) {
@@ -402,15 +402,15 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "El telefono solamente debe contener digitos numericos");
                 return;
             }
-           
+
             ps.crearPaciente(apellido, nombre, dni, domicilio, telefono);
             ps.limpiar(txtDni, txtDomicilio, txtId, txtNombre, txtTelefono, txtapellido);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en dni Por Favor!");
-        }catch(HeadlessException ex){
+        } catch (HeadlessException ex) {
             JOptionPane.showMessageDialog(this, " Por Favor!");
         }
-            
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void tablaListaPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaListaPacientesMouseClicked
@@ -433,7 +433,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             txtTelefono.setText(p.getTelefono());
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Se produjo un error al intentar seleccionar la materia");
+            JOptionPane.showMessageDialog(null, "Se produjo un error al intentar seleccionar El paciente");
         }
     }//GEN-LAST:event_tablaListaPacientesMouseClicked
 
@@ -448,22 +448,22 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formMouseClicked
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        try{
-        PacienteService ps = new PacienteService();
-        int id = Integer.parseInt(txtId.getText());
+        try {
+            PacienteService ps = new PacienteService();
+            int id = Integer.parseInt(txtId.getText());
 
-        String apellido = txtapellido.getText();
-        String nombre = txtNombre.getText();
-        int dni = Integer.parseInt(txtDni.getText());
-        String domicilio = txtDomicilio.getText();
-        String telefono = txtTelefono.getText();
+            String apellido = txtapellido.getText();
+            String nombre = txtNombre.getText();
+            int dni = Integer.parseInt(txtDni.getText());
+            String domicilio = txtDomicilio.getText();
+            String telefono = txtTelefono.getText();
 
-        if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
-            ps.modificarPaciente(id, apellido, nombre, dni, domicilio, telefono);
-            limpiar();
-            llenarTabla();
-        }
-        }catch(NumberFormatException e){
+            if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
+                ps.modificarPaciente(id, apellido, nombre, dni, domicilio, telefono);
+                limpiar();
+                llenarTabla();
+            }
+        } catch (NumberFormatException e) {
             System.out.println(e);
         }
     }//GEN-LAST:event_btnModificarActionPerformed
@@ -481,19 +481,24 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnAgregarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDietaActionPerformed
-        GestionDieta gs = new GestionDieta();
-        ControlaInstancia(gs);
-        
         DefaultTableModel modelo = (DefaultTableModel) tablaListaPacientes.getModel();
-            int id = (int) modelo.getValueAt(tablaListaPacientes.getSelectedRow(), 0);
-        
+        Integer idPaciente = (Integer) modelo.getValueAt(tablaListaPacientes.getSelectedRow(), 0);
+
+        if (!idPaciente.toString().isEmpty()) {
+
+            GestionDieta gs = new GestionDieta();
+            ControlaInstancia(gs);
+
             PacienteService ps = new PacienteService();
             Paciente p = new Paciente();
-            p = ps.buscarPacientePorID(id);
-            
+            p = ps.buscarPacientePorID(idPaciente);
+        
         GestionDieta.cmbPaciente.removeAllItems();
         GestionDieta.cmbPaciente.addItem(p);
         this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, "Seleccione un Paciente");
+        }
     }//GEN-LAST:event_btnAgregarDietaActionPerformed
 
 
@@ -577,7 +582,8 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         txtTelefono.setText("");
         txtapellido.setText("");
     }
-     public void ControlaInstancia(JInternalFrame inter) {
+
+    public void ControlaInstancia(JInternalFrame inter) {
 
         for (JInternalFrame frame : escritorio.getAllFrames()) {
             if (frame.getClass().equals(inter.getClass())) {
@@ -587,7 +593,6 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         }
 
         // Si no está abierto, crea una nueva instancia 
-        
         escritorio.add(inter);
         inter.setVisible(true);
     }

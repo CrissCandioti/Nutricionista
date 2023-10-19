@@ -348,7 +348,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             limpiar();
             
         } catch (NumberFormatException e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(this, "Ingrese numeros en peso inicial y peso final");
         }catch(Exception ex){
             System.out.println(ex);
         }
@@ -424,7 +424,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
                 llenarTabla();
             }
         } catch (NumberFormatException e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(this, "Ingrese numeros en Peso inicial y Peso Final");
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
