@@ -19,6 +19,7 @@ import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Font;
 import entidades.Paciente;
+import java.io.File;
 
 /**
  *
@@ -30,9 +31,22 @@ public final class pdfPaciente extends DAO {
         try {
             String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente`";
             consultarBaseDatos(sql);
+            int contador = 0;
             Document documento = new Document();
-            String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/OneDrive/Escritorio/Tabla_Pacientes.pdf"));
+            //------------------------------------------------------------------------------------------------------
+            String ruta = System.getProperty("user.home"); // Se encarga de obtener la ubicación del directorio de inicio del usuario actual del sistema. 
+            String nombrePDF = "/OneDrive/Escritorio/Tabla_Pacientes.pdf"; // Se construye la direccion donde se va a generar y el nombre del PDF.
+            /**
+             * El bucle while se encarga de comprobar si un PDF con el mismo
+             * nombre ya existe. Si existe un PDF con ese nombre, se incrementa
+             * el contador y se agrega ese contador al nombre.
+             */
+            while (new File(ruta + nombrePDF).exists()) {
+                contador++;
+                nombrePDF = "/OneDrive/Escritorio/Tabla_Pacientes(" + contador + ").pdf";
+            }
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + nombrePDF));
+            //-------------------------------------------------------------------------------------------------------
             Image header = Image.getInstance("src/pdf/nutricion.png");
             header.scaleToFit(650, 1000);
             header.setAlignment(Chunk.ALIGN_CENTER);
@@ -77,9 +91,18 @@ public final class pdfPaciente extends DAO {
             String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente` WHERE idPaciente = " + id;
             consultarBaseDatos(sql);
 
+            int contador = 0;
+
             Document documento = new Document();
             String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/OneDrive/Escritorio/Reporte_Pacientes.pdf"));
+            String nombrePDF = "/OneDrive/Escritorio/Reporte_Pacientes.pdf";
+
+            while (new File(ruta + nombrePDF).exists()) {
+                contador++;
+                nombrePDF = "/OneDrive/Escritorio/Tabla_Pacientes(" + contador + ").pdf";
+            }
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + nombrePDF));
+
             Image header = Image.getInstance("src/pdf/nutricion.png");
             header.scaleToFit(650, 1000);
             header.setAlignment(Chunk.ALIGN_CENTER);
