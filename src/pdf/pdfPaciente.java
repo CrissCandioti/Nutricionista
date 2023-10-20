@@ -116,15 +116,29 @@ public final class pdfPaciente extends DAO {
             Paragraph texto = new Paragraph();
             texto.setAlignment(Paragraph.ALIGN_LEFT);
 
+            Chunk APELLIDO = new Chunk("APELLIDO:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
+            Chunk NOMBRE = new Chunk("NOMBRE:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
+            Chunk DOCUMENTO = new Chunk("DOCUMENTO:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
+            Chunk DOMICILIO = new Chunk("DOMICILIO:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
+            Chunk TELEFONO = new Chunk("TELEFONO:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
+
             while (resultado.next()) {
                 Paciente aux = new Paciente(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getInt(4), resultado.getString(5), resultado.getString(6));
 
-                texto.add("ID: " + aux.getIdPaciente() + "\n\n");
-                texto.add("APELLIDO: " + aux.getApellido() + "\n\n");
-                texto.add("NOMBRE: " + aux.getNombre() + "\n\n");
-                texto.add("DOCUMENTO: " + aux.getDni() + "\n\n");
-                texto.add("DOMICILIO: " + aux.getDomicilio() + "\n\n");
-                texto.add("TELEFONO: " + aux.getTelefono() + "\n\n");
+                texto.add(APELLIDO);
+                texto.add(" " + aux.getApellido() + "\n\n");
+
+                texto.add(NOMBRE);
+                texto.add(" " + aux.getNombre() + "\n\n");
+
+                texto.add(DOCUMENTO);
+                texto.add(" " + aux.getDni() + "\n\n");
+
+                texto.add(DOMICILIO);
+                texto.add(" " + aux.getDomicilio() + "\n\n");
+
+                texto.add(TELEFONO);
+                texto.add(" " + aux.getTelefono() + "\n\n");
             }
 
             documento.open();
