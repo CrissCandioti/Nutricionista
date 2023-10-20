@@ -194,13 +194,19 @@ public final class DietaDAO extends DAO {
 
     public Dieta dietaPorPaciente(int idPaciente) {
         try {
-            String sql = "SELECT `idDieta` FROM `dieta` WHERE idPaciente = " + idPaciente;
+            String sql = "SELECT * FROM `dieta` WHERE idPaciente = " + idPaciente;
             consultarBaseDatos(sql);
             Dieta aux = null;
+            PacienteService p = new PacienteService();
             while (resultado.next()) {
-                Integer idDieta = resultado.getInt(1);
-                aux = new Dieta();
-                aux.setIdDieta(idDieta);
+                Integer IDdieta = resultado.getInt(1);
+                //fechaInicial
+                java.sql.Date fechaSQLFechaInicial = resultado.getDate(4);
+                LocalDate fechaInicial = fechaSQLFechaInicial.toLocalDate();
+                //fechaFinal
+                java.sql.Date fechaSQLFechaFinal = resultado.getDate(7);
+                LocalDate fechaFinal = fechaSQLFechaFinal.toLocalDate();
+                aux = new Dieta(IDdieta, resultado.getString(2), p.buscarPacientePorID(idPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal);
             }
             return aux;
         } catch (Exception e) {

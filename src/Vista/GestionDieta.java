@@ -34,11 +34,12 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         llenarComboPaciente();
         panelDieta.setVisible(false);
         txtId.setVisible(false);
+        limpiar();
         desabilitarBotones();
         JTextFieldDateEditor editor = (JTextFieldDateEditor) dateInicio.getDateEditor();
-         editor.setEditable(false);
-         JTextFieldDateEditor editor1 = (JTextFieldDateEditor) dateFin.getDateEditor();
-         editor1.setEditable(false);
+        editor.setEditable(false);
+        JTextFieldDateEditor editor1 = (JTextFieldDateEditor) dateFin.getDateEditor();
+        editor1.setEditable(false);
     }
 
     /**
@@ -82,7 +83,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestion Dieta"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cargar Dieta"));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel1.setText("Nombre Dieta");
@@ -346,31 +347,37 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             ds.crearDieta(nombre, idPaciente, LocalDate.parse(fechaI), pesoI, pesoF, LocalDate.parse(fechaF));
             hs.crearHistorial(idPaciente, pesoI, LocalDate.parse(fechaI));
             limpiar();
-            
+
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en peso inicial y peso final");
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
+       
+        if(cmbPaciente.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Seleccione un paciente por favor.");
+        }else{
         panelDieta.setVisible(true);
-        limpiar();
-        llenarTabla();
+//        limpiar();
+        int id = cmbPaciente.getItemAt(cmbPaciente.getSelectedIndex()).getIdPaciente();
+        llenarTabla(id);
+        
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void tablaDietasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDietasMouseClicked
         abilitarBotones();
         try {
             DefaultTableModel modelo = (DefaultTableModel) tablaDietas.getModel();
-            int idDieta = (int) modelo.getValueAt(tablaDietas.getSelectedRow(), 0);
+            int idPaciente = cmbPaciente.getItemAt(cmbPaciente.getSelectedIndex()).getIdPaciente();
 
             DietaService ds = new DietaService();
             Dieta d = new Dieta();
-            PacienteService ps = new PacienteService();
-            d = ds.buscarDietaPorId(idDieta);
+          
+            d = ds.dietaPorPaciente(idPaciente);
 
             txtId.setText("" + d.getIdDieta());
             txtNombre.setText(d.getNombre());
@@ -397,6 +404,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         limpiar();
         panelDieta.setVisible(false);
         desabilitarBotones();
+        llenarComboPaciente();
     }//GEN-LAST:event_formMouseClicked
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -421,7 +429,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
                 ds.modificarDieta(id, nombre, idPaciente, LocalDate.parse(fechaI), pesoI, pesoF, LocalDate.parse(fechaF));
                 limpiar();
-                llenarTabla();
+//                llenarTabla();
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en Peso inicial y Peso Final");
@@ -432,13 +440,11 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         try {
             DietaService ds = new DietaService();
             int id = Integer.parseInt(txtId.getText());
-            
             if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE ELIMINAR DIETA?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
-            ds.eliminarDieta(id);
-            llenarTabla();
-            limpiar();
-        }
-           
+                ds.eliminarDieta(id);
+//                llenarTabla();
+                limpiar();
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -472,11 +478,9 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
     public void llenarComboPaciente() {
         PacienteService ps = new PacienteService();
-
         try {
             for (Paciente p : ps.listaPaciente()) {
                 cmbPaciente.addItem(p);
-
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -493,43 +497,32 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
     }
 
-    public void llenarTabla() {
-
+    public void llenarTabla(int id) {
         try {
             DietaService ds = new DietaService();
-
-            ArrayList dietas = ds.listaDietas();
+            Dieta d = new Dieta();
+           d= ds.dietaPorPaciente(id);
 
             //le otorgo un modelo a la tabla
-            DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+            DefaultTableModel modelo = new DefaultTableModel();    
+            modelo.addColumn("Nombre Dieta");
+            modelo.addColumn("Apellido");
             modelo.addColumn("Nombre");
-            modelo.addColumn("Paciente");
             modelo.addColumn("Fecha Inicial");
             modelo.addColumn("Peso Inicial");
             modelo.addColumn("Peso Final");
             modelo.addColumn("Fecha Final");
 
             tablaDietas.setModel(modelo);
-
             //creo un vector para guardar los datos del array y que luego el modelo de la tabla pueda agregarlo a la tabla.
-            Object dieta[] = null;
-
-            for (int i = 0; i < dietas.size(); i++) {
+            Object dieta[] = {d.getNombre(),d.getIdPaciente().getApellido(),d.getIdPaciente().getNombre(),d.getFechaInicial(),d.getPesoInicial(),d.getPesoFinal(),
+                d.getFechaFinal()};
+            
                 modelo.addRow(dieta);
-                Dieta getD = (Dieta) dietas.get(i);
-
-                modelo.setValueAt(getD.getIdDieta(), i, 0);
-                modelo.setValueAt(getD.getNombre(), i, 1);
-                modelo.setValueAt(getD.getIdPaciente(), i, 2);
-                modelo.setValueAt(getD.getFechaInicial(), i, 3);
-                modelo.setValueAt(getD.getPesoInicial(), i, 4);
-                modelo.setValueAt(getD.getPesoFinal(), i, 5);
-                modelo.setValueAt(getD.getFechaFinal(), i, 6);
-
-            }
+       
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "No tenemos registros de dietas en la base de datos");
+            JOptionPane.showMessageDialog(null, "No existe dieta en la base de datos para este paciente, Por favor agregue una." );
+            panelDieta.setVisible(false);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }

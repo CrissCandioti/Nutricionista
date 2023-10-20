@@ -152,32 +152,32 @@ public class PacienteService {
 //                JOptionPane.showMessageDialog(null, "Tenemos registrado un paciente con el mismo numero de documento");
 //                return;
 //            }
-            if (nombre.length() < 3 || apellido.length() < 3) {
-                JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
-                return;
-            }
-            char primerCaracterA = apellido.charAt(0);
-            if (Character.isDigit(primerCaracterA)) {
-                JOptionPane.showMessageDialog(null, "El apellido no puede comenzar con numeros");
-                return;
-            }
-            for (char caracter : apellido.toCharArray()) {
-                if (Character.isDigit(caracter)) {
-                    JOptionPane.showMessageDialog(null, "El apellido no puede contener caracteres numericos");
-                    return;
-                }
-            }
-            char primerCaracterN = nombre.charAt(0);
-            if (Character.isDigit(primerCaracterN)) {
-                JOptionPane.showMessageDialog(null, "El nombre no puede comenzar con numeros");
-                return;
-            }
-            for (char caracter : nombre.toCharArray()) {
-                if (Character.isDigit(caracter)) {
-                    JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
-                    return;
-                }
-            }
+//            if (nombre.length() < 3 || apellido.length() < 3) {
+//                JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
+//                return;
+//            }
+//            char primerCaracterA = apellido.charAt(0);
+//            if (Character.isDigit(primerCaracterA)) {
+//                JOptionPane.showMessageDialog(null, "El apellido no puede comenzar con numeros");
+//                return;
+//            }
+//            for (char caracter : apellido.toCharArray()) {
+//                if (Character.isDigit(caracter)) {
+//                    JOptionPane.showMessageDialog(null, "El apellido no puede contener caracteres numericos");
+//                    return;
+//                }
+//            }
+//            char primerCaracterN = nombre.charAt(0);
+//            if (Character.isDigit(primerCaracterN)) {
+//                JOptionPane.showMessageDialog(null, "El nombre no puede comenzar con numeros");
+//                return;
+//            }
+//            for (char caracter : nombre.toCharArray()) {
+//                if (Character.isDigit(caracter)) {
+//                    JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
+//                    return;
+//                }
+//            }
             if (cadenaDni.length() > cadenaDniReglamentarioMaximo.length()) {
                 JOptionPane.showMessageDialog(null, "El documento ingresado es mayor al reglamentario");
                 return;

@@ -502,6 +502,33 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
                 return;
             }
+                    if (nombre.length() < 3 || apellido.length() < 3) {
+                JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
+                return;
+            }
+            char primerCaracterA = apellido.charAt(0);
+            if (Character.isDigit(primerCaracterA)) {
+                JOptionPane.showMessageDialog(null, "El apellido no puede comenzar con numeros");
+                return;
+            }
+            for (char caracter : apellido.toCharArray()) {
+                if (Character.isDigit(caracter)) {
+                    JOptionPane.showMessageDialog(null, "El apellido no puede contener caracteres numericos");
+                    return;
+                }
+            }
+            char primerCaracterN = nombre.charAt(0);
+            if (Character.isDigit(primerCaracterN)) {
+                JOptionPane.showMessageDialog(null, "El nombre no puede comenzar con numeros");
+                return;
+            }
+            for (char caracter : nombre.toCharArray()) {
+                if (Character.isDigit(caracter)) {
+                    JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
+                    return;
+                }
+            }
+            
             if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
                 ps.modificarPaciente(id, apellido, nombre, dni, domicilio, telefono);
                 limpiar();
@@ -519,7 +546,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
         if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE ELIMINAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
             ps.eliminarPaciente(id);
-//            llenarTabla();
+          vaciarTabla();
             limpiar();
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -552,7 +579,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             llenarTabla(dni);
             txtBuscarDni.setText("");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e);
+            JOptionPane.showMessageDialog(this, "Escriba un DNI");
         }
     }//GEN-LAST:event_btnBuscarDniActionPerformed
 
@@ -600,14 +627,14 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
             tablaListaPacientes.setModel(modelo);
 
-            //creo un vector para guardar los datos del array y que luego el modelo de la tabla pueda agregarlo a la tabla.
+            //creo un vector para guardar los datos y que luego el modelo de la tabla pueda agregarlo a la tabla.
             Object pacientes[] = {p.getDni(), p.getApellido(), p.getNombre()};
 
             modelo.addRow(pacientes);
 
             
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "No tenemos registros de Pacientes en la base de datos");
+            JOptionPane.showMessageDialog(null, "No tenemos registros de ese DNI en la base de datos");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
