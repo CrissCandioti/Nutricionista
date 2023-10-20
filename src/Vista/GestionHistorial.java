@@ -29,6 +29,7 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
     public GestionHistorial() {
         initComponents();
         lblFecha.setText(LocalDate.now().toString());
+       
         llenarComboPaciente();
         llenarTabla();
         panelHistorialPeso.setVisible(false);
@@ -58,6 +59,7 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
         txtPeso = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -146,16 +148,18 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
 
         txtId.setText("txtId");
 
+        jButton1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jButton1.setText("SALIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,6 +171,17 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
                         .addGap(46, 46, 46)
                         .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(51, 51, 51))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +198,9 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1))
                 .addGap(44, 44, 44)
                 .addComponent(panelHistorialPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addComponent(jButton1)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         pack();
@@ -211,28 +228,31 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnRegistrar1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar1;
-    private javax.swing.JComboBox<Paciente> cmbPaciente;
+    public static javax.swing.JComboBox<Paciente> cmbPaciente;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFecha;
-    private javax.swing.JPanel panelHistorialPeso;
+    public static javax.swing.JPanel panelHistorialPeso;
     private javax.swing.JTable tablaHistorial;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtPeso;
     // End of variables declaration//GEN-END:variables
 public void llenarComboPaciente() {
         PacienteService ps = new PacienteService();
-
         try {
             for (Paciente p : ps.listaPaciente()) {
                 cmbPaciente.addItem(p);
-
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -240,7 +260,6 @@ public void llenarComboPaciente() {
     }
 
     public void llenarTabla() {
-
         try {
             HistorialService hs = new HistorialService();
 
@@ -248,11 +267,9 @@ public void llenarComboPaciente() {
             ArrayList hist = hs.listaHistorialesPorPaciente(idPaciente);
 
             //le otorgo un modelo a la tabla
-            DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+            DefaultTableModel modelo = new DefaultTableModel();         
             modelo.addColumn("Peso");
             modelo.addColumn("Fecha Registro");
-
             tablaHistorial.setModel(modelo);
 
             //creo un vector para guardar los datos del array y que luego el modelo de la tabla pueda agregarlo a la tabla.
@@ -260,13 +277,9 @@ public void llenarComboPaciente() {
 
             for (int i = 0; i < hist.size(); i++) {
                 modelo.addRow(historial);
-                Historial getD = (Historial) hist.get(i);
-
-                modelo.setValueAt(getD.getIDHistorial(), i, 0);
-                modelo.setValueAt(getD.getPeso(), i, 1);
-
-                modelo.setValueAt(getD.getFechaRegistro(), i, 2);
-
+                Historial getD = (Historial) hist.get(i);             
+                modelo.setValueAt(getD.getPeso(), i, 0);
+                modelo.setValueAt(getD.getFechaRegistro(), i, 1);
             }
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "No tenemos registros de dietas en la base de datos");

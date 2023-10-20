@@ -158,7 +158,7 @@ public void llenarTabla(int id) {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+            modelo.addColumn("Código");
             modelo.addColumn("Comida");
             modelo.addColumn("Calorias");
            

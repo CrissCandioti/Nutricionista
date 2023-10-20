@@ -14,6 +14,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import service.DietaService;
+import service.HistorialService;
 import service.PacienteService;
 
 /**
@@ -345,10 +346,11 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+           
             modelo.addColumn("Apellido");
             modelo.addColumn("Nombre");
             modelo.addColumn("Domicilio");
+            modelo.addColumn("Teléfono");
 
             tablaPacientes.setModel(modelo);
 
@@ -359,10 +361,11 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 modelo.addRow(comida);
                 Paciente getP = (Paciente) paciente.get(i);
 
-                modelo.setValueAt(getP.getIdPaciente(), i, 0);
-                modelo.setValueAt(getP.getApellido(), i, 1);
-                modelo.setValueAt(getP.getNombre(), i, 2);
-                modelo.setValueAt(getP.getDomicilio(), i, 3);
+               
+                modelo.setValueAt(getP.getApellido(), i, 0);
+                modelo.setValueAt(getP.getNombre(), i, 1);
+                modelo.setValueAt(getP.getDomicilio(), i, 2);
+                modelo.setValueAt(getP.getTelefono(), i, 3);
 
             }
         } catch (NullPointerException e) {
@@ -381,7 +384,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+           
             modelo.addColumn("Dieta");
             modelo.addColumn("Apellido ");
             modelo.addColumn("Nombre ");
@@ -399,14 +402,14 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 modelo.addRow(dieta);
                 Dieta getD = (Dieta) dietas.get(i);
 
-                modelo.setValueAt(getD.getIdDieta(), i, 0);
-                modelo.setValueAt(getD.getNombre(), i, 1);
-                modelo.setValueAt(getD.getIdPaciente().getApellido(), i, 2);
-                modelo.setValueAt(getD.getIdPaciente().getNombre(), i, 3);
-                modelo.setValueAt(getD.getFechaInicial(), i, 4);
-                modelo.setValueAt(getD.getPesoInicial(), i, 5);
-                modelo.setValueAt(getD.getPesoFinal(), i, 6);
-                modelo.setValueAt(getD.getFechaFinal(), i, 7);
+               
+                modelo.setValueAt(getD.getNombre(), i, 0);
+                modelo.setValueAt(getD.getIdPaciente().getApellido(), i, 1);
+                modelo.setValueAt(getD.getIdPaciente().getNombre(), i, 2);
+                modelo.setValueAt(getD.getFechaInicial(), i, 3);
+                modelo.setValueAt(getD.getPesoInicial(), i, 4);
+                modelo.setValueAt(getD.getPesoFinal(), i, 5);
+                modelo.setValueAt(getD.getFechaFinal(), i, 6);
 
             }
         } catch (NullPointerException e) {
@@ -425,7 +428,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+            
             modelo.addColumn("Apellido ");
             modelo.addColumn("Apellido Paciente");
             modelo.addColumn("Nombre Paciente");
@@ -443,14 +446,14 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 modelo.addRow(dieta);
                 Dieta getD = (Dieta) dietas.get(i);
 
-                modelo.setValueAt(getD.getIdDieta(), i, 0);
-                modelo.setValueAt(getD.getNombre(), i, 1);
-                modelo.setValueAt(getD.getIdPaciente().getApellido(), i, 2);
-                modelo.setValueAt(getD.getIdPaciente().getNombre(), i, 3);
-                modelo.setValueAt(getD.getFechaInicial(), i, 4);
-                modelo.setValueAt(getD.getPesoInicial(), i, 5);
-                modelo.setValueAt(getD.getPesoFinal(), i, 6);
-                modelo.setValueAt(getD.getFechaFinal(), i, 7);
+               
+                modelo.setValueAt(getD.getNombre(), i, 0);
+                modelo.setValueAt(getD.getIdPaciente().getApellido(), i, 1);
+                modelo.setValueAt(getD.getIdPaciente().getNombre(), i, 2);
+                modelo.setValueAt(getD.getFechaInicial(), i, 3);
+                modelo.setValueAt(getD.getPesoInicial(), i, 4);
+                modelo.setValueAt(getD.getPesoFinal(), i, 5);
+                modelo.setValueAt(getD.getFechaFinal(), i, 6);
 
             }
         } catch (NullPointerException e) {
@@ -464,18 +467,21 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
         try {
             DietaService ds = new DietaService();
-
+            HistorialService hs = new HistorialService();
             ArrayList dietas = ds.listaPacientePesoNoLlegado();
+            
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+            
             modelo.addColumn("Apellido ");
             modelo.addColumn("Apellido Paciente");
             modelo.addColumn("Nombre Paciente");
             modelo.addColumn("Fecha Inicial");
             modelo.addColumn("Peso Inicial");
-            modelo.addColumn("Peso Final");
+            modelo.addColumn("Peso actual");
+            
+            modelo.addColumn("Peso Objetivo");
             modelo.addColumn("Fecha Final");
 
             tablaPacientes.setModel(modelo);
@@ -487,12 +493,14 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 modelo.addRow(dieta);
                 Dieta getD = (Dieta) dietas.get(i);
 
-                modelo.setValueAt(getD.getIdDieta(), i, 0);
-                modelo.setValueAt(getD.getNombre(), i, 1);
-                modelo.setValueAt(getD.getIdPaciente().getApellido(), i, 2);
-                modelo.setValueAt(getD.getIdPaciente().getNombre(), i, 3);
-                modelo.setValueAt(getD.getFechaInicial(), i, 4);
-                modelo.setValueAt(getD.getPesoInicial(), i, 5);
+              
+                modelo.setValueAt(getD.getNombre(), i, 0);
+                modelo.setValueAt(getD.getIdPaciente().getApellido(), i, 1);
+                modelo.setValueAt(getD.getIdPaciente().getNombre(), i, 2);
+                modelo.setValueAt(getD.getFechaInicial(), i, 3);
+                modelo.setValueAt(getD.getPesoInicial(), i, 4);
+                modelo.setValueAt(hs.buscarHistorialPorIDPaciente(getD.getIdPaciente().getIdPaciente()).getPeso(), i, 5);
+                
                 modelo.setValueAt(getD.getPesoFinal(), i, 6);
                 modelo.setValueAt(getD.getFechaFinal(), i, 7);
 

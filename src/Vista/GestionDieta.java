@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import static Vista.Principal.escritorio;
 import com.toedter.calendar.JTextFieldDateEditor;
 import entidades.Comida;
 import entidades.Dieta;
@@ -12,6 +13,7 @@ import entidades.Paciente;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -72,6 +74,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         tablaDietas = new javax.swing.JTable();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnHistorial = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
         setClosable(true);
@@ -120,6 +123,11 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
         cmbPaciente.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         cmbPaciente.setToolTipText("Seleccione un Paciente");
+        cmbPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbPacienteActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setText("GUARDAR");
         btnGuardar.setToolTipText("Guardar la dieta");
@@ -259,6 +267,14 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             }
         });
 
+        btnHistorial.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btnHistorial.setText("HISTORIAL PESO");
+        btnHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistorialActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelDietaLayout = new javax.swing.GroupLayout(panelDieta);
         panelDieta.setLayout(panelDietaLayout);
         panelDietaLayout.setHorizontalGroup(
@@ -266,7 +282,9 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             .addGroup(panelDietaLayout.createSequentialGroup()
                 .addGroup(panelDietaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDietaLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(btnHistorial)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEliminar))
@@ -280,7 +298,8 @@ public class GestionDieta extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelDietaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModificar)
-                    .addComponent(btnEliminar))
+                    .addComponent(btnEliminar)
+                    .addComponent(btnHistorial))
                 .addGap(0, 15, Short.MAX_VALUE))
         );
 
@@ -317,10 +336,10 @@ public class GestionDieta extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(panelDieta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(12, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSalir)
                         .addGap(38, 38, 38))))
@@ -356,15 +375,15 @@ public class GestionDieta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-       
-        if(cmbPaciente.getSelectedItem() == null) {
+
+        if (cmbPaciente.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(this, "Seleccione un paciente por favor.");
-        }else{
-        panelDieta.setVisible(true);
+        } else {
+            panelDieta.setVisible(true);
 //        limpiar();
-        int id = cmbPaciente.getItemAt(cmbPaciente.getSelectedIndex()).getIdPaciente();
-        llenarTabla(id);
-        
+            int id = cmbPaciente.getItemAt(cmbPaciente.getSelectedIndex()).getIdPaciente();
+            llenarTabla(id);
+
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -376,7 +395,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
             DietaService ds = new DietaService();
             Dieta d = new Dieta();
-          
+
             d = ds.dietaPorPaciente(idPaciente);
 
             txtId.setText("" + d.getIdDieta());
@@ -450,11 +469,34 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
+
+        int idPaciente = Integer.parseInt(txtId.getText());
+
+        GestionHistorial gh = new GestionHistorial();
+        ControlaInstancia(gh);
+
+        PacienteService ps = new PacienteService();
+        Paciente pa = new Paciente();
+        pa = ps.buscarPacientePorID(idPaciente);
+
+//        GestionHistorial.cmbPaciente.removeAllItems();
+        GestionHistorial.cmbPaciente.addItem(pa);
+        GestionHistorial.panelHistorialPeso.setVisible(true);
+
+
+    }//GEN-LAST:event_btnHistorialActionPerformed
+
+    private void cmbPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPacienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnHistorial;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnSalir;
     public static javax.swing.JComboBox<Paciente> cmbPaciente;
@@ -501,10 +543,10 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         try {
             DietaService ds = new DietaService();
             Dieta d = new Dieta();
-           d= ds.dietaPorPaciente(id);
+            d = ds.dietaPorPaciente(id);
 
             //le otorgo un modelo a la tabla
-            DefaultTableModel modelo = new DefaultTableModel();    
+            DefaultTableModel modelo = new DefaultTableModel();
             modelo.addColumn("Nombre Dieta");
             modelo.addColumn("Apellido");
             modelo.addColumn("Nombre");
@@ -515,13 +557,13 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
             tablaDietas.setModel(modelo);
             //creo un vector para guardar los datos del array y que luego el modelo de la tabla pueda agregarlo a la tabla.
-            Object dieta[] = {d.getNombre(),d.getIdPaciente().getApellido(),d.getIdPaciente().getNombre(),d.getFechaInicial(),d.getPesoInicial(),d.getPesoFinal(),
+            Object dieta[] = {d.getNombre(), d.getIdPaciente().getApellido(), d.getIdPaciente().getNombre(), d.getFechaInicial(), d.getPesoInicial(), d.getPesoFinal(),
                 d.getFechaFinal()};
-            
-                modelo.addRow(dieta);
-       
+
+            modelo.addRow(dieta);
+
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "No existe dieta en la base de datos para este paciente, Por favor agregue una." );
+            JOptionPane.showMessageDialog(null, "No existe dieta en la base de datos para este paciente, Por favor agregue una.");
             panelDieta.setVisible(false);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -532,11 +574,29 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         btnGuardar.setEnabled(false);
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
+        btnHistorial.setEnabled(true);
     }
 
     public void desabilitarBotones() {
         btnGuardar.setEnabled(true);
         btnModificar.setEnabled(false);
         btnEliminar.setEnabled(false);
+        btnHistorial.setEnabled(false);
+
+    }
+
+    public void ControlaInstancia(JInternalFrame inter) {
+
+        for (JInternalFrame frame : escritorio.getAllFrames()) {
+            if (frame.getClass().equals(inter.getClass())) {
+                frame.toFront(); // Si está abierto, tráelo al frente
+                GestionHistorial.cmbPaciente.removeAllItems();
+                return;
+            }
+        }
+
+        // Si no está abierto, crea una nueva instancia 
+        escritorio.add(inter);
+        inter.setVisible(true);
     }
 }

@@ -502,7 +502,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
                 return;
             }
-                    if (nombre.length() < 3 || apellido.length() < 3) {
+            if (nombre.length() < 3 || apellido.length() < 3) {
                 JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
                 return;
             }
@@ -528,7 +528,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                     return;
                 }
             }
-            
+
             if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
                 ps.modificarPaciente(id, apellido, nombre, dni, domicilio, telefono);
                 limpiar();
@@ -546,30 +546,27 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
         if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE ELIMINAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
             ps.eliminarPaciente(id);
-          vaciarTabla();
+            vaciarTabla();
             limpiar();
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnAgregarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDietaActionPerformed
-        DefaultTableModel modelo = (DefaultTableModel) tablaListaPacientes.getModel();
-        Integer idPaciente = (Integer) modelo.getValueAt(tablaListaPacientes.getSelectedRow(), 0);
+        int idPaciente = Integer.parseInt(txtId.getText());
+        
+        GestionDieta gs = new GestionDieta();
+        ControlaInstancia(gs);
 
-        if (!idPaciente.toString().isEmpty()) {
+        PacienteService ps = new PacienteService();
+        Paciente pa = new Paciente();
+        pa = ps.buscarPacientePorID(idPaciente);
 
-            GestionDieta gs = new GestionDieta();
-            ControlaInstancia(gs);
+        GestionDieta.cmbPaciente.removeAllItems();
+        GestionDieta.cmbPaciente.addItem(pa);
+        this.dispose();
 
-            PacienteService ps = new PacienteService();
-            Paciente p = new Paciente();
-            p = ps.buscarPacientePorID(idPaciente);
+        
 
-            GestionDieta.cmbPaciente.removeAllItems();
-            GestionDieta.cmbPaciente.addItem(p);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Seleccione un Paciente");
-        }
     }//GEN-LAST:event_btnAgregarDietaActionPerformed
 
     private void btnBuscarDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDniActionPerformed
@@ -632,7 +629,6 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
             modelo.addRow(pacientes);
 
-            
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "No tenemos registros de ese DNI en la base de datos");
         } catch (Exception ex) {
@@ -679,11 +675,11 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
     private void vaciarTabla() {
         DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Dni");
-            modelo.addColumn("Apellido");
-            modelo.addColumn("Nombre");
+        modelo.addColumn("Dni");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Nombre");
 
-            tablaListaPacientes.setModel(modelo);
-            modelo.setRowCount(0);
+        tablaListaPacientes.setModel(modelo);
+        modelo.setRowCount(0);
     }
 }

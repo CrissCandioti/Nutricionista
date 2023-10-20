@@ -357,9 +357,9 @@ public class GestionComida extends javax.swing.JInternalFrame {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+            modelo.addColumn("Código");
             modelo.addColumn("Nombre");
-            modelo.addColumn("Detalle");
+            
             modelo.addColumn("Calorias");
 
             tablaComidas.setModel(modelo);
@@ -372,9 +372,8 @@ public class GestionComida extends javax.swing.JInternalFrame {
                 Comida getC = (Comida) comidas.get(i);
 
                 modelo.setValueAt(getC.getIdComida(), i, 0);
-                modelo.setValueAt(getC.getNombre(), i, 1);
-                modelo.setValueAt(getC.getDetalle(), i, 2);
-                modelo.setValueAt(getC.getCantCalorias(), i, 3);
+                modelo.setValueAt(getC.getNombre(), i, 1);               
+                modelo.setValueAt(getC.getCantCalorias(), i, 2);
 
             }
         } catch (NullPointerException e) {

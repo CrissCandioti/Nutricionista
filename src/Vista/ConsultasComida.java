@@ -60,10 +60,33 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                " Código", "Nombre", "Detalle", "Calorias"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaComiida.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tablaComiida);
+        tablaComiida.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (tablaComiida.getColumnModel().getColumnCount() > 0) {
+            tablaComiida.getColumnModel().getColumn(0).setResizable(false);
+            tablaComiida.getColumnModel().getColumn(1).setResizable(false);
+            tablaComiida.getColumnModel().getColumn(2).setResizable(false);
+            tablaComiida.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         txtCalorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,13 +108,14 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
             panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelComidaLayout.createSequentialGroup()
                 .addGap(81, 81, 81)
-                .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelComidaLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelComidaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         panelComidaLayout.setVerticalGroup(
             panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,11 +173,11 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(286, 286, 286)
                         .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(panelComida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(panelComida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addGap(31, 31, 31))
         );
@@ -241,7 +265,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+            modelo.addColumn("Código");
             modelo.addColumn("Nombre");
 
             modelo.addColumn("Calorias");
@@ -277,9 +301,9 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+            modelo.addColumn("Código");
             modelo.addColumn("Nombre");
-            modelo.addColumn("Detalle");
+          
             modelo.addColumn("Calorias");
 
             tablaComiida.setModel(modelo);
@@ -293,8 +317,8 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
 
                 modelo.setValueAt(getC.getIdComida(), i, 0);
                 modelo.setValueAt(getC.getNombre(), i, 1);
-                modelo.setValueAt(getC.getDetalle(), i, 2);
-                modelo.setValueAt(getC.getCantCalorias(), i, 3);
+              
+                modelo.setValueAt(getC.getCantCalorias(), i, 2);
 
             }
         } catch (NullPointerException e) {
