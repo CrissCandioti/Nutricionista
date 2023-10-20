@@ -55,7 +55,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnAgregarD = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
 
         setClosable(true);
@@ -165,9 +164,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
             }
         });
 
-        btnModificar.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        btnModificar.setText("MODIFICAR");
-
         btnEliminar.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -211,8 +207,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btnAgregarD, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
@@ -243,7 +237,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarD)
-                    .addComponent(btnModificar)
                     .addComponent(btnEliminar))
                 .addGap(8, 8, 8)
                 .addComponent(jButton1)
@@ -327,7 +320,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarD;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -514,13 +506,13 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
     public void deshabilitarBotones() {
         btnAgregarD.setVisible(false);
-        btnModificar.setVisible(false);
+     
         btnEliminar.setVisible(false);
     }
 
     private void habilitarBotones() {
         btnAgregarD.setVisible(true);
-        btnModificar.setVisible(true);
+       
         btnEliminar.setVisible(true);
     }
     public void ControlaInstancia(JInternalFrame inter) {

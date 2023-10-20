@@ -183,10 +183,10 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCaloriasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCaloriasKeyReleased
-         try {
+        try {
             int id = Integer.parseInt(txtCalorias.getText());
             llenarTabla(id);
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -198,16 +198,20 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
 
     private void rbTodasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbTodasActionPerformed
         panelComida.setVisible(true);
-          txtCalorias.setVisible(false);
-       jLabel1.setVisible(false);
-       llenarTablaTodas();
-        
+        txtCalorias.setVisible(false);
+        jLabel1.setVisible(false);
+        llenarTablaTodas();
+
     }//GEN-LAST:event_rbTodasActionPerformed
 
     private void rbCantCaloriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCantCaloriasActionPerformed
-     panelComida.setVisible(true);
-     txtCalorias.setVisible(true);
-     jLabel1.setVisible(true);
+
+        panelComida.setVisible(true);
+        txtCalorias.setVisible(true);
+        jLabel1.setVisible(true);
+
+        DefaultTableModel model = (DefaultTableModel) tablaComiida.getModel();
+        model.setRowCount(0);
     }//GEN-LAST:event_rbCantCaloriasActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -228,19 +232,18 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
     private javax.swing.JTable tablaComiida;
     private javax.swing.JTextField txtCalorias;
     // End of variables declaration//GEN-END:variables
-public void llenarTabla(int id) {
+    public void llenarTabla(int id) {
 
         try {
             ComidaService cs = new ComidaService();
 
-            
             ArrayList comidas = cs.listaComidaBajaCalorias(id);
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
             modelo.addColumn("Id");
             modelo.addColumn("Nombre");
-           
+
             modelo.addColumn("Calorias");
 
             tablaComiida.setModel(modelo);
@@ -254,7 +257,7 @@ public void llenarTabla(int id) {
 
                 modelo.setValueAt(getC.getIdComida(), i, 0);
                 modelo.setValueAt(getC.getNombre(), i, 1);
-         
+
                 modelo.setValueAt(getC.getCantCalorias(), i, 2);
 
             }
@@ -264,7 +267,8 @@ public void llenarTabla(int id) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
- public void llenarTablaTodas() {
+
+    public void llenarTablaTodas() {
 
         try {
             ComidaService cs = new ComidaService();

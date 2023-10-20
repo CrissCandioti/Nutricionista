@@ -132,26 +132,26 @@ public class PacienteService {
             String cadenaDni = Integer.toString(dni);
             String cadenaDniReglamentarioMinimo = Integer.toString(dniReglamentarioMinimo);
             String cadenaDniReglamentarioMaximo = Integer.toString(dniReglamentarioMaximo);
-            if (apellido.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
-                return;
-            }
-            if (nombre.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del nombre no puede estar vacia");
-                return;
-            }
-            if (domicilio.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del domicilio no puede estar vacia");
-                return;
-            }
-            if (telefono.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
-                return;
-            }
-            if (dao.buscarPacientePorDNI(dni) != null) {
-                JOptionPane.showMessageDialog(null, "Tenemos registrado un paciente con el mismo numero de documento");
-                return;
-            }
+//            if (apellido.isEmpty()) {
+//                JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
+//                return;
+//            }
+//            if (nombre.isEmpty()) {
+//                JOptionPane.showMessageDialog(null, "La celda del nombre no puede estar vacia");
+//                return;
+//            }
+//            if (domicilio.isEmpty()) {
+//                JOptionPane.showMessageDialog(null, "La celda del domicilio no puede estar vacia");
+//                return;
+//            }
+//            if (telefono.isEmpty()) {
+//                JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
+//                return;
+//            }
+//            if (dao.buscarPacientePorDNI(dni) != null) {
+//                JOptionPane.showMessageDialog(null, "Tenemos registrado un paciente con el mismo numero de documento");
+//                return;
+//            }
             if (nombre.length() < 3 || apellido.length() < 3) {
                 JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
                 return;

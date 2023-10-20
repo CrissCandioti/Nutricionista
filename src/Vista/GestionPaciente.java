@@ -62,6 +62,9 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnAgregarDieta = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtBuscarDni = new javax.swing.JTextField();
+        btnBuscarDni = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -71,7 +74,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Paciente"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cargar Paciente"));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 255));
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
@@ -238,6 +241,16 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel6.setText("Escriba el DNI a buscar :");
+
+        btnBuscarDni.setText("BUSCAR");
+        btnBuscarDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarDniActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelListaPacientesLayout = new javax.swing.GroupLayout(panelListaPacientes);
         panelListaPacientes.setLayout(panelListaPacientesLayout);
         panelListaPacientesLayout.setHorizontalGroup(
@@ -250,17 +263,31 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(panelListaPacientesLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelListaPacientesLayout.setVerticalGroup(
             panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListaPacientesLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarDni))
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarDieta))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 23, Short.MAX_VALUE))
         );
 
         btnSalir.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -290,15 +317,14 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelListaPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31))))
+                        .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(panelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -306,7 +332,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         panelListaPacientes.setVisible(true);
-        llenarTabla();
+//        llenarTabla();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -418,12 +444,12 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         abilitarBotones();
         try {
             DefaultTableModel modelo = (DefaultTableModel) tablaListaPacientes.getModel();
-            int idPaciente = (int) modelo.getValueAt(tablaListaPacientes.getSelectedRow(), 0);
+            int dni = (int) modelo.getValueAt(tablaListaPacientes.getSelectedRow(), 0);
 
             PacienteService ps = new PacienteService();
             Paciente p = new Paciente();
 
-            p = ps.buscarPacientePorID(idPaciente);
+            p = ps.buscarPacientePorDNI(dni);
 
             txtId.setText("" + p.getIdPaciente());
             txtNombre.setText(p.getNombre());
@@ -445,6 +471,8 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         panelListaPacientes.setVisible(false);
         limpiar();
         desabilitarBotones();
+        txtBuscarDni.setText("");
+        vaciarTabla();
     }//GEN-LAST:event_formMouseClicked
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -457,11 +485,27 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             int dni = Integer.parseInt(txtDni.getText());
             String domicilio = txtDomicilio.getText();
             String telefono = txtTelefono.getText();
-
+            //Validaciones
+            if (apellido.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
+                return;
+            }
+            if (nombre.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "La celda del nombre no puede estar vacia");
+                return;
+            }
+            if (domicilio.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "La celda del domicilio no puede estar vacia");
+                return;
+            }
+            if (telefono.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
+                return;
+            }
             if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
                 ps.modificarPaciente(id, apellido, nombre, dni, domicilio, telefono);
                 limpiar();
-                llenarTabla();
+                llenarTabla(dni);
             }
         } catch (NumberFormatException e) {
             System.out.println(e);
@@ -475,7 +519,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
         if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE ELIMINAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
             ps.eliminarPaciente(id);
-            llenarTabla();
+//            llenarTabla();
             limpiar();
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -492,19 +536,31 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             PacienteService ps = new PacienteService();
             Paciente p = new Paciente();
             p = ps.buscarPacientePorID(idPaciente);
-        
-        GestionDieta.cmbPaciente.removeAllItems();
-        GestionDieta.cmbPaciente.addItem(p);
-        this.dispose();
-        }else{
+
+            GestionDieta.cmbPaciente.removeAllItems();
+            GestionDieta.cmbPaciente.addItem(p);
+            this.dispose();
+        } else {
             JOptionPane.showMessageDialog(this, "Seleccione un Paciente");
         }
     }//GEN-LAST:event_btnAgregarDietaActionPerformed
+
+    private void btnBuscarDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDniActionPerformed
+
+        try {
+            int dni = Integer.parseInt(txtBuscarDni.getText());
+            llenarTabla(dni);
+            txtBuscarDni.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+    }//GEN-LAST:event_btnBuscarDniActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarDieta;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarDni;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
@@ -514,10 +570,12 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelListaPacientes;
     private javax.swing.JTable tablaListaPacientes;
+    private javax.swing.JTextField txtBuscarDni;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtDomicilio;
     private javax.swing.JTextField txtId;
@@ -526,33 +584,28 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtapellido;
     // End of variables declaration//GEN-END:variables
 
-    public void llenarTabla() {
+    public void llenarTabla(int dni) {
 
         try {
             PacienteService ps = new PacienteService();
+            Paciente p = new Paciente();
 
-            ArrayList paciente = ps.listaPaciente();
+            p = ps.buscarPacientePorDNI(dni);
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+            modelo.addColumn("Dni");
             modelo.addColumn("Apellido");
             modelo.addColumn("Nombre");
 
             tablaListaPacientes.setModel(modelo);
 
             //creo un vector para guardar los datos del array y que luego el modelo de la tabla pueda agregarlo a la tabla.
-            Object comida[] = null;
+            Object pacientes[] = {p.getDni(), p.getApellido(), p.getNombre()};
 
-            for (int i = 0; i < paciente.size(); i++) {
-                modelo.addRow(comida);
-                Paciente getP = (Paciente) paciente.get(i);
+            modelo.addRow(pacientes);
 
-                modelo.setValueAt(getP.getIdPaciente(), i, 0);
-                modelo.setValueAt(getP.getApellido(), i, 1);
-                modelo.setValueAt(getP.getNombre(), i, 2);
-
-            }
+            
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "No tenemos registros de Pacientes en la base de datos");
         } catch (Exception ex) {
@@ -595,5 +648,15 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         // Si no está abierto, crea una nueva instancia 
         escritorio.add(inter);
         inter.setVisible(true);
+    }
+
+    private void vaciarTabla() {
+        DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("Dni");
+            modelo.addColumn("Apellido");
+            modelo.addColumn("Nombre");
+
+            tablaListaPacientes.setModel(modelo);
+            modelo.setRowCount(0);
     }
 }
