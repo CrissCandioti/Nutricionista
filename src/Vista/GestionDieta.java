@@ -480,7 +480,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         Paciente pa = new Paciente();
         pa = ps.buscarPacientePorID(idPaciente);
 
-//        GestionHistorial.cmbPaciente.removeAllItems();
+        GestionHistorial.cmbPaciente.removeAllItems();
         GestionHistorial.cmbPaciente.addItem(pa);
         GestionHistorial.panelHistorialPeso.setVisible(true);
 

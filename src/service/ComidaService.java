@@ -7,6 +7,7 @@ package service;
 
 import accesoDatos.ComidaDAO;
 import entidades.Comida;
+import entidades.Horario;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -26,7 +27,7 @@ public class ComidaService {
      * El metodo "ComidaService" recibe toda la informacion establecida en la
      * vistas para completar el registro de los alumnos
      */
-    public void crearComida(String nombre, String detalle, int cantCalorias) {
+    public void crearComida(String nombre, String detalle, int cantCalorias,Horario horario) {
         /**
          * Dentro de un bloque try-catch el metodo procede a analizar estos
          * datos con las restricciones
@@ -87,7 +88,7 @@ public class ComidaService {
              * se envia por argumentos la comida instanciada para registrar en
              * la base de datos
              */
-            dao.guardarComidaBaseDatos(new Comida(nombre, detalle, cantCalorias));
+            dao.guardarComidaBaseDatos(new Comida(nombre, detalle, cantCalorias, horario));
             /**
              * Por ultimo se muestra un mensaje
              */

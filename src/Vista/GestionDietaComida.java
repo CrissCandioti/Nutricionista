@@ -47,8 +47,6 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaComida = new javax.swing.JTable();
         btnAgregarComida = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        cmbHorario = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -88,27 +86,14 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
-        jLabel2.setText("Horario");
-
-        cmbHorario.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        cmbHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "DESAYUNO", "ALMUERZO", "MERIENDA", "CENA" }));
-
         javax.swing.GroupLayout panelComidasLayout = new javax.swing.GroupLayout(panelComidas);
         panelComidas.setLayout(panelComidasLayout);
         panelComidasLayout.setHorizontalGroup(
             panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelComidasLayout.createSequentialGroup()
-                .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelComidasLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAgregarComida))
-                    .addGroup(panelComidasLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAgregarComida)
                 .addContainerGap())
         );
         panelComidasLayout.setVerticalGroup(
@@ -118,11 +103,7 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
                 .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAgregarComida, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(cmbHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,7 +129,7 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
                     .addComponent(cmbDieta, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelComidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
@@ -166,15 +147,15 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
             DietaComidaService cd = new DietaComidaService();
                     
             int idDieta = cmbDieta.getItemAt(cmbDieta.getSelectedIndex()).getIdDieta();
-            System.out.println("dieta " + idDieta);
+//            System.out.println("dieta " + idDieta);
             
            DefaultTableModel modelo = (DefaultTableModel) tablaComida.getModel();
-            int idComida = (int) modelo.getValueAt(tablaComida.getSelectedRow(), 0);
+            int idComida =(int) modelo.getValueAt(tablaComida.getSelectedRow(), 0) ;
             System.out.println("comida " + idComida);
             
-            String horario = cmbHorario.getSelectedItem().toString();
+            String horario = modelo.getValueAt(tablaComida.getSelectedRow(), 3).toString();
             
-            System.out.println(horario);
+//            System.out.println(horario);
             
             
             cd.crearDietaComida(idComida, idDieta, Horario.valueOf(horario));
@@ -188,9 +169,7 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarComida;
     private javax.swing.JComboBox<Dieta> cmbDieta;
-    private javax.swing.JComboBox<String> cmbHorario;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelComidas;
     private javax.swing.JTable tablaComida;
@@ -217,10 +196,12 @@ public void llenarTabla() {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+           
+            modelo.addColumn("Código");
             modelo.addColumn("Nombre");
             
             modelo.addColumn("Calorias");
+            modelo.addColumn("Horario");
 
             tablaComida.setModel(modelo);
 
@@ -230,15 +211,15 @@ public void llenarTabla() {
             for (int i = 0; i < comidas.size(); i++) {
                 modelo.addRow(comida);
                 Comida getC = (Comida) comidas.get(i);
-
-                modelo.setValueAt(getC.getIdComida(), i, 0);
-                modelo.setValueAt(getC.getNombre(), i, 1);
-                
+              
+                modelo.setValueAt(getC.getIdComida(), i, 0);           
+                modelo.setValueAt(getC.getNombre(), i, 1);           
                 modelo.setValueAt(getC.getCantCalorias(), i, 2);
+                modelo.setValueAt(getC.getHorario().toString(), i, 3);
 
             }
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "No tenemos registros de comidas en la base de datos");
+            JOptionPane.showMessageDialog(null, "No tenemos registros de comidas en la base de datos"+e);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }

@@ -86,9 +86,9 @@ public final class pdfPaciente extends DAO {
         }
     }
 
-    public void pdfPorPaciente(int id) {
+    public void pdfPorPaciente(String apellido, String nombre) {
         try {
-            String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente` WHERE idPaciente = " + id;
+            String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente` WHERE apellido = '"+apellido+"' and nombre= '"+nombre+"'" ;
             consultarBaseDatos(sql);
 
             int contador = 0;
