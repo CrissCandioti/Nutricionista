@@ -6,6 +6,7 @@
 package accesoDatos;
 
 import entidades.Comida;
+import entidades.Horario;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -26,7 +27,7 @@ public final class ComidaDAO extends DAO {
      */
     public void guardarComidaBaseDatos(Comida aux) {
         try {
-            String sql = "INSERT INTO `comida`(`nombre`, `detalle`, `cantCalorias`) VALUES ('" + aux.getNombre() + "','" + aux.getDetalle() + "'," + aux.getCantCalorias() + ")";
+            String sql = "INSERT INTO `comida`(`nombre`, `detalle`, `cantCalorias`,`Horario`) VALUES ('" + aux.getNombre() + "','" + aux.getDetalle() + "'," + aux.getCantCalorias() + ",'"+aux.getHorario()+"')";
             insertarModificarEliminarBaseDatos(sql);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al guardar la comida en la base de datos");
@@ -86,11 +87,12 @@ public final class ComidaDAO extends DAO {
      */
     public ArrayList<Comida> listaComidaBaseDatos() {
         try {
-            String sql = "SELECT `idComida`, `nombre`, `detalle`, `cantCalorias` FROM `comida` ORDER BY nombre ASC";
+            String sql = "SELECT * FROM `comida` ORDER BY nombre ASC";
             consultarBaseDatos(sql);
             ArrayList<Comida> listaRetornar = new ArrayList<>();
             while (resultado.next()) {
-                listaRetornar.add(new Comida(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getInt(4)));
+               
+                listaRetornar.add(new Comida(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getInt(4),Horario.valueOf(resultado.getString(5))));
             }
             return listaRetornar;
         } catch (Exception e) {

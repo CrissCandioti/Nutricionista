@@ -49,7 +49,7 @@ public final class DietaComidaDAO extends DAO {
     public DietaComida buscarDietaComidaPorId(int ID) {
 
         try {
-            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE idDieta= " + ID ;
+            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE idDieta= " + ID;
             consultarBaseDatos(sql);
             DietaComida aux = null;
             ComidaService comida = new ComidaService();
@@ -122,13 +122,13 @@ public final class DietaComidaDAO extends DAO {
         }
         return null;
     }
-    
+
     public ArrayList<DietaComida> listaPorHorario(Horario index) {
         try {
             String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE Horario = '" + index + "'";
             consultarBaseDatos(sql);
             ArrayList<DietaComida> lsitaRetornar = new ArrayList<>();
-           
+
             ComidaService comida = new ComidaService();
             DietaService dieta = new DietaService();
             while (resultado.next()) {
@@ -142,9 +142,10 @@ public final class DietaComidaDAO extends DAO {
         }
         return null;
     }
+
     public ArrayList<DietaComida> listaDietaComidaPorID(int id) {
         try {
-            String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE idDieta = " + id;
+            String sql = "SELECT * FROM `dietacomida` WHERE idDieta = " + id + " ORDER BY CASE Horario WHEN 'DESAYUNO' THEN 1 WHEN 'ALMUERZO' THEN 2 WHEN 'MERIENDA' THEN 3 WHEN 'CENA' THEN 4 WHEN 'SNACK' THEN 5 ELSE 6 END; ";
             consultarBaseDatos(sql);
             ArrayList<DietaComida> listaRetornar = new ArrayList<>();
             ComidaService cs = new ComidaService();
@@ -153,8 +154,9 @@ public final class DietaComidaDAO extends DAO {
                 Integer IDComida = resultado.getInt(2);
                 Integer IDDieta = resultado.getInt(3);
                 listaRetornar.add(new DietaComida(resultado.getInt(1), cs.buscarComida(IDComida), ds.buscarDietaPorId(IDDieta), Horario.valueOf(resultado.getString(4))));
-//                listaRetornar.add(new DietaComida(resultado.getInt(1), comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4))));
+            
             }
+            
             return listaRetornar;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al retornar la lista de la asociación de la dieta con la comida");

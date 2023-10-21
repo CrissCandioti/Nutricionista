@@ -301,7 +301,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Código");
+            modelo.addColumn("Horario");
             modelo.addColumn("Nombre");
           
             modelo.addColumn("Calorias");
@@ -315,7 +315,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 modelo.addRow(comida);
                 Comida getC = (Comida) comidas.get(i);
 
-                modelo.setValueAt(getC.getIdComida(), i, 0);
+                modelo.setValueAt(getC.getHorario().toString(), i, 0);
                 modelo.setValueAt(getC.getNombre(), i, 1);
               
                 modelo.setValueAt(getC.getCantCalorias(), i, 2);

@@ -262,7 +262,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 .addComponent(btnModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(129, 129, 129))
             .addGroup(panelListaPacientesLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel6)
@@ -275,7 +275,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         panelListaPacientesLayout.setVerticalGroup(
             panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListaPacientesLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,8 +286,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 .addGroup(panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregarDieta))
-                .addGap(0, 23, Short.MAX_VALUE))
+                    .addComponent(btnAgregarDieta)))
         );
 
         btnSalir.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -308,9 +307,9 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,10 +320,10 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31))
+                        .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(panelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(29, 29, 29))))
         );
 
         pack();
@@ -338,99 +337,15 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         PacienteService ps = new PacienteService();
-        PacienteDAO dao = new PacienteDAO();
-        /**
-         * Se crean dos variables con los nombre dniReglamentarioMinimo y
-         * dniReglamentarioMaximo, estas variables de tipo de dato entero sirven
-         * para la restriccion del documento establecido mas adelante
-         */
-        int dniReglamentarioMinimo = 1234567;
-        int dniReglamentarioMaximo = 123456789;
-        /**
-         * Se procede a pasar el dato dni y las variables
-         * cadenaDniReglamentarioMinimo y cadenaDniReglamentarioMaximo a cadena
-         * de texto para proceder con su restriccion
-         */
 
         try {
             String apellido = txtapellido.getText();
             String nombre = txtNombre.getText();
             int dni = Integer.parseInt(txtDni.getText());
             String domicilio = txtDomicilio.getText();
-            String telefono = txtTelefono.getText();
-
-            String cadenaDni = Integer.toString(dni);
-            String cadenaDniReglamentarioMinimo = Integer.toString(dniReglamentarioMinimo);
-            String cadenaDniReglamentarioMaximo = Integer.toString(dniReglamentarioMaximo);
-
-            if (apellido.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
-                return;
-            }
-            if (nombre.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del nombre no puede estar vacia");
-                return;
-            }
-            if (domicilio.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del domicilio no puede estar vacia");
-                return;
-            }
-            if (telefono.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
-                return;
-            }
-            /**
-             * Esta restriccion es la encarga de analizar la cantidad minima de
-             * caracter que aceptan los datos del nombre y apellido
-             */
-            if (nombre.length() < 3 || apellido.length() < 3) {
-                JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
-                return;
-            }
-            char primerCaracterA = apellido.charAt(0);
-            if (Character.isDigit(primerCaracterA)) {
-                JOptionPane.showMessageDialog(null, "El apellido no puede comenzar con numeros");
-                return;
-            }
-            for (char caracter : apellido.toCharArray()) {
-                if (Character.isDigit(caracter)) {
-                    JOptionPane.showMessageDialog(null, "El apellido no puede contener caracteres numericos");
-                    return;
-                }
-            }
-            char primerCaracterN = nombre.charAt(0);
-            if (Character.isDigit(primerCaracterN)) {
-                JOptionPane.showMessageDialog(null, "El nombre no puede comenzar con numeros");
-                return;
-            }
-            for (char caracter : nombre.toCharArray()) {
-                if (Character.isDigit(caracter)) {
-                    JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
-                    return;
-                }
-            }
-            /* Esta restriccion se encarga de analizar la cantidad de caracteres
-             * que se ingresa por el documento.
-             */
-            if (cadenaDni.length() > cadenaDniReglamentarioMaximo.length()) {
-                JOptionPane.showMessageDialog(null, "El documento ingresado es mayor al reglamentario");
-                return;
-            }
-            if (cadenaDni.length() < cadenaDniReglamentarioMinimo.length()) {
-                JOptionPane.showMessageDialog(null, "El documento ingresado es menor al reglamentario");
-                return;
-            }
-            if (!domicilio.matches("[a-zA-Z0-9 ñÑ]+")) {
-                JOptionPane.showMessageDialog(null, "El domicilio contiene caracteres no permitidos");
-                return;
-            }
-            if (!telefono.matches("\\d+")) {
-                JOptionPane.showMessageDialog(null, "El telefono solamente debe contener digitos numericos");
-                return;
-            }
-
+            String telefono = txtTelefono.getText();          
             ps.crearPaciente(apellido, nombre, dni, domicilio, telefono);
-            ps.limpiar(txtDni, txtDomicilio, txtId, txtNombre, txtTelefono, txtapellido);
+            
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en dni Por Favor!");
         } catch (HeadlessException ex) {
@@ -600,12 +515,12 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelListaPacientes;
     private javax.swing.JTable tablaListaPacientes;
     private javax.swing.JTextField txtBuscarDni;
-    private javax.swing.JTextField txtDni;
-    private javax.swing.JTextField txtDomicilio;
-    private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txtapellido;
+    public static javax.swing.JTextField txtDni;
+    public static javax.swing.JTextField txtDomicilio;
+    public static javax.swing.JTextField txtId;
+    public static javax.swing.JTextField txtNombre;
+    public static javax.swing.JTextField txtTelefono;
+    public static javax.swing.JTextField txtapellido;
     // End of variables declaration//GEN-END:variables
 
     public void llenarTabla(int dni) {

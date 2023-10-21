@@ -5,6 +5,7 @@
  */
 package service;
 
+import Vista.GestionPaciente;
 import accesoDatos.PacienteDAO;
 import entidades.Paciente;
 import java.awt.HeadlessException;
@@ -118,6 +119,7 @@ public class PacienteService {
              
             dao.guardarPaciente(new Paciente(apellido, nombre, dni, domicilio, telefono));
             JOptionPane.showMessageDialog(null, "Se guardo con exito el paciente");
+            limpiar();
                                        
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al crear el paciente");
@@ -242,12 +244,12 @@ public class PacienteService {
         return null;
     }
     
-    public void limpiar(JTextField txtDni, JTextField txtDomicilio,JTextField txtId, JTextField txtNombre, JTextField txtTelefono, JTextField txtapellido) {
-        txtDni.setText("");
-        txtDomicilio.setText("");
-        txtId.setText("");
-        txtNombre.setText("");
-        txtTelefono.setText("");
-        txtapellido.setText("");
+    public void limpiar() {
+        GestionPaciente.txtDni.setText("");
+        GestionPaciente.txtDomicilio.setText("");
+        GestionPaciente.txtId.setText("");
+       GestionPaciente.txtNombre.setText("");
+        GestionPaciente.txtTelefono.setText("");
+        GestionPaciente.txtapellido.setText("");
     }
 }

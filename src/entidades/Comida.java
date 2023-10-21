@@ -15,8 +15,26 @@ public class Comida {
     private String nombre;
     private String detalle;
     private int cantCalorias;
+    private Horario horario;
 
     public Comida() {
+    }
+
+    public Comida(int idComida, String nombre, String detalle, int cantCalorias, Horario horario) {
+        this.idComida = idComida;
+        this.nombre = nombre;
+        this.detalle = detalle;
+        this.cantCalorias = cantCalorias;
+        this.horario = horario;
+    }
+
+    
+    public Comida( String nombre, String detalle, int cantCalorias, Horario horario) {
+       
+        this.nombre = nombre;
+        this.detalle = detalle;
+        this.cantCalorias = cantCalorias;
+        this.horario = horario;
     }
 
     public Comida(String nombre, String detalle, int cantCalorias) {
@@ -64,9 +82,19 @@ public class Comida {
         this.cantCalorias = cantCalorias;
     }
 
+    public Horario getHorario() {
+        return horario;
+    }
+
+    public void setHorario(Horario horario) {
+        this.horario = horario;
+    }
+
     @Override
     public String toString() {
-        return "Comida{" + "idComida=" + idComida + ", nombre=" + nombre + ", detalle=" + detalle + ", cantCalorias=" + cantCalorias + '}';
+        return "Comida{" + "idComida=" + idComida + ", nombre=" + nombre + ", detalle=" + detalle + ", cantCalorias=" + cantCalorias + ", horario=" + horario + '}';
     }
+
+    
 
 }
