@@ -77,9 +77,12 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         btnHistorial = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
+        setBorder(null);
         setClosable(true);
         setIconifiable(true);
         setTitle("Gestion Dieta");
+        setMinimumSize(new java.awt.Dimension(90, 18));
+        setPreferredSize(new java.awt.Dimension(828, 675));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -471,18 +474,19 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
     private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
 
-        int idPaciente = Integer.parseInt(txtId.getText());
-
+        int idPaciente = cmbPaciente.getItemAt(cmbPaciente.getSelectedIndex()).getIdPaciente();
+        System.out.println(idPaciente);
         GestionHistorial gh = new GestionHistorial();
         ControlaInstancia(gh);
 
         PacienteService ps = new PacienteService();
         Paciente pa = new Paciente();
         pa = ps.buscarPacientePorID(idPaciente);
-
+        System.out.println(pa);
         GestionHistorial.cmbPaciente.removeAllItems();
         GestionHistorial.cmbPaciente.addItem(pa);
-        GestionHistorial.panelHistorialPeso.setVisible(true);
+        
+     
 
 
     }//GEN-LAST:event_btnHistorialActionPerformed

@@ -61,9 +61,11 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
         txtId = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+        setBorder(null);
         setClosable(true);
         setIconifiable(true);
-        setTitle("Historial Pacientes");
+        setTitle("Historia de Pesol Pacientes");
+        setMinimumSize(new java.awt.Dimension(90, 18));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Paciente:");
@@ -170,7 +172,7 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
                         .addComponent(cmbPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +202,7 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
                 .addComponent(panelHistorialPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(jButton1)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         pack();
@@ -221,7 +223,7 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
         hs.crearHistorial(id, peso, LocalDate.parse(fecha));
         llenarTabla();
         }catch(NumberFormatException e){
-            System.out.println(e);
+            JOptionPane.showMessageDialog(this, "Escriba el peso");
             
         }
         
@@ -282,7 +284,7 @@ public void llenarComboPaciente() {
                 modelo.setValueAt(getD.getFechaRegistro(), i, 1);
             }
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "No tenemos registros de dietas en la base de datos");
+//            JOptionPane.showMessageDialog(null, "No tenemos registros de dietas en la base de datos");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }

@@ -31,6 +31,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         initComponents();
         lblFecha.setText(LocalDate.now().toString());
         deshabilitarBotones();
+        
     }
 
     /**
@@ -58,8 +59,8 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         btnAgregarD = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        txtRporte = new javax.swing.JButton();
-        txtPaciente = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
+        btnPacienteR = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -176,17 +177,17 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
             }
         });
 
-        txtRporte.setText("Imprimir Reporte");
-        txtRporte.addActionListener(new java.awt.event.ActionListener() {
+        btnReporte.setText("Imprimir Reporte");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRporteActionPerformed(evt);
+                btnReporteActionPerformed(evt);
             }
         });
 
-        txtPaciente.setText("Imprimir Paciente");
-        txtPaciente.addActionListener(new java.awt.event.ActionListener() {
+        btnPacienteR.setText("Imprimir Paciente");
+        btnPacienteR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPacienteActionPerformed(evt);
+                btnPacienteRActionPerformed(evt);
             }
         });
 
@@ -228,11 +229,11 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtPaciente)
+                                .addComponent(btnPacienteR)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtRporte)
+                                .addComponent(btnReporte)
                                 .addGap(75, 75, 75)))))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,11 +263,11 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarD)
                     .addComponent(btnEliminar)
-                    .addComponent(txtRporte)
-                    .addComponent(txtPaciente))
+                    .addComponent(btnReporte)
+                    .addComponent(btnPacienteR))
                 .addGap(8, 8, 8)
                 .addComponent(jButton1)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pack();
@@ -286,6 +287,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
     private void rbTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbTodosActionPerformed
         llenarTablaTodos();
         deshabilitarBotones();
+        btnReporte.setVisible(true);
     }//GEN-LAST:event_rbTodosActionPerformed
 
     private void rbDietasTerminadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbDietasTerminadasActionPerformed
@@ -320,47 +322,49 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
             PacienteService ps = new PacienteService();
             Paciente p = new Paciente();
             p = ps.buscarPacientePorID(idPaciente);
-        
-        GestionDieta.cmbPaciente.removeAllItems();
-        GestionDieta.cmbPaciente.addItem(p);
-        this.dispose();
-        }else{
+
+            GestionDieta.cmbPaciente.removeAllItems();
+            GestionDieta.cmbPaciente.addItem(p);
+            this.dispose();
+        } else {
             JOptionPane.showMessageDialog(this, "Seleccione un Paciente");
         }
     }//GEN-LAST:event_btnAgregarDActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        
+
         PacienteService ps = new PacienteService();
         DefaultTableModel modelo = (DefaultTableModel) tablaPacientes.getModel();
-       int idPaciente = (int) modelo.getValueAt(tablaPacientes.getSelectedRow(), 0);
+        int idPaciente = (int) modelo.getValueAt(tablaPacientes.getSelectedRow(), 0);
 
         if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE ELIMINAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
             ps.eliminarPaciente(idPaciente);
             llenarTablaTodos();
-            
+
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void txtRporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRporteActionPerformed
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         pdfPaciente p = new pdfPaciente();
         p.pdfTablaPacientes();
-               
-    }//GEN-LAST:event_txtRporteActionPerformed
 
-    private void txtPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPacienteActionPerformed
-      DefaultTableModel modelo = (DefaultTableModel) tablaPacientes.getModel();
+    }//GEN-LAST:event_btnReporteActionPerformed
+
+    private void btnPacienteRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacienteRActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) tablaPacientes.getModel();
         String apellido = modelo.getValueAt(tablaPacientes.getSelectedRow(), 0).toString();
         String nombre = modelo.getValueAt(tablaPacientes.getSelectedRow(), 1).toString();
-        
+
         pdfPaciente p = new pdfPaciente();
         p.pdfPorPaciente(apellido, nombre);
-    }//GEN-LAST:event_txtPacienteActionPerformed
+    }//GEN-LAST:event_btnPacienteRActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarD;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnPacienteR;
+    private javax.swing.JButton btnReporte;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -375,8 +379,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rbNoPeso;
     private javax.swing.JRadioButton rbTodos;
     private javax.swing.JTable tablaPacientes;
-    private javax.swing.JButton txtPaciente;
-    private javax.swing.JButton txtRporte;
     // End of variables declaration//GEN-END:variables
 
     public void llenarTablaTodos() {
@@ -388,7 +390,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-           
+
             modelo.addColumn("Apellido");
             modelo.addColumn("Nombre");
             modelo.addColumn("Domicilio");
@@ -403,7 +405,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 modelo.addRow(comida);
                 Paciente getP = (Paciente) paciente.get(i);
 
-               
                 modelo.setValueAt(getP.getApellido(), i, 0);
                 modelo.setValueAt(getP.getNombre(), i, 1);
                 modelo.setValueAt(getP.getDomicilio(), i, 2);
@@ -426,7 +427,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-           
+
             modelo.addColumn("Dieta");
             modelo.addColumn("Apellido ");
             modelo.addColumn("Nombre ");
@@ -444,7 +445,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 modelo.addRow(dieta);
                 Dieta getD = (Dieta) dietas.get(i);
 
-               
                 modelo.setValueAt(getD.getNombre(), i, 0);
                 modelo.setValueAt(getD.getIdPaciente().getApellido(), i, 1);
                 modelo.setValueAt(getD.getIdPaciente().getNombre(), i, 2);
@@ -470,7 +470,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            
+
             modelo.addColumn("Apellido ");
             modelo.addColumn("Apellido Paciente");
             modelo.addColumn("Nombre Paciente");
@@ -488,7 +488,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 modelo.addRow(dieta);
                 Dieta getD = (Dieta) dietas.get(i);
 
-               
                 modelo.setValueAt(getD.getNombre(), i, 0);
                 modelo.setValueAt(getD.getIdPaciente().getApellido(), i, 1);
                 modelo.setValueAt(getD.getIdPaciente().getNombre(), i, 2);
@@ -511,18 +510,17 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
             DietaService ds = new DietaService();
             HistorialService hs = new HistorialService();
             ArrayList dietas = ds.listaPacientePesoNoLlegado();
-            
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            
+
             modelo.addColumn("Apellido ");
             modelo.addColumn("Apellido Paciente");
             modelo.addColumn("Nombre Paciente");
             modelo.addColumn("Fecha Inicial");
             modelo.addColumn("Peso Inicial");
             modelo.addColumn("Peso actual");
-            
+
             modelo.addColumn("Peso Objetivo");
             modelo.addColumn("Fecha Final");
 
@@ -535,14 +533,13 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 modelo.addRow(dieta);
                 Dieta getD = (Dieta) dietas.get(i);
 
-              
                 modelo.setValueAt(getD.getNombre(), i, 0);
                 modelo.setValueAt(getD.getIdPaciente().getApellido(), i, 1);
                 modelo.setValueAt(getD.getIdPaciente().getNombre(), i, 2);
                 modelo.setValueAt(getD.getFechaInicial(), i, 3);
                 modelo.setValueAt(getD.getPesoInicial(), i, 4);
                 modelo.setValueAt(hs.buscarHistorialPorIDPaciente(getD.getIdPaciente().getIdPaciente()).getPeso(), i, 5);
-                
+
                 modelo.setValueAt(getD.getPesoFinal(), i, 6);
                 modelo.setValueAt(getD.getFechaFinal(), i, 7);
 
@@ -556,15 +553,17 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
     public void deshabilitarBotones() {
         btnAgregarD.setVisible(false);
-     
+        btnPacienteR.setVisible(false);
         btnEliminar.setVisible(false);
+        btnReporte.setVisible(false);
     }
 
     private void habilitarBotones() {
         btnAgregarD.setVisible(true);
-       
+        btnPacienteR.setVisible(true);
         btnEliminar.setVisible(true);
     }
+
     public void ControlaInstancia(JInternalFrame inter) {
 
         for (JInternalFrame frame : escritorio.getAllFrames()) {
