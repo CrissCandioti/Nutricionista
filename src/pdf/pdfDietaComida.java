@@ -95,7 +95,7 @@ public final class pdfDietaComida extends DAO {
             documento.add(texto);
 
             documento.close();
-            JOptionPane.showMessageDialog(null, "Se generó con éxito el Reporte");
+            JOptionPane.showMessageDialog(null, "Se generó con éxito el Reporte Dieta");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al realizar el reporte de la dieta" + e);
         }

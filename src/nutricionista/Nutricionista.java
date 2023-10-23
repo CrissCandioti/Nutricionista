@@ -11,6 +11,7 @@ import entidades.DietaComida;
 import entidades.Horario;
 import java.time.LocalDate;
 import pdf.pdfComida;
+import pdf.pdfDieta;
 import pdf.pdfDietaComida;
 import pdf.pdfHorario;
 import pdf.pdfPaciente;
@@ -53,6 +54,8 @@ public class Nutricionista {
 //        dao.guardarDietaComida(new DietaComida(cs.buscarComida(24), ds.buscarDietaPorId(15), Horario.ALMUERZO));
 //            System.out.println(dao.buscarDietaComidaPorId(17));
 
+pdfDietaComida d = new pdfDietaComida();
+d.pdfPorDietaID(1);
 
     }
     

@@ -26,7 +26,7 @@ import java.io.File;
  */
 public final class pdfComida extends DAO {
 
-    public void pdfTodasLasComidasTabla() {
+    public void pdfTablaComida() {
         try {
             String sql = "SELECT * FROM `comida` ORDER BY nombre ASC";
             consultarBaseDatos(sql);
@@ -71,7 +71,7 @@ public final class pdfComida extends DAO {
                 documento.add(tabla);
             }
             documento.close();
-            JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte");
+            JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte Comida");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
         }
@@ -122,7 +122,7 @@ public final class pdfComida extends DAO {
                 documento.add(tabla);
             }
             documento.close();
-            JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte");
+            JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte Comida Por Calorias");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
         }

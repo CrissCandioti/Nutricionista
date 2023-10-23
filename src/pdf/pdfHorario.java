@@ -30,7 +30,7 @@ import service.DietaService;
  */
 public final class pdfHorario extends DAO {
 
-    public void pdfTablaHorario(Horario index) {
+    public void pdfHorario(Horario index) {
         try {
             String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE Horario = '" + index + "'";
             consultarBaseDatos(sql);
@@ -92,7 +92,7 @@ public final class pdfHorario extends DAO {
             documento.add(texto);
 
             documento.close();
-            JOptionPane.showMessageDialog(null, "Se generó con éxito el Reporte");
+            JOptionPane.showMessageDialog(null, "Se generó con éxito el Reporte Horario");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al generar el reporte PDF " + e);
         }

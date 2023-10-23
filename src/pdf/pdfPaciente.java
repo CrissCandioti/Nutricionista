@@ -62,7 +62,7 @@ public final class pdfPaciente extends DAO {
             documento.add(parrafo);
 
             PdfPTable tabla = new PdfPTable(6);
-            tabla.addCell("ID");
+            tabla.addCell("CODIGO");
             tabla.addCell("Apellido");
             tabla.addCell("Nombre");
             tabla.addCell("DNI");
@@ -88,7 +88,7 @@ public final class pdfPaciente extends DAO {
 
     public void pdfPorPaciente(String apellido, String nombre) {
         try {
-            String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente` WHERE apellido = '"+apellido+"' and nombre= '"+nombre+"'" ;
+            String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente` WHERE apellido = '" + apellido + "' and nombre= '" + nombre + "'";
             consultarBaseDatos(sql);
 
             int contador = 0;
@@ -116,6 +116,7 @@ public final class pdfPaciente extends DAO {
             Paragraph texto = new Paragraph();
             texto.setAlignment(Paragraph.ALIGN_LEFT);
 
+            Chunk CODIGO = new Chunk("CODIGO:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
             Chunk APELLIDO = new Chunk("APELLIDO:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
             Chunk NOMBRE = new Chunk("NOMBRE:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
             Chunk DOCUMENTO = new Chunk("DOCUMENTO:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
@@ -124,6 +125,9 @@ public final class pdfPaciente extends DAO {
 
             while (resultado.next()) {
                 Paciente aux = new Paciente(resultado.getInt(1), resultado.getString(2), resultado.getString(3), resultado.getInt(4), resultado.getString(5), resultado.getString(6));
+
+                texto.add(CODIGO);
+                texto.add(" " + aux.getIdPaciente() + "\n\n");
 
                 texto.add(APELLIDO);
                 texto.add(" " + aux.getApellido() + "\n\n");
