@@ -71,7 +71,7 @@ public final class pdfComida extends DAO {
                 documento.add(tabla);
             }
             documento.close();
-            JOptionPane.showMessageDialog(null, "Se genero con exito el reporte Tabla Comidas");
+            JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
         }
@@ -122,7 +122,7 @@ public final class pdfComida extends DAO {
                 documento.add(tabla);
             }
             documento.close();
-            JOptionPane.showMessageDialog(null, "Se genero con exito el reporte Tabla Comidas por cantidad de calorias");
+            JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
         }
