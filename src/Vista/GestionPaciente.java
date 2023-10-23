@@ -67,7 +67,12 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         btnBuscarDni = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        setBorder(null);
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Cargar,Buscar Paciente");
+        setToolTipText("");
+        setPreferredSize(new java.awt.Dimension(828, 675));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -309,7 +314,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                     .addComponent(panelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 7, Short.MAX_VALUE))
+                .addGap(0, 37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -586,6 +591,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         // Si no está abierto, crea una nueva instancia 
         escritorio.add(inter);
         inter.setVisible(true);
+        inter.setLocation(400,80);
     }
 
     private void vaciarTabla() {

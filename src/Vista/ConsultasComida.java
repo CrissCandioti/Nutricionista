@@ -46,10 +46,12 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Consultas Comidas"));
+        setBorder(null);
         setClosable(true);
         setIconifiable(true);
         setTitle("Listado Comida");
+        setMinimumSize(new java.awt.Dimension(90, 18));
+        setPreferredSize(new java.awt.Dimension(828, 675));
 
         tablaComiida.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         tablaComiida.setModel(new javax.swing.table.DefaultTableModel(
@@ -60,27 +62,18 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                " Código", "Nombre", "Detalle", "Calorias"
+                "Código", "Nombre", "Detalle", "Calorias"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
-            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tablaComiida.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tablaComiida);
-        tablaComiida.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tablaComiida.getColumnModel().getColumnCount() > 0) {
             tablaComiida.getColumnModel().getColumn(0).setResizable(false);
             tablaComiida.getColumnModel().getColumn(1).setResizable(false);
@@ -173,7 +166,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(286, 286, 286)
                         .addComponent(jLabel2)))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(panelComida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -196,7 +189,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelComida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(12, Short.MAX_VALUE))
+                        .addContainerGap(129, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
