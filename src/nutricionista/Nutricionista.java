@@ -43,10 +43,10 @@ public class Nutricionista {
 //        PacienteService ps = new PacienteService();
 ////        ps.crearPaciente("Merlo", "Carlitox", 3312, "JR VIñas", "0342");
 //        HistorialService hs = new HistorialService();
-////        System.out.println(hs.listaHistorialesPorPaciente(1));
-//        Principal p = new Principal();
-//        p.setVisible(true);
-//        p.setLocationRelativeTo(null);
+//        System.out.println(hs.listaHistorialesPorPaciente(1));
+        Principal p = new Principal();
+        p.setVisible(true);
+        p.setLocationRelativeTo(null);
 //        DietaComidaDAO dao = new DietaComidaDAO();
 //        ComidaService cs = new ComidaService();
 //        DietaService ds = new DietaService();
@@ -54,8 +54,8 @@ public class Nutricionista {
 //        dao.guardarDietaComida(new DietaComida(cs.buscarComida(24), ds.buscarDietaPorId(15), Horario.ALMUERZO));
 //            System.out.println(dao.buscarDietaComidaPorId(17));
 
-pdfDietaComida d = new pdfDietaComida();
-d.pdfPorDietaID(1);
+//pdfDietaComida d = new pdfDietaComida();
+//d.pdfPorDietaID(1);
 
     }
     

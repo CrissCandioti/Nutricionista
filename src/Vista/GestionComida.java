@@ -69,7 +69,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
                 formMouseClicked(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         panelComida.setBackground(new java.awt.Color(255, 255, 255));
         panelComida.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Comida", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
@@ -168,7 +168,8 @@ public class GestionComida extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 6, 660, 330));
+        getContentPane().add(panelComida);
+        panelComida.setBounds(25, 6, 660, 330);
 
         tablaComidas.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         tablaComidas.setModel(new javax.swing.table.DefaultTableModel(
@@ -230,7 +231,8 @@ public class GestionComida extends javax.swing.JInternalFrame {
                 .addGap(0, 44, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelTablaComidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 333, 660, 330));
+        getContentPane().add(panelTablaComidas);
+        panelTablaComidas.setBounds(25, 333, 660, 330);
 
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +240,8 @@ public class GestionComida extends javax.swing.JInternalFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 580, 103, 38));
+        getContentPane().add(btnSalir);
+        btnSalir.setBounds(690, 580, 103, 38);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
