@@ -28,7 +28,7 @@ public final class pdfDieta extends DAO {
 
     public void pdfTablaPacientesDietaVigente(LocalDate fecha) {
         try {
-            String sql = "SELECT * FROM `dieta` WHERE `fechaFinal` > '" + fecha + "'";
+            String sql = "SELECT dieta.idDieta, paciente.apellido, paciente.nombre, dieta.fechaInicial, dieta.pesoInicial, dieta.pesoFinal,dieta.fechaFinal FROM `dieta` JOIN paciente ON dieta.idPaciente = paciente.idPaciente WHERE `fechaFinal` > '" + fecha + "'";
             consultarBaseDatos(sql);
 
             int contador = 0;
