@@ -151,7 +151,7 @@ public final class pdfPaciente extends DAO {
             documento.add(texto);
 
             documento.close();
-            JOptionPane.showMessageDialog(null, "Se generó con éxito el Reporte del Paciente");
+            JOptionPane.showMessageDialog(null, "Se generó con éxito el Reporte Por Paciente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
         }

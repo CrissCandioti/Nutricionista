@@ -28,7 +28,7 @@ public final class pdfDieta extends DAO {
 
     public void pdfTablaPacientesDietaVigente(LocalDate fecha) {
         try {
-            String sql = "SELECT dieta.idDieta, paciente.apellido, paciente.nombre, dieta.fechaInicial, dieta.pesoInicial, dieta.pesoFinal,dieta.fechaFinal FROM `dieta` JOIN paciente ON dieta.idPaciente = paciente.idPaciente WHERE `fechaFinal` > '" + fecha + "'";
+            String sql = "SELECT paciente.apellido, paciente.nombre, dieta.fechaInicial, dieta.pesoInicial, dieta.pesoFinal,dieta.fechaFinal FROM `dieta` JOIN paciente ON dieta.idPaciente = paciente.idPaciente WHERE `fechaFinal` > '" + fecha + "'";
             consultarBaseDatos(sql);
 
             int contador = 0;
@@ -57,8 +57,7 @@ public final class pdfDieta extends DAO {
             documento.add(header);
             documento.add(parrafo);
 
-            PdfPTable tabla = new PdfPTable(7);
-            tabla.addCell("CODIGO");
+            PdfPTable tabla = new PdfPTable(6);
             tabla.addCell("Apellido");
             tabla.addCell("Nombre");
             tabla.addCell("Fecha Inicial");
@@ -73,7 +72,6 @@ public final class pdfDieta extends DAO {
                     tabla.addCell(resultado.getString(4));
                     tabla.addCell(resultado.getString(5));
                     tabla.addCell(resultado.getString(6));
-                    tabla.addCell(resultado.getString(7));
                 } while (resultado.next());
                 documento.add(tabla);
             }
@@ -86,7 +84,7 @@ public final class pdfDieta extends DAO {
 
     public void pdfTablaPacientesDietaTerminada(LocalDate fecha) {
         try {
-            String sql = "SELECT dieta.idDieta, dieta.nombre, paciente.apellido, paciente.nombre, dieta.fechaInicial, dieta.pesoInicial, dieta.pesoFinal, dieta.fechaFinal FROM dieta JOIN paciente ON dieta.idPaciente = paciente.idPaciente WHERE dieta.fechaFinal <= '" + fecha + "'";
+            String sql = "SELECT dieta.nombre, paciente.apellido, paciente.nombre, dieta.fechaInicial, dieta.pesoInicial, dieta.pesoFinal, dieta.fechaFinal FROM dieta JOIN paciente ON dieta.idPaciente = paciente.idPaciente WHERE dieta.fechaFinal <= '" + fecha + "'";
             consultarBaseDatos(sql);
 
             int contador = 0;
@@ -115,8 +113,7 @@ public final class pdfDieta extends DAO {
             documento.add(header);
             documento.add(parrafo);
 
-            PdfPTable tabla = new PdfPTable(8);
-            tabla.addCell("CODIGO");
+            PdfPTable tabla = new PdfPTable(7);
             tabla.addCell("Dieta");
             tabla.addCell("Apellido Paciente");
             tabla.addCell("Nombre Paciente");
@@ -133,7 +130,6 @@ public final class pdfDieta extends DAO {
                     tabla.addCell(resultado.getString(5));
                     tabla.addCell(resultado.getString(6));
                     tabla.addCell(resultado.getString(7));
-                    tabla.addCell(resultado.getString(8));
                 } while (resultado.next());
                 documento.add(tabla);
             }

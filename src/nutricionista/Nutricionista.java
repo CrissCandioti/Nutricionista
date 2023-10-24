@@ -61,14 +61,14 @@ public class Nutricionista {
 //        c.pdfTablaComida();
 //        c.pdfTablaComidaPorCalorias(200);
 //        
-//        pdfDieta d = new pdfDieta();
+        pdfDieta d = new pdfDieta();
 //        d.pdfPacientesQueNoLlegaronAlPeso();
-//        d.pdfTablaPacientesDietaTerminada(LocalDate.now());
-//        d.pdfTablaPacientesDietaVigente(LocalDate.now());
-        
-        pdfHorario h = new pdfHorario();
-        h.pdfHorario(Horario.ALMUERZO);
-        
+        d.pdfTablaPacientesDietaTerminada(LocalDate.now());
+        d.pdfTablaPacientesDietaVigente(LocalDate.now());
+//        
+//        pdfHorario h = new pdfHorario();
+//        h.pdfHorario(Horario.ALMUERZO);
+//        
 //        pdfPaciente p = new pdfPaciente();
 //        p.pdfTablaPacientes();
 //        p.pdfPorPaciente("Pérez", "Juan");

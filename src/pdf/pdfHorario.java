@@ -55,6 +55,7 @@ public final class pdfHorario extends DAO {
             parrafo.setAlignment(Paragraph.ALIGN_CENTER);
             parrafo.add("Clinica Nutricional © \n\n");
             parrafo.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.DARK_GRAY));
+            parrafo.add("Horario \n\n");
 
             Paragraph texto = new Paragraph();
             texto.setAlignment(Paragraph.ALIGN_LEFT);
@@ -70,8 +71,6 @@ public final class pdfHorario extends DAO {
 
                 DietaComida aux = new DietaComida(resultado.getInt(1), cs.buscarComida(resultado.getInt(2)), ds.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4)));
 
-                parrafo.add(aux.getHorario() + " \n\n");
-
                 texto.add(APELLIDOYNOMBRE);
                 texto.add(" " + aux.getIdDieta().getIdPaciente().getApellido() + " " + aux.getIdDieta().getIdPaciente().getNombre() + "\n\n"
                 );
@@ -84,6 +83,8 @@ public final class pdfHorario extends DAO {
 
                 texto.add(HORARIO);
                 texto.add(" " + aux.getHorario() + "\n\n");
+                
+                texto.add("                                                                     ----- <*> ----- \n\n");
             }
 
             documento.open();
