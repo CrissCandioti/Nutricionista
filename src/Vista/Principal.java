@@ -32,15 +32,6 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         escritorio = new javax.swing.JDesktopPane();
-        panelConsultas = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
         panelBotones = new javax.swing.JPanel();
         btnAgregarPaciente = new javax.swing.JButton();
         btnAgregarDieta = new javax.swing.JButton();
@@ -55,7 +46,15 @@ public class Principal extends javax.swing.JFrame {
         btnConsultas = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel6 = new javax.swing.JLabel();
+        panelConsultas = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuPaciente = new javax.swing.JMenuItem();
@@ -72,79 +71,10 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1123, 854));
+        setPreferredSize(new java.awt.Dimension(1120, 850));
 
         escritorio.setBackground(new java.awt.Color(255, 255, 255));
         escritorio.setPreferredSize(new java.awt.Dimension(1200, 980));
-
-        panelConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultas"));
-
-        jLabel8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel8.setText("Listado de Comidas");
-
-        jLabel9.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel9.setText("Comidas por Horario");
-
-        jLabel10.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel10.setText("Listado de Dietas");
-
-        jLabel11.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel11.setText("Listado de Pacientes");
-
-        javax.swing.GroupLayout panelConsultasLayout = new javax.swing.GroupLayout(panelConsultas);
-        panelConsultas.setLayout(panelConsultasLayout);
-        panelConsultasLayout.setHorizontalGroup(
-            panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelConsultasLayout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelConsultasLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel8))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(18, 18, 18)
-                .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
-                .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addContainerGap(249, Short.MAX_VALUE))
-        );
-        panelConsultasLayout.setVerticalGroup(
-            panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelConsultasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelConsultasLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelConsultasLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel11))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelConsultasLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel10))
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConsultasLayout.createSequentialGroup()
-                            .addComponent(jLabel9)
-                            .addGap(76, 76, 76))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        escritorio.add(panelConsultas);
-        panelConsultas.setBounds(300, -10, 1020, 140);
 
         btnAgregarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/receipt_5239235.png"))); // NOI18N
         btnAgregarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -217,9 +147,6 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(panelBotonesLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel2))
-                    .addGroup(panelBotonesLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel1))
                     .addComponent(btnAgregarComida, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelBotonesLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
@@ -228,7 +155,6 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(panelBotonesLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(jLabel4))
-                    .addComponent(btnAgregarPaciente)
                     .addComponent(btnCrearDieta, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelBotonesLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
@@ -236,41 +162,45 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(btnConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelBotonesLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(jLabel7)))
+                        .addComponent(jLabel7))
+                    .addGroup(panelBotonesLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel1))
+                    .addComponent(btnAgregarPaciente))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         panelBotonesLayout.setVerticalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBotonesLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAgregarPaciente)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAgregarDieta)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAgregarComida)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHistorial)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCrearDieta)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnConsultas)
-                .addGap(0, 116, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         escritorio.add(panelBotones);
-        panelBotones.setBounds(15, 6, 230, 965);
+        panelBotones.setBounds(15, 6, 230, 780);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -278,9 +208,78 @@ public class Principal extends javax.swing.JFrame {
         escritorio.add(jSeparator1);
         jSeparator1.setBounds(263, 47, 9, 1007);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/_2ff28730-d995-4418-9d0a-cb667aeed1d4.jpeg"))); // NOI18N
-        escritorio.add(jLabel6);
-        jLabel6.setBounds(303, 6, 1039, 1024);
+        panelConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultas"));
+
+        jLabel8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel8.setText("Listado de Comidas");
+
+        jLabel9.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel9.setText("Comidas por Horario");
+
+        jLabel10.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel10.setText("Listado de Dietas");
+
+        jLabel11.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel11.setText("Listado de Pacientes");
+
+        javax.swing.GroupLayout panelConsultasLayout = new javax.swing.GroupLayout(panelConsultas);
+        panelConsultas.setLayout(panelConsultasLayout);
+        panelConsultasLayout.setHorizontalGroup(
+            panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelConsultasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelConsultasLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel8))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelConsultasLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel9))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConsultasLayout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)))
+                .addGap(18, 18, 18)
+                .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        panelConsultasLayout.setVerticalGroup(
+            panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConsultasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelConsultasLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelConsultasLayout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel11))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelConsultasLayout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel10))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConsultasLayout.createSequentialGroup()
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+
+        escritorio.add(panelConsultas);
+        panelConsultas.setBounds(290, 10, 760, 140);
 
         jMenu1.setText("Archivo");
 
@@ -385,17 +384,11 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1111, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1120, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 849, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -534,7 +527,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -569,6 +561,6 @@ public class Principal extends javax.swing.JFrame {
         
         escritorio.add(inter);
         inter.setVisible(true);
-        inter.setLocation(400, 80);
+        inter.setLocation(260, 80);
     }
 }
