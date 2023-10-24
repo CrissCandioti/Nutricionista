@@ -54,24 +54,6 @@ public class Nutricionista {
 //        dao.guardarDietaComida(new DietaComida(cs.buscarComida(24), ds.buscarDietaPorId(15), Horario.ALMUERZO));
 //            System.out.println(dao.buscarDietaComidaPorId(17));
 
-//        pdfDietaComida dc = new pdfDietaComida();
-//        dc.pdfPorDietaID(1);
-//        
-//        pdfComida c = new pdfComida();
-//        c.pdfTablaComida();
-//        c.pdfTablaComidaPorCalorias(200);
-//        
-        pdfDieta d = new pdfDieta();
-//        d.pdfPacientesQueNoLlegaronAlPeso();
-        d.pdfTablaPacientesDietaTerminada(LocalDate.now());
-        d.pdfTablaPacientesDietaVigente(LocalDate.now());
-//        
-//        pdfHorario h = new pdfHorario();
-//        h.pdfHorario(Horario.ALMUERZO);
-//        
-//        pdfPaciente p = new pdfPaciente();
-//        p.pdfTablaPacientes();
-//        p.pdfPorPaciente("Pérez", "Juan");
     }
     
 }
