@@ -80,7 +80,7 @@ public final class pdfPaciente extends DAO {
                 documento.add(tabla);
             }
             documento.close();
-            JOptionPane.showMessageDialog(null, "Se genero con exito el reporte");
+            JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte Tabla Paciente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
         }
@@ -151,7 +151,7 @@ public final class pdfPaciente extends DAO {
             documento.add(texto);
 
             documento.close();
-            JOptionPane.showMessageDialog(null, "Se generó con éxito el reporte");
+            JOptionPane.showMessageDialog(null, "Se generó con éxito el Reporte Por Paciente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
         }
