@@ -12,6 +12,7 @@ import entidades.Dieta;
 import entidades.Paciente;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -366,12 +367,17 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             int pesoI = Integer.parseInt(txtPesoInicial.getText());
             int pesoF = Integer.parseInt(txtPesoFinal.getText());
 
+            
             ds.crearDieta(nombre, idPaciente, LocalDate.parse(fechaI), pesoI, pesoF, LocalDate.parse(fechaF));
-            hs.crearHistorial(idPaciente, pesoI, LocalDate.parse(fechaI));
+            //hs.crearHistorial(idPaciente, pesoI, LocalDate.parse(fechaI));
             limpiar();
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en peso inicial y peso final");
+        } catch (NullPointerException f) {
+            JOptionPane.showMessageDialog(null, "Seleccione un paciente");
+        } catch (DateTimeParseException x) {
+            JOptionPane.showMessageDialog(null, "No deje las celdas de las fechas vacias");
         } catch (Exception ex) {
             System.out.println(ex);
         }

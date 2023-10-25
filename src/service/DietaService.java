@@ -27,6 +27,7 @@ public class DietaService {
     public void crearDieta(String nombre, int idPaciente, LocalDate fechaInicial, double pesoInicial, double pesoFinal, LocalDate fechaFinal) {
         try {
             DietaDAO dao = new DietaDAO();
+            HistorialService hs = new HistorialService();
             PacienteService ps = new PacienteService();
             if (nombre.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "La celda del nombre no puede estar vacia");
@@ -49,6 +50,7 @@ public class DietaService {
             }
             dao.guardarDieta(new Dieta(nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal));
             JOptionPane.showMessageDialog(null, "Se guardo correctamente la dieta");
+            hs.crearHistorial(idPaciente, pesoFinal, fechaInicial);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al crear la dieta");
         }

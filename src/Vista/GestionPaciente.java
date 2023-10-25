@@ -348,9 +348,9 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             String nombre = txtNombre.getText();
             int dni = Integer.parseInt(txtDni.getText());
             String domicilio = txtDomicilio.getText();
-            String telefono = txtTelefono.getText();          
+            String telefono = txtTelefono.getText();
             ps.crearPaciente(apellido, nombre, dni, domicilio, telefono);
-            
+
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en dni Por Favor!");
         } catch (HeadlessException ex) {
@@ -455,7 +455,9 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 llenarTabla(dni);
             }
         } catch (NumberFormatException e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "La celda del documento no puede estar vacia");
+        } catch (Exception f) {
+            JOptionPane.showMessageDialog(null, "Error: " + f);
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
@@ -473,7 +475,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
     private void btnAgregarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDietaActionPerformed
         int idPaciente = Integer.parseInt(txtId.getText());
-        
+
         GestionDieta gs = new GestionDieta();
         ControlaInstancia(gs);
 
@@ -485,7 +487,6 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         GestionDieta.cmbPaciente.addItem(pa);
         this.dispose();
 
-        
 
     }//GEN-LAST:event_btnAgregarDietaActionPerformed
 
@@ -591,7 +592,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         // Si no está abierto, crea una nueva instancia 
         escritorio.add(inter);
         inter.setVisible(true);
-        inter.setLocation(400,80);
+        inter.setLocation(400, 80);
     }
 
     private void vaciarTabla() {
