@@ -63,7 +63,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setTitle("Gestión Comida");
         setMinimumSize(new java.awt.Dimension(90, 18));
-        setPreferredSize(new java.awt.Dimension(828, 675));
+        setPreferredSize(new java.awt.Dimension(800, 675));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);

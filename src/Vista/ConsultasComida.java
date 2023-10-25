@@ -51,7 +51,9 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setTitle("Listado Comida");
         setMinimumSize(new java.awt.Dimension(90, 18));
-        setPreferredSize(new java.awt.Dimension(828, 675));
+        setPreferredSize(new java.awt.Dimension(800, 563));
+        setVisible(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaComiida.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         tablaComiida.setModel(new javax.swing.table.DefaultTableModel(
@@ -104,7 +106,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
             .addGroup(panelComidaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
@@ -122,6 +124,8 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getContentPane().add(panelComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 92, -1, -1));
+
         buttonGroup1.add(rbTodas);
         rbTodas.setText("Todas las comidas");
         rbTodas.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +133,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 rbTodasActionPerformed(evt);
             }
         });
+        getContentPane().add(rbTodas, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 68, -1, -1));
 
         buttonGroup1.add(rbCantCalorias);
         rbCantCalorias.setText("Comidas por cantidad de calorias");
@@ -137,9 +142,12 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 rbCantCaloriasActionPerformed(evt);
             }
         });
+        getContentPane().add(rbCantCalorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 68, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel2.setText("Listado de Comidas");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 8, -1, -1));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 38, 568, 10));
 
         jButton1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jButton1.setText("SALIR");
@@ -148,53 +156,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(rbTodas)
-                        .addGap(111, 111, 111)
-                        .addComponent(rbCantCalorias))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(286, 286, 286)
-                        .addComponent(jLabel2)))
-                .addContainerGap(177, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(panelComida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addGap(31, 31, 31))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbTodas)
-                    .addComponent(rbCantCalorias))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelComida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(129, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(22, 22, 22))))
-        );
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

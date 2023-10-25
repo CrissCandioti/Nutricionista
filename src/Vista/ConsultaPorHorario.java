@@ -48,7 +48,7 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setTitle("Consulta por Horario");
         setMinimumSize(new java.awt.Dimension(90, 18));
-        setPreferredSize(new java.awt.Dimension(828, 675));
+        setPreferredSize(new java.awt.Dimension(800, 675));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel1.setText("Seleccione Horario");
@@ -113,7 +113,7 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1)

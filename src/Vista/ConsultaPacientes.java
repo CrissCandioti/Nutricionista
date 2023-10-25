@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import pdf.pdfDieta;
 import pdf.pdfPaciente;
 import service.DietaService;
 import service.HistorialService;
@@ -51,20 +52,25 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPacientes = new javax.swing.JTable();
+        btnAgregarD = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnPacienteR = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
+        btnReporteDietasVig = new javax.swing.JButton();
+        btnRporteDietasTerminadas = new javax.swing.JButton();
+        btnReporteNoLLegaron = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        btnAgregarD = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnReporte = new javax.swing.JButton();
-        btnPacienteR = new javax.swing.JButton();
 
+        setBorder(null);
         setClosable(true);
         setIconifiable(true);
         setTitle("Listado de Pacientes");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buttonGroup1.add(rbTodos);
         rbTodos.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
@@ -74,6 +80,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 rbTodosActionPerformed(evt);
             }
         });
+        getContentPane().add(rbTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 128, -1, -1));
 
         buttonGroup1.add(rbDietasTerminadas);
         rbDietasTerminadas.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
@@ -83,6 +90,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 rbDietasTerminadasActionPerformed(evt);
             }
         });
+        getContentPane().add(rbDietasTerminadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 128, -1, -1));
 
         buttonGroup1.add(rbDietasVigentes);
         rbDietasVigentes.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
@@ -92,6 +100,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 rbDietasVigentesActionPerformed(evt);
             }
         });
+        getContentPane().add(rbDietasVigentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 128, -1, -1));
 
         buttonGroup1.add(rbNoPeso);
         rbNoPeso.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
@@ -101,6 +110,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 rbNoPesoActionPerformed(evt);
             }
         });
+        getContentPane().add(rbNoPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 128, -1, -1));
 
         tablaPacientes.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         tablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
@@ -124,43 +134,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tablaPacientes);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setText("Fecha :");
-
-        lblFecha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFecha.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-        jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel2.setText("Listado de Pacientes");
-
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel3.setText("Seleccione...");
-
-        jButton1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jButton1.setText("SALIR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         btnAgregarD.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         btnAgregarD.setText("AGREGAR DIETA");
         btnAgregarD.addActionListener(new java.awt.event.ActionListener() {
@@ -177,13 +150,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
             }
         });
 
-        btnReporte.setText("Imprimir Reporte");
-        btnReporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReporteActionPerformed(evt);
-            }
-        });
-
         btnPacienteR.setText("Imprimir Paciente");
         btnPacienteR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,84 +157,103 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rbTodos)
-                                .addGap(18, 18, 18)
-                                .addComponent(rbDietasVigentes)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbDietasTerminadas)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbNoPeso))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addGap(118, 118, 118)
-                                            .addComponent(jLabel1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 679, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAgregarD, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnPacienteR)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnReporte)
-                                .addGap(75, 75, 75)))))
-                .addContainerGap(85, Short.MAX_VALUE))
+        btnReporte.setText("Imprimir Todos");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+
+        btnReporteDietasVig.setText("Imprimir Reporte");
+        btnReporteDietasVig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteDietasVigActionPerformed(evt);
+            }
+        });
+
+        btnRporteDietasTerminadas.setText("Imprimir Reporte");
+        btnRporteDietasTerminadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRporteDietasTerminadasActionPerformed(evt);
+            }
+        });
+
+        btnReporteNoLLegaron.setText("Imprimir Reporte");
+        btnReporteNoLLegaron.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteNoLLegaronActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAgregarD, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPacienteR)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnReporteDietasVig)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnReporteNoLLegaron)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRporteDietasTerminadas)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbTodos)
-                    .addComponent(rbDietasVigentes)
-                    .addComponent(rbNoPeso)
-                    .addComponent(rbDietasTerminadas))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarD)
                     .addComponent(btnEliminar)
+                    .addComponent(btnPacienteR)
+                    .addComponent(btnRporteDietasTerminadas)
                     .addComponent(btnReporte)
-                    .addComponent(btnPacienteR))
-                .addGap(8, 8, 8)
-                .addComponent(jButton1)
-                .addContainerGap(102, Short.MAX_VALUE))
+                    .addComponent(btnReporteDietasVig)
+                    .addComponent(btnReporteNoLLegaron))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 153, 690, 370));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setText("Fecha :");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 49, -1, -1));
+
+        lblFecha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFecha.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(612, 39, 94, 27));
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel2.setText("Listado de Pacientes");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 22, -1, -1));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 78, 679, 10));
+
+        jLabel3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jLabel3.setText("Seleccione...");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 91, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jButton1.setText("SALIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 480, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -277,11 +262,13 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         deshabilitarBotones();
         LocalDate fecha = LocalDate.parse(lblFecha.getText());
         llenarTablaDietaVigente(fecha);
+        btnReporteDietasVig.setVisible(true);
     }//GEN-LAST:event_rbDietasVigentesActionPerformed
 
     private void rbNoPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNoPesoActionPerformed
         deshabilitarBotones();
         llenarTablaPesoNoLlegado();
+        btnReporteNoLLegaron.setVisible(true);
     }//GEN-LAST:event_rbNoPesoActionPerformed
 
     private void rbTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbTodosActionPerformed
@@ -296,6 +283,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         System.out.println(fecha);
         LocalDate fecha1 = LocalDate.parse(fecha);
         llenarTablaDietaTerminada(fecha1);
+        btnRporteDietasTerminadas.setVisible(true);
     }//GEN-LAST:event_rbDietasTerminadasActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -359,12 +347,33 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         p.pdfPorPaciente(apellido, nombre);
     }//GEN-LAST:event_btnPacienteRActionPerformed
 
+    private void btnReporteDietasVigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteDietasVigActionPerformed
+       String fecha = lblFecha.getText().toString();
+        pdfDieta p = new pdfDieta();
+        p.pdfTablaPacientesDietaVigente(LocalDate.parse(fecha));
+    }//GEN-LAST:event_btnReporteDietasVigActionPerformed
+
+    private void btnRporteDietasTerminadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRporteDietasTerminadasActionPerformed
+        String fecha = lblFecha.getText().toString();
+        pdfDieta p = new pdfDieta();
+       p.pdfTablaPacientesDietaTerminada(LocalDate.parse(fecha));
+    }//GEN-LAST:event_btnRporteDietasTerminadasActionPerformed
+
+    private void btnReporteNoLLegaronActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteNoLLegaronActionPerformed
+         
+        pdfDieta p = new pdfDieta();
+       p.pdfPacientesQueNoLlegaronAlPeso();
+    }//GEN-LAST:event_btnReporteNoLLegaronActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarD;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnPacienteR;
     private javax.swing.JButton btnReporte;
+    private javax.swing.JButton btnReporteDietasVig;
+    private javax.swing.JButton btnReporteNoLLegaron;
+    private javax.swing.JButton btnRporteDietasTerminadas;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -556,6 +565,9 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         btnPacienteR.setVisible(false);
         btnEliminar.setVisible(false);
         btnReporte.setVisible(false);
+        btnReporteDietasVig.setVisible(false);
+        btnRporteDietasTerminadas.setVisible(false);
+        btnReporteNoLLegaron.setVisible(false);
     }
 
     private void habilitarBotones() {

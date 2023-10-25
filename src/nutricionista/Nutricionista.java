@@ -43,7 +43,7 @@ public class Nutricionista {
 //        PacienteService ps = new PacienteService();
 ////        ps.crearPaciente("Merlo", "Carlitox", 3312, "JR VIñas", "0342");
 //        HistorialService hs = new HistorialService();
-//        System.out.println(hs.listaHistorialesPorPaciente(1));
+////        System.out.println(hs.listaHistorialesPorPaciente(1));
         Principal p = new Principal();
         p.setVisible(true);
         p.setLocationRelativeTo(null);
@@ -56,6 +56,9 @@ public class Nutricionista {
 
 //pdfDietaComida d = new pdfDietaComida();
 //d.pdfPorDietaID(1);
+        
+//        pdfDieta d = new pdfDieta();
+//        d.pdfPacientesQueNoLlegaronAlPeso();
 
     }
     

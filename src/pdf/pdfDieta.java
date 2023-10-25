@@ -142,7 +142,11 @@ public final class pdfDieta extends DAO {
 
     public void pdfPacientesQueNoLlegaronAlPeso() {
         try {
-            String sql = "SELECT dieta.nombre,paciente.apellido,paciente.nombre,dieta.fechaInicial,dieta.pesoInicial,historial.peso,dieta.pesoFinal,dieta.fechaFinal FROM dieta INNER JOIN paciente ON dieta.idPaciente = paciente.idPaciente INNER JOIN historial ON dieta.idPaciente = historial.idPaciente WHERE dieta.pesoFinal < (SELECT historial.peso FROM historial WHERE historial.idPaciente = dieta.idPaciente ORDER BY historial.fechaRegistro DESC LIMIT 1) AND dieta.fechaFinal <= CURRENT_DATE";
+            String sql = "SELECT dieta.nombre,paciente.apellido,paciente.nombre,dieta.fechaInicial,dieta.pesoInicial,historial.peso,dieta.pesoFinal,dieta.fechaFinal "
+                    + "FROM dieta INNER JOIN paciente ON dieta.idPaciente = paciente.idPaciente INNER JOIN historial ON dieta.idPaciente = historial.idPaciente "
+                    + "WHERE dieta.pesoFinal < (SELECT historial.peso FROM historial WHERE historial.idPaciente = dieta.idPaciente "
+                    + "ORDER BY historial.fechaRegistro DESC LIMIT 1) "
+                    + "AND dieta.fechaFinal <= CURRENT_DATE";
             consultarBaseDatos(sql);
 
             int contador = 0;
