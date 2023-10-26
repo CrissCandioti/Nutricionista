@@ -373,7 +373,6 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             int pesoI = Integer.parseInt(txtPesoInicial.getText());
             int pesoF = Integer.parseInt(txtPesoFinal.getText());
 
-            
             ds.crearDieta(nombre, idPaciente, LocalDate.parse(fechaI), pesoI, pesoF, LocalDate.parse(fechaF));
             //hs.crearHistorial(idPaciente, pesoI, LocalDate.parse(fechaI));
             limpiar();
@@ -391,14 +390,21 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
-        if (cmbPaciente.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(this, "Seleccione un paciente por favor.");
-        } else {
-            panelDieta.setVisible(true);
+//        if (cmbPaciente.getSelectedItem() == null) {
+//            JOptionPane.showMessageDialog(this, "Seleccione un paciente por favor.");
+//        } else {
+//            panelDieta.setVisible(true);
 //        limpiar();
+//            int id = cmbPaciente.getItemAt(cmbPaciente.getSelectedIndex()).getIdPaciente();
+//            llenarTabla(id);
+//        }
+        if (cmbPaciente.getSelectedItem() != null) {
+            panelDieta.setVisible(true);
+//            limpiar();
             int id = cmbPaciente.getItemAt(cmbPaciente.getSelectedIndex()).getIdPaciente();
             llenarTabla(id);
-
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione un paciente por favor.");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -494,11 +500,9 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         PacienteService ps = new PacienteService();
         Paciente pa = new Paciente();
         pa = ps.buscarPacientePorID(idPaciente);
-     
+
         GestionHistorial.cmbPaciente.removeAllItems();
         GestionHistorial.cmbPaciente.addItem(pa);
-        
-     
 
 
     }//GEN-LAST:event_btnHistorialActionPerformed
