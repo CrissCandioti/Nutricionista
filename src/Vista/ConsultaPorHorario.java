@@ -11,6 +11,7 @@ import entidades.Horario;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import pdf.pdfHorario;
 import service.DietaComidaService;
 import service.DietaService;
 
@@ -41,6 +42,7 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaHorario = new javax.swing.JTable();
+        btnRporte = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setBorder(null);
@@ -49,9 +51,11 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
         setTitle("Consulta por Horario");
         setMinimumSize(new java.awt.Dimension(90, 18));
         setPreferredSize(new java.awt.Dimension(800, 675));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel1.setText("Seleccione Horario");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 39, -1, -1));
 
         comboHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "DESAYUNO", "ALMUERZO", "MERIENDA", "CENA", "SNACK" }));
         comboHorario.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +63,7 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
                 comboHorarioActionPerformed(evt);
             }
         });
+        getContentPane().add(comboHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 36, 216, 35));
 
         tablaHorario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         tablaHorario.setModel(new javax.swing.table.DefaultTableModel(
@@ -74,6 +79,14 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablaHorario);
 
+        btnRporte.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        btnRporte.setText("Imprimir Reporte");
+        btnRporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRporteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -81,15 +94,23 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRporte)
+                .addGap(59, 59, 59))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRporte)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 77, 620, -1));
 
         jButton1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jButton1.setText("SALIR");
@@ -98,40 +119,7 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(114, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(67, 67, 67))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(comboHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(146, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 460, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -147,8 +135,15 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnRporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRporteActionPerformed
+        String horario = comboHorario.getSelectedItem().toString();
+        pdfHorario h = new pdfHorario();
+        h.pdfHorario(Horario.valueOf(horario));
+    }//GEN-LAST:event_btnRporteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRporte;
     private javax.swing.JComboBox<String> comboHorario;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

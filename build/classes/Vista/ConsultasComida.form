@@ -43,7 +43,7 @@
     <Container class="javax.swing.JPanel" name="panelComida">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="92" width="-1" height="-1"/>
+          <AbsoluteConstraints x="40" y="70" width="-1" height="450"/>
         </Constraint>
       </Constraints>
 
@@ -57,9 +57,16 @@
                   <Component id="txtCalorias" min="-2" pref="112" max="-2" attributes="0"/>
                   <EmptySpace pref="244" max="32767" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace pref="391" max="32767" attributes="0"/>
+                          <Component id="btnComidas" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnComidasPorCalorias" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -73,8 +80,13 @@
                       <Component id="txtCalorias" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="375" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="350" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnComidas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnComidasPorCalorias" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -145,6 +157,22 @@
             <Property name="text" type="java.lang.String" value="Ingrese Cantidad de Calorias"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JButton" name="btnComidas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Imprimir Reporte"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnComidasActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnComidasPorCalorias">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Imprimir Reporte"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnComidasPorCaloriasActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JRadioButton" name="rbTodas">
@@ -159,7 +187,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="159" y="68" width="-1" height="-1"/>
+          <AbsoluteConstraints x="160" y="50" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -175,7 +203,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="398" y="68" width="-1" height="-1"/>
+          <AbsoluteConstraints x="400" y="50" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

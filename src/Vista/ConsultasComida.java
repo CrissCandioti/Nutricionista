@@ -9,6 +9,7 @@ import entidades.Comida;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import pdf.pdfComida;
 import service.ComidaService;
 
 /**
@@ -23,6 +24,8 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
     public ConsultasComida() {
         initComponents();
         panelComida.setVisible(false);
+        btnComidas.setVisible(false);
+        btnComidasPorCalorias.setVisible(false);
     }
 
     /**
@@ -40,6 +43,8 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         tablaComiida = new javax.swing.JTable();
         txtCalorias = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btnComidas = new javax.swing.JButton();
+        btnComidasPorCalorias = new javax.swing.JButton();
         rbTodas = new javax.swing.JRadioButton();
         rbCantCalorias = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
@@ -97,6 +102,20 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         jLabel1.setText("Ingrese Cantidad de Calorias");
 
+        btnComidas.setText("Imprimir Reporte");
+        btnComidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComidasActionPerformed(evt);
+            }
+        });
+
+        btnComidasPorCalorias.setText("Imprimir Reporte");
+        btnComidasPorCalorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComidasPorCaloriasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelComidaLayout = new javax.swing.GroupLayout(panelComida);
         panelComida.setLayout(panelComidaLayout);
         panelComidaLayout.setHorizontalGroup(
@@ -108,8 +127,13 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(244, Short.MAX_VALUE))
             .addGroup(panelComidaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelComidaLayout.createSequentialGroup()
+                        .addContainerGap(391, Short.MAX_VALUE)
+                        .addComponent(btnComidas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnComidasPorCalorias))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         panelComidaLayout.setVerticalGroup(
@@ -120,11 +144,15 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnComidas)
+                    .addComponent(btnComidasPorCalorias))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 92, -1, -1));
+        getContentPane().add(panelComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 450));
 
         buttonGroup1.add(rbTodas);
         rbTodas.setText("Todas las comidas");
@@ -133,7 +161,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 rbTodasActionPerformed(evt);
             }
         });
-        getContentPane().add(rbTodas, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 68, -1, -1));
+        getContentPane().add(rbTodas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
 
         buttonGroup1.add(rbCantCalorias);
         rbCantCalorias.setText("Comidas por cantidad de calorias");
@@ -142,7 +170,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 rbCantCaloriasActionPerformed(evt);
             }
         });
-        getContentPane().add(rbCantCalorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 68, -1, -1));
+        getContentPane().add(rbCantCalorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel2.setText("Listado de Comidas");
@@ -179,6 +207,8 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         panelComida.setVisible(true);
         txtCalorias.setVisible(false);
         jLabel1.setVisible(false);
+        btnComidas.setVisible(true);
+         btnComidasPorCalorias.setVisible(false);
         llenarTablaTodas();
 
     }//GEN-LAST:event_rbTodasActionPerformed
@@ -188,6 +218,8 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         panelComida.setVisible(true);
         txtCalorias.setVisible(true);
         jLabel1.setVisible(true);
+         btnComidas.setVisible(false);
+        btnComidasPorCalorias.setVisible(true);
 
         DefaultTableModel model = (DefaultTableModel) tablaComiida.getModel();
         model.setRowCount(0);
@@ -197,8 +229,21 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnComidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComidasActionPerformed
+       pdfComida c = new pdfComida();
+       c.pdfTablaComida();
+    }//GEN-LAST:event_btnComidasActionPerformed
+
+    private void btnComidasPorCaloriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComidasPorCaloriasActionPerformed
+        int calorias = Integer.parseInt(txtCalorias.getText());
+        pdfComida c = new pdfComida();
+       c.pdfTablaComidaPorCalorias(calorias);
+    }//GEN-LAST:event_btnComidasPorCaloriasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnComidas;
+    private javax.swing.JButton btnComidasPorCalorias;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

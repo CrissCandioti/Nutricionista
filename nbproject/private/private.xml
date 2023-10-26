@@ -4,21 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Guias">
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/Principal.java</file>
+            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/service/DietaService.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/ConsultaPacientes.java</file>
-            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/GestionHistorial.java</file>
-            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/ConsultaPorHorario.java</file>
-            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/GestionDietaComida.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/accesoDatos/DietaDAO.java</file>
+            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/ConsultasComida.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/pdf/pdfDieta.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/nutricionista/Nutricionista.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/ConsultaDietas.java</file>
-            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/service/DietaService.java</file>
-            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/GestionPaciente.java</file>
-            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/service/PacienteService.java</file>
-            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/GestionComida.java</file>
-            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/ConsultasComida.java</file>
-            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/GestionDieta.java</file>
-            <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/accesoDatos/PacienteDAO.java</file>
         </group>
         <group>
             <file>file:/C:/Users/criss/OneDrive/Documentos/NetBeansProjects/Nutricionista/src/nutricionista/Nutricionista.java</file>

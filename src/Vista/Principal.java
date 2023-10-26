@@ -75,7 +75,6 @@ public class Principal extends javax.swing.JFrame {
         setTitle("Software Clinica NUTRICIONAL");
         setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         setForeground(new java.awt.Color(153, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1100, 730));
         setSize(new java.awt.Dimension(1100, 730));
 
         escritorio.setBackground(new java.awt.Color(255, 255, 255));
@@ -84,6 +83,8 @@ public class Principal extends javax.swing.JFrame {
         panelBotones.setBorder(javax.swing.BorderFactory.createTitledBorder("Menus"));
         panelBotones.setLayout(null);
 
+        btnAgregarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/receipt_5239235.png"))); // NOI18N
+        btnAgregarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregarPaciente.setPreferredSize(new java.awt.Dimension(150, 70));
         btnAgregarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +94,8 @@ public class Principal extends javax.swing.JFrame {
         panelBotones.add(btnAgregarPaciente);
         btnAgregarPaciente.setBounds(30, 40, 150, 70);
 
+        btnAgregarDieta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/diet_7152806.png"))); // NOI18N
+        btnAgregarDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregarDieta.setPreferredSize(new java.awt.Dimension(150, 70));
         btnAgregarDieta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +105,8 @@ public class Principal extends javax.swing.JFrame {
         panelBotones.add(btnAgregarDieta);
         btnAgregarDieta.setBounds(30, 130, 150, 70);
 
+        btnAgregarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salad_4780416.png"))); // NOI18N
+        btnAgregarComida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregarComida.setPreferredSize(new java.awt.Dimension(150, 70));
         btnAgregarComida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +131,8 @@ public class Principal extends javax.swing.JFrame {
         panelBotones.add(jLabel3);
         jLabel3.setBounds(50, 200, 112, 19);
 
+        btnHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/medical-history_10522820.png"))); // NOI18N
+        btnHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHistorial.setPreferredSize(new java.awt.Dimension(150, 70));
         btnHistorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +147,8 @@ public class Principal extends javax.swing.JFrame {
         panelBotones.add(jLabel4);
         jLabel4.setBounds(50, 290, 97, 19);
 
+        btnCrearDieta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/healthy_1813376.png"))); // NOI18N
+        btnCrearDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrearDieta.setPreferredSize(new java.awt.Dimension(150, 70));
         btnCrearDieta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +163,8 @@ public class Principal extends javax.swing.JFrame {
         panelBotones.add(jLabel5);
         jLabel5.setBounds(60, 390, 79, 19);
 
+        btnConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shopping-list_7792887.png"))); // NOI18N
+        btnConsultas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConsultas.setPreferredSize(new java.awt.Dimension(150, 70));
         btnConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
