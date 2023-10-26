@@ -162,7 +162,7 @@ public void llenarTabla(String horario) {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("Id");
+            
             modelo.addColumn("Apellido Paciente");
             modelo.addColumn("Nombre Paciente");
             modelo.addColumn("Comida");
@@ -179,11 +179,11 @@ public void llenarTabla(String horario) {
                 modelo.addRow(dietacomida);
                 DietaComida getC = (DietaComida) dietComida.get(i);
 
-                modelo.setValueAt(getC.getIdDietaComida(), i, 0);
-                modelo.setValueAt(getC.getIdDieta().getIdPaciente().getApellido(), i, 1);
-                modelo.setValueAt(getC.getIdDieta().getIdPaciente().getNombre(), i, 2);
-                modelo.setValueAt(getC.getIdComida().getNombre(), i, 3);
-                modelo.setValueAt(getC.getHorario().toString(), i, 4);
+               
+                modelo.setValueAt(getC.getIdDieta().getIdPaciente().getApellido(), i, 0);
+                modelo.setValueAt(getC.getIdDieta().getIdPaciente().getNombre(), i, 1);
+                modelo.setValueAt(getC.getIdComida().getNombre(), i, 2);
+                modelo.setValueAt(getC.getHorario().toString(), i, 3);
 
             }
         } catch (NullPointerException e) {

@@ -5,14 +5,12 @@
  */
 package Vista;
 
-import entidades.Comida;
 import entidades.Dieta;
 import entidades.DietaComida;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pdf.pdfDietaComida;
-import service.ComidaService;
 import service.DietaComidaService;
 import service.DietaService;
 
@@ -153,11 +151,13 @@ public class ConsultaDietas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDietaActionPerformed
-       
+       try{
         int id = cmbDieta.getItemAt(cmbDieta.getSelectedIndex()).getIdDieta();
-        System.out.println(id);
+       
         llenarTabla(id);
-        
+       }catch(Exception e){
+        JOptionPane.showMessageDialog(this, e);
+    }
     }//GEN-LAST:event_cmbDietaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

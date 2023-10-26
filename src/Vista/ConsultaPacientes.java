@@ -280,7 +280,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
     private void rbDietasTerminadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbDietasTerminadasActionPerformed
         deshabilitarBotones();
         String fecha = lblFecha.getText();
-        System.out.println(fecha);
         LocalDate fecha1 = LocalDate.parse(fecha);
         llenarTablaDietaTerminada(fecha1);
         btnRporteDietasTerminadas.setVisible(true);
@@ -331,7 +330,8 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
-
+// Metodos para generar los reportes..
+    
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         pdfPaciente p = new pdfPaciente();
         p.pdfTablaPacientes();

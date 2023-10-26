@@ -59,10 +59,10 @@ public class GestionComida extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
-        setClosable(true);
         setIconifiable(true);
-        setTitle("Gestión Comida");
+        setTitle("Gestión Comida.");
         setMinimumSize(new java.awt.Dimension(90, 18));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(800, 675));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -71,7 +71,6 @@ public class GestionComida extends javax.swing.JInternalFrame {
         });
         getContentPane().setLayout(null);
 
-        panelComida.setBackground(new java.awt.Color(255, 255, 255));
         panelComida.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Comida", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
 
         jLabel1.setFont(new java.awt.Font("Bodoni Bk BT", 1, 24)); // NOI18N

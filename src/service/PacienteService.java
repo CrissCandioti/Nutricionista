@@ -11,7 +11,6 @@ import entidades.Paciente;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  * El paquete Service contiene las clases comidaService, dietaService,
@@ -134,52 +133,52 @@ public class PacienteService {
             String cadenaDni = Integer.toString(dni);
             String cadenaDniReglamentarioMinimo = Integer.toString(dniReglamentarioMinimo);
             String cadenaDniReglamentarioMaximo = Integer.toString(dniReglamentarioMaximo);
-//            if (apellido.isEmpty()) {
-//                JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
-//                return;
-//            }
-//            if (nombre.isEmpty()) {
-//                JOptionPane.showMessageDialog(null, "La celda del nombre no puede estar vacia");
-//                return;
-//            }
-//            if (domicilio.isEmpty()) {
-//                JOptionPane.showMessageDialog(null, "La celda del domicilio no puede estar vacia");
-//                return;
-//            }
-//            if (telefono.isEmpty()) {
-//                JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
-//                return;
-//            }
-//            if (dao.buscarPacientePorDNI(dni) != null) {
-//                JOptionPane.showMessageDialog(null, "Tenemos registrado un paciente con el mismo numero de documento");
-//                return;
-//            }
-//            if (nombre.length() < 3 || apellido.length() < 3) {
-//                JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
-//                return;
-//            }
-//            char primerCaracterA = apellido.charAt(0);
-//            if (Character.isDigit(primerCaracterA)) {
-//                JOptionPane.showMessageDialog(null, "El apellido no puede comenzar con numeros");
-//                return;
-//            }
-//            for (char caracter : apellido.toCharArray()) {
-//                if (Character.isDigit(caracter)) {
-//                    JOptionPane.showMessageDialog(null, "El apellido no puede contener caracteres numericos");
-//                    return;
-//                }
-//            }
-//            char primerCaracterN = nombre.charAt(0);
-//            if (Character.isDigit(primerCaracterN)) {
-//                JOptionPane.showMessageDialog(null, "El nombre no puede comenzar con numeros");
-//                return;
-//            }
-//            for (char caracter : nombre.toCharArray()) {
-//                if (Character.isDigit(caracter)) {
-//                    JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
-//                    return;
-//                }
-//            }
+            if (apellido.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
+                return;
+            }
+            if (nombre.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "La celda del nombre no puede estar vacia");
+                return;
+            }
+            if (domicilio.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "La celda del domicilio no puede estar vacia");
+                return;
+            }
+            if (telefono.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
+                return;
+            }
+            if (dao.buscarPacientePorDNI(dni) != null) {
+                JOptionPane.showMessageDialog(null, "Tenemos registrado un paciente con el mismo numero de documento");
+                return;
+            }
+            if (nombre.length() < 3 || apellido.length() < 3) {
+                JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
+                return;
+            }
+            char primerCaracterA = apellido.charAt(0);
+            if (Character.isDigit(primerCaracterA)) {
+                JOptionPane.showMessageDialog(null, "El apellido no puede comenzar con numeros");
+                return;
+            }
+            for (char caracter : apellido.toCharArray()) {
+                if (Character.isDigit(caracter)) {
+                    JOptionPane.showMessageDialog(null, "El apellido no puede contener caracteres numericos");
+                    return;
+                }
+            }
+            char primerCaracterN = nombre.charAt(0);
+            if (Character.isDigit(primerCaracterN)) {
+                JOptionPane.showMessageDialog(null, "El nombre no puede comenzar con numeros");
+                return;
+            }
+            for (char caracter : nombre.toCharArray()) {
+                if (Character.isDigit(caracter)) {
+                    JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
+                    return;
+                }
+            }
             if (cadenaDni.length() > cadenaDniReglamentarioMaximo.length()) {
                 JOptionPane.showMessageDialog(null, "El documento ingresado es mayor al reglamentario");
                 return;
@@ -198,6 +197,7 @@ public class PacienteService {
             }
             dao.modificarPaciente(new Paciente(id, apellido, nombre, dni, domicilio, telefono));
             JOptionPane.showMessageDialog(null, "Se modifico con exito el paciente");
+            limpiar();
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "Error al modificar el paciente");
         }

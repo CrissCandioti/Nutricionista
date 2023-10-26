@@ -7,6 +7,12 @@ package nutricionista;
 
 import Vista.Principal;
 import accesoDatos.DietaComidaDAO;
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.intellijthemes.FlatArcIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatGrayIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatXcodeDarkIJTheme;
 import entidades.DietaComida;
 import entidades.Horario;
 import java.time.LocalDate;
@@ -30,6 +36,8 @@ public class Nutricionista {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+      FlatCyanLightIJTheme.setup();
 //        // TODO code application logic here
 //        ComidaService cs = new ComidaService();
 //        //cs.crearComida("Arroz", "El arroz debe ser integral", 150);

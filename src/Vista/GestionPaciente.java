@@ -6,15 +6,11 @@
 package Vista;
 
 import static Vista.Principal.escritorio;
-import accesoDatos.PacienteDAO;
-import entidades.Comida;
 import entidades.Paciente;
 import java.awt.HeadlessException;
-import java.util.ArrayList;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import service.ComidaService;
 import service.PacienteService;
 
 /**
@@ -65,7 +61,9 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         txtBuscarDni = new javax.swing.JTextField();
         btnBuscarDni = new javax.swing.JButton();
+        lblSeleccione = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setBorder(null);
         setClosable(true);
@@ -138,7 +136,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -256,11 +254,14 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             }
         });
 
+        lblSeleccione.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        lblSeleccione.setText("*Seleccione el paciente si desea Modificar algún dato, Eliminarlo de la base de datos o Agregarle una Dieta...");
+
         javax.swing.GroupLayout panelListaPacientesLayout = new javax.swing.GroupLayout(panelListaPacientes);
         panelListaPacientes.setLayout(panelListaPacientesLayout);
         panelListaPacientesLayout.setHorizontalGroup(
             panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
             .addGroup(panelListaPacientesLayout.createSequentialGroup()
                 .addComponent(btnAgregarDieta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -269,12 +270,17 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(129, 129, 129))
             .addGroup(panelListaPacientesLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelListaPacientesLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelListaPacientesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblSeleccione)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelListaPacientesLayout.setVerticalGroup(
@@ -286,8 +292,10 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                     .addComponent(txtBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarDni))
                 .addGap(17, 17, 17)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSeleccione)
+                .addGap(59, 59, 59)
                 .addGroup(panelListaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,32 +311,43 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jLabel7.setText("*Nota : SI desea buscar un paciente en la base de datos click en \"BUSCAR\"  para poder buscarlo por DNI.");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 37, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel7))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))))
+                        .addContainerGap(60, Short.MAX_VALUE))))
         );
 
         pack();
@@ -336,7 +355,8 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         panelListaPacientes.setVisible(true);
-//        llenarTabla();
+        lblSeleccione.setVisible(false);
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -405,53 +425,10 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             int dni = Integer.parseInt(txtDni.getText());
             String domicilio = txtDomicilio.getText();
             String telefono = txtTelefono.getText();
-            //Validaciones
-            if (apellido.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
-                return;
-            }
-            if (nombre.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del nombre no puede estar vacia");
-                return;
-            }
-            if (domicilio.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del domicilio no puede estar vacia");
-                return;
-            }
-            if (telefono.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
-                return;
-            }
-            if (nombre.length() < 3 || apellido.length() < 3) {
-                JOptionPane.showMessageDialog(null, "El nombre u apellido no pueden tener menos de 3 caracteres");
-                return;
-            }
-            char primerCaracterA = apellido.charAt(0);
-            if (Character.isDigit(primerCaracterA)) {
-                JOptionPane.showMessageDialog(null, "El apellido no puede comenzar con numeros");
-                return;
-            }
-            for (char caracter : apellido.toCharArray()) {
-                if (Character.isDigit(caracter)) {
-                    JOptionPane.showMessageDialog(null, "El apellido no puede contener caracteres numericos");
-                    return;
-                }
-            }
-            char primerCaracterN = nombre.charAt(0);
-            if (Character.isDigit(primerCaracterN)) {
-                JOptionPane.showMessageDialog(null, "El nombre no puede comenzar con numeros");
-                return;
-            }
-            for (char caracter : nombre.toCharArray()) {
-                if (Character.isDigit(caracter)) {
-                    JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
-                    return;
-                }
-            }
+
 
             if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
                 ps.modificarPaciente(id, apellido, nombre, dni, domicilio, telefono);
-                limpiar();
                 llenarTabla(dni);
             }
         } catch (NumberFormatException e) {
@@ -492,10 +469,12 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
     private void btnBuscarDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDniActionPerformed
 
-        try {
+        
+        try {           
             int dni = Integer.parseInt(txtBuscarDni.getText());
             llenarTabla(dni);
             txtBuscarDni.setText("");
+            lblSeleccione.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Escriba un DNI");
         }
@@ -516,8 +495,10 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSeleccione;
     private javax.swing.JPanel panelListaPacientes;
     private javax.swing.JTable tablaListaPacientes;
     private javax.swing.JTextField txtBuscarDni;
@@ -562,6 +543,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
         btnAgregarDieta.setEnabled(true);
+        lblSeleccione.setVisible(true);
     }
 
     public void desabilitarBotones() {
@@ -569,6 +551,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         btnModificar.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnAgregarDieta.setEnabled(false);
+        
     }
 
     public void limpiar() {
@@ -592,7 +575,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         // Si no está abierto, crea una nueva instancia 
         escritorio.add(inter);
         inter.setVisible(true);
-        inter.setLocation(400, 80);
+        inter.setLocation(240, 20);
     }
 
     private void vaciarTabla() {
