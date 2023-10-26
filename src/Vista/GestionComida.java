@@ -256,10 +256,12 @@ public class GestionComida extends javax.swing.JInternalFrame {
             String horario = cmbHorario.getSelectedItem().toString();
 
             c.crearComida(nombre, detalle, calorias, Horario.valueOf(horario));
-            JOptionPane.showMessageDialog(this, "Comida Agregada!");
-            limpiar();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en 'Calorias'");
+        }  catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(this, "Seleccione un Horario");
+        }   catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Verifique correctamente las celdas y vuelva a intentarlo " + ex);
         }
 
 

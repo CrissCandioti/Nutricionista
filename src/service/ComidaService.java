@@ -5,6 +5,7 @@
  */
 package service;
 
+import Vista.GestionPaciente;
 import accesoDatos.ComidaDAO;
 import entidades.Comida;
 import entidades.Horario;
@@ -27,7 +28,7 @@ public class ComidaService {
      * El metodo "ComidaService" recibe toda la informacion establecida en la
      * vistas para completar el registro de los alumnos
      */
-    public void crearComida(String nombre, String detalle, int cantCalorias,Horario horario) {
+    public void crearComida(String nombre, String detalle, int cantCalorias, Horario horario) {
         /**
          * Dentro de un bloque try-catch el metodo procede a analizar estos
          * datos con las restricciones
@@ -93,6 +94,7 @@ public class ComidaService {
              * Por ultimo se muestra un mensaje
              */
             JOptionPane.showMessageDialog(null, "Se agrego correctamente la comida");
+            limpiar();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al intentar crear la comida");
         }
@@ -139,6 +141,7 @@ public class ComidaService {
             }
             dao.modificarComidaBaseDatos(new Comida(idComida, nombre, detalle, cantCalorias));
             JOptionPane.showMessageDialog(null, "Se modifico correctamente la comida");
+            limpiar();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al intentar modificar la comida");
         }
@@ -202,5 +205,14 @@ public class ComidaService {
             JOptionPane.showMessageDialog(null, "Error al intentar retornar las comida con menor calorias");
         }
         return null;
+    }
+
+    public void limpiar() {
+        GestionPaciente.txtDni.setText("");
+        GestionPaciente.txtDomicilio.setText("");
+        GestionPaciente.txtId.setText("");
+        GestionPaciente.txtNombre.setText("");
+        GestionPaciente.txtTelefono.setText("");
+        GestionPaciente.txtapellido.setText("");
     }
 }
