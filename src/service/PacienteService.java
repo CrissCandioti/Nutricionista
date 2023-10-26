@@ -149,8 +149,8 @@ public class PacienteService {
                 JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
                 return;
             }
-            if (dao.buscarPacientePorDNI(dni) != null) {
-                JOptionPane.showMessageDialog(null, "Tenemos registrado un paciente con el mismo numero de documento");
+            if (dao.buscarPacientePorDNI(dni).getDni() != dni && dao.buscarPacientePorDNI(dni) != null) {
+                JOptionPane.showMessageDialog(null, "Tenemos registrado otro paciente con ese numero de documento");
                 return;
             }
             if (nombre.length() < 3 || apellido.length() < 3) {
