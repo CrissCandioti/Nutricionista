@@ -373,6 +373,8 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en dni Por Favor!");
         } catch (HeadlessException ex) {
             JOptionPane.showMessageDialog(this, " Por Favor!");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Verifique los datos ingresados y vuelva a intentarlo");
         }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -424,7 +426,6 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             String domicilio = txtDomicilio.getText();
             String telefono = txtTelefono.getText();
 
-
             if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
                 ps.modificarPaciente(id, apellido, nombre, dni, domicilio, telefono);
                 llenarTabla(dni);
@@ -467,14 +468,13 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
 
     private void btnBuscarDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDniActionPerformed
 
-        
-        try {           
+        try {
             int dni = Integer.parseInt(txtBuscarDni.getText());
             llenarTabla(dni);
             txtBuscarDni.setText("");
             lblSeleccione.setVisible(true);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Escriba un DNI");
+            JOptionPane.showMessageDialog(this, "Escriba un DNI" + e);
         }
     }//GEN-LAST:event_btnBuscarDniActionPerformed
 
@@ -549,7 +549,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         btnModificar.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnAgregarDieta.setEnabled(false);
-        
+
     }
 
     public void limpiar() {
