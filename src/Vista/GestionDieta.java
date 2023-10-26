@@ -378,9 +378,9 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             limpiar();
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Ingrese numeros en peso inicial y peso final");
+            JOptionPane.showMessageDialog(this, "Ingrese los datos correspondientes en Peso Inicial y Peso Final");
         } catch (NullPointerException f) {
-            JOptionPane.showMessageDialog(null, "Seleccione un paciente");
+            JOptionPane.showMessageDialog(null, "Seleccione un Paciente");
         } catch (DateTimeParseException x) {
             JOptionPane.showMessageDialog(null, "No deje las celdas de las fechas vacias");
         } catch (Exception ex) {

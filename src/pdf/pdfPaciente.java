@@ -29,7 +29,7 @@ public final class pdfPaciente extends DAO {
 
     public void pdfTablaPacientes() {
         try {
-            String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente`";
+            String sql = "SELECT `idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono` FROM `paciente` ORDER BY `apellido` ASC";
             consultarBaseDatos(sql);
             int contador = 0;
             Document documento = new Document();

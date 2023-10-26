@@ -5,6 +5,8 @@
  */
 package service;
 
+import static Vista.GestionDieta.cmbPaciente;
+import static Vista.GestionPaciente.txtNombre;
 import accesoDatos.DietaDAO;
 import entidades.Dieta;
 import entidades.Paciente;
@@ -152,4 +154,5 @@ public class DietaService {
         }
         return null;
     }
+    
 }

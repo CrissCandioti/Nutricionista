@@ -370,8 +370,8 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             ps.crearPaciente(apellido, nombre, dni, domicilio, telefono);
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Ingrese numeros en dni Por Favor!");
-        } catch (HeadlessException ex) {
+            JOptionPane.showMessageDialog(this, "Ingrese la informacion correspondiente en DNI");
+        } catch (HeadlessException f) {
             JOptionPane.showMessageDialog(this, " Por Favor!");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Verifique los datos ingresados y vuelva a intentarlo");
@@ -473,8 +473,10 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
             llenarTabla(dni);
             txtBuscarDni.setText("");
             lblSeleccione.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Escriba un DNI" + e);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Ingrese correctamente el DNI");
+        }  catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Verifique los datos ingresados y vuelva a intentarlo");
         }
     }//GEN-LAST:event_btnBuscarDniActionPerformed
 

@@ -229,8 +229,9 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
         hs.crearHistorial(id, peso, LocalDate.parse(fecha));
         llenarTabla();
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Escriba el peso");
-            
+            JOptionPane.showMessageDialog(this, "Ingrese el Peso correspondiente");
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "Verifique el dato ingresado y vuelva a intentarlo");
         }
         
         
