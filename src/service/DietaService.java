@@ -50,7 +50,7 @@ public class DietaService {
             }
             dao.guardarDieta(new Dieta(nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal));
             JOptionPane.showMessageDialog(null, "Se guardo correctamente la dieta");
-            hs.crearHistorial(idPaciente, pesoFinal, fechaInicial);
+            hs.crearHistorial(idPaciente, pesoInicial, fechaInicial);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al crear la dieta");
         }
