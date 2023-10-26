@@ -5,11 +5,8 @@
  */
 package service;
 
-import static Vista.GestionDieta.cmbPaciente;
-import static Vista.GestionPaciente.txtNombre;
 import accesoDatos.DietaDAO;
 import entidades.Dieta;
-import entidades.Paciente;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

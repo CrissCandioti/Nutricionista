@@ -6,7 +6,6 @@
 package accesoDatos;
 
 import entidades.Dieta;
-import entidades.Paciente;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -167,7 +166,6 @@ public final class DietaDAO extends DAO {
 
             consultarBaseDatos(sql);
             ArrayList<Dieta> listaRetornar = new ArrayList<>();
-//            PacienteService ps = new PacienteService();
             DietaService ds = new DietaService();
             while (resultado.next()) {
                 Integer idDieta = resultado.getInt(1);
