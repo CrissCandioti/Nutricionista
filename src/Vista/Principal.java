@@ -74,7 +74,8 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Software Clinica NUTRICIONAL");
         setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        setForeground(new java.awt.Color(153, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
+        setLocationByPlatform(true);
         setSize(new java.awt.Dimension(1100, 730));
 
         escritorio.setBackground(new java.awt.Color(255, 255, 255));

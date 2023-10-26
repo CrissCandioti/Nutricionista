@@ -63,7 +63,6 @@ public class GestionHistorial extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setBorder(null);
-        setClosable(true);
         setIconifiable(true);
         setTitle("Historia de Pesol Pacientes");
         setMinimumSize(new java.awt.Dimension(90, 18));

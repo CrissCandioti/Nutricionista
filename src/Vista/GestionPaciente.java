@@ -65,8 +65,6 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         btnSalir = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
-        setBorder(null);
-        setClosable(true);
         setIconifiable(true);
         setTitle("Cargar,Buscar Paciente");
         setToolTipText("");
@@ -330,7 +328,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                             .addComponent(panelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,7 +345,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelListaPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(60, Short.MAX_VALUE))))
+                        .addContainerGap(53, Short.MAX_VALUE))))
         );
 
         pack();
