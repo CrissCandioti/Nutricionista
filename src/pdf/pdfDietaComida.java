@@ -65,13 +65,12 @@ public final class pdfDietaComida extends DAO {
             Chunk CALORIAS = new Chunk("CALORIAS:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
             Chunk HORARIO = new Chunk("HORARIO:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
 
+            DietaComida aux = null;
             while (resultado.next()) {
                 ComidaService cs = new ComidaService();
                 DietaService ds = new DietaService();
 
-                DietaComida aux = new DietaComida(resultado.getInt(1), cs.buscarComida(resultado.getInt(2)), ds.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4)));
-
-                parrafo.add(aux.getIdDieta().getNombre() + " \n\n");
+                aux = new DietaComida(resultado.getInt(1), cs.buscarComida(resultado.getInt(2)), ds.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4)));
 
                 texto.add(CODIGO);
                 texto.add(" " + aux.getIdDietaComida() + "\n\n");
@@ -87,8 +86,12 @@ public final class pdfDietaComida extends DAO {
 
                 texto.add(HORARIO);
                 texto.add(" " + aux.getHorario() + "\n\n");
+
+                texto.add("                                                                     ----- <*> ----- \n\n");
             }
 
+            parrafo.add(aux.getIdDieta().getNombre() + "\n\n");
+            
             documento.open();
             documento.add(header);
             documento.add(parrafo);

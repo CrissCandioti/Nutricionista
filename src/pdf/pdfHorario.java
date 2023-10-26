@@ -55,7 +55,6 @@ public final class pdfHorario extends DAO {
             parrafo.setAlignment(Paragraph.ALIGN_CENTER);
             parrafo.add("Clinica Nutricional © \n\n");
             parrafo.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.DARK_GRAY));
-            parrafo.add("Horario \n\n");
 
             Paragraph texto = new Paragraph();
             texto.setAlignment(Paragraph.ALIGN_LEFT);
@@ -65,11 +64,12 @@ public final class pdfHorario extends DAO {
             Chunk DETALLE = new Chunk("DETALLE:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
             Chunk HORARIO = new Chunk("HORARIO:", FontFactory.getFont("Tahoma", 10, Font.BOLD | Font.UNDERLINE, BaseColor.DARK_GRAY));
 
+            DietaComida aux = null;
             while (resultado.next()) {
                 ComidaService cs = new ComidaService();
                 DietaService ds = new DietaService();
 
-                DietaComida aux = new DietaComida(resultado.getInt(1), cs.buscarComida(resultado.getInt(2)), ds.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4)));
+                aux = new DietaComida(resultado.getInt(1), cs.buscarComida(resultado.getInt(2)), ds.buscarDietaPorId(resultado.getInt(3)), Horario.valueOf(resultado.getString(4)));
 
                 texto.add(APELLIDOYNOMBRE);
                 texto.add(" " + aux.getIdDieta().getIdPaciente().getApellido() + " " + aux.getIdDieta().getIdPaciente().getNombre() + "\n\n"
@@ -87,6 +87,8 @@ public final class pdfHorario extends DAO {
                 texto.add("                                                                     ----- <*> ----- \n\n");
             }
 
+            parrafo.add(aux.getHorario() + "\n\n");
+            
             documento.open();
             documento.add(header);
             documento.add(parrafo);
