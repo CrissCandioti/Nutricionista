@@ -383,8 +383,6 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             int pesoF = Integer.parseInt(txtPesoFinal.getText());
 
             ds.crearDieta(nombre, idPaciente, LocalDate.parse(fechaI), pesoI, pesoF, LocalDate.parse(fechaF));
-            //hs.crearHistorial(idPaciente, pesoI, LocalDate.parse(fechaI));
-            limpiar();
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese los datos correspondientes en Peso Inicial y Peso Final");
@@ -477,8 +475,6 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
             if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR PACIENTE?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
                 ds.modificarDieta(id, nombre, idPaciente, LocalDate.parse(fechaI), pesoI, pesoF, LocalDate.parse(fechaF));
-                limpiar();
-//                llenarTabla();
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese numeros en Peso inicial y Peso Final");
@@ -529,8 +525,8 @@ public class GestionDieta extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnSalir;
     public static javax.swing.JComboBox<Paciente> cmbPaciente;
-    private com.toedter.calendar.JDateChooser dateFin;
-    private com.toedter.calendar.JDateChooser dateInicio;
+    public static com.toedter.calendar.JDateChooser dateFin;
+    public static com.toedter.calendar.JDateChooser dateInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -543,9 +539,9 @@ public class GestionDieta extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelDieta;
     private javax.swing.JTable tablaDietas;
     private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPesoFinal;
-    private javax.swing.JTextField txtPesoInicial;
+    public static javax.swing.JTextField txtNombre;
+    public static javax.swing.JTextField txtPesoFinal;
+    public static javax.swing.JTextField txtPesoInicial;
     // End of variables declaration//GEN-END:variables
 
     public void llenarComboPaciente() {
@@ -566,7 +562,6 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         cmbPaciente.setSelectedItem(null);
         dateFin.setDate(null);
         dateInicio.setDate(null);
-
     }
 
     public void llenarTabla(int id) {

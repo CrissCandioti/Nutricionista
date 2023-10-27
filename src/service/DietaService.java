@@ -5,6 +5,7 @@
  */
 package service;
 
+import Vista.GestionDieta;
 import accesoDatos.DietaDAO;
 import entidades.Dieta;
 import java.time.LocalDate;
@@ -50,6 +51,7 @@ public class DietaService {
             dao.guardarDieta(new Dieta(nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal));
             JOptionPane.showMessageDialog(null, "Se guardo correctamente la dieta");
             hs.crearHistorial(idPaciente, pesoInicial, fechaInicial);
+            limpiar();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al crear la dieta");
         }
@@ -76,6 +78,7 @@ public class DietaService {
             }
             dao.modificarDieta(new Dieta(idDieta, nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal));
             JOptionPane.showMessageDialog(null, "Se modificar correctamente la dieta");
+            limpiar();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al modificar la dieta");
         }
@@ -151,5 +154,13 @@ public class DietaService {
         }
         return null;
     }
-    
+
+    public void limpiar() {
+        GestionDieta.txtNombre.setText("");
+        GestionDieta.txtPesoFinal.setText("");
+        GestionDieta.txtPesoInicial.setText("");
+        GestionDieta.cmbPaciente.setSelectedItem(null);
+        GestionDieta.dateFin.setDate(null);
+        GestionDieta.dateInicio.setDate(null);
+    }
 }

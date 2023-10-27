@@ -113,13 +113,10 @@ public class PacienteService {
             if (!telefono.matches("\\d+")) {
                 JOptionPane.showMessageDialog(null, "El telefono solamente debe contener digitos numericos");
                 return;
-            }
-      
-             
+            }            
             dao.guardarPaciente(new Paciente(apellido, nombre, dni, domicilio, telefono));
             JOptionPane.showMessageDialog(null, "Se guardo con exito el paciente");
-            limpiar();
-                                       
+            limpiar();                                     
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al crear el paciente");
         }

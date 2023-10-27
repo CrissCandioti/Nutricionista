@@ -218,6 +218,9 @@
             <Property name="toolTipText" type="java.lang.String" value="Seleccione fecha Inicio de Dieta"/>
             <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -240,6 +243,9 @@
             <Property name="toolTipText" type="java.lang.String" value="Seleccione Fecha final de Dieta"/>
             <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd" noResource="true"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -264,6 +270,9 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="ngrese solo numeros separado por punto"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtPesoInicial">
           <Properties>
@@ -272,6 +281,9 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Ingrese solo numeros separado por punto"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNombre">
           <Properties>
@@ -280,6 +292,9 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Primera Mayuscula"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbPaciente">
           <Properties>
