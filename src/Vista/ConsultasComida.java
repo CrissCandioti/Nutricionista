@@ -51,6 +51,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
         setClosable(true);
         setIconifiable(true);
@@ -59,6 +60,8 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(800, 563));
         setVisible(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelComida.setBackground(new java.awt.Color(255, 255, 255));
 
         tablaComiida.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         tablaComiida.setModel(new javax.swing.table.DefaultTableModel(
@@ -102,14 +105,24 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         jLabel1.setText("Ingrese Cantidad de Calorias");
 
+        btnComidas.setBackground(new java.awt.Color(255, 255, 255));
+        btnComidas.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnComidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/print_9635651 (1).png"))); // NOI18N
         btnComidas.setText("Imprimir Reporte");
+        btnComidas.setBorder(null);
+        btnComidas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnComidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnComidasActionPerformed(evt);
             }
         });
 
+        btnComidasPorCalorias.setBackground(new java.awt.Color(255, 255, 255));
+        btnComidasPorCalorias.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnComidasPorCalorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/print_9635651 (1).png"))); // NOI18N
         btnComidasPorCalorias.setText("Imprimir Reporte");
+        btnComidasPorCalorias.setBorder(null);
+        btnComidasPorCalorias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnComidasPorCalorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnComidasPorCaloriasActionPerformed(evt);
@@ -125,16 +138,16 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
             .addGroup(panelComidaLayout.createSequentialGroup()
-                .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelComidaLayout.createSequentialGroup()
-                        .addContainerGap(391, Short.MAX_VALUE)
-                        .addComponent(btnComidas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnComidasPorCalorias))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnComidas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnComidasPorCalorias))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComidaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelComidaLayout.setVerticalGroup(
             panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,13 +162,14 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
                 .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnComidas)
                     .addComponent(btnComidasPorCalorias))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 450));
+        getContentPane().add(panelComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 600, 460));
 
         buttonGroup1.add(rbTodas);
         rbTodas.setText("Todas las comidas");
+        rbTodas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbTodas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbTodasActionPerformed(evt);
@@ -165,6 +179,7 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
 
         buttonGroup1.add(rbCantCalorias);
         rbCantCalorias.setText("Comidas por cantidad de calorias");
+        rbCantCalorias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbCantCalorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbCantCaloriasActionPerformed(evt);
@@ -177,8 +192,11 @@ public class ConsultasComida extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 8, -1, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 38, 568, 10));
 
-        jButton1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/remove_6431862 (2).png"))); // NOI18N
         jButton1.setText("SALIR");
+        jButton1.setBorder(null);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

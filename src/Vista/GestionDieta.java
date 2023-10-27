@@ -127,6 +127,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
         cmbPaciente.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         cmbPaciente.setToolTipText("Seleccione un Paciente");
+        cmbPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmbPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbPacienteActionPerformed(evt);
@@ -135,6 +136,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
         btnGuardar.setText("GUARDAR");
         btnGuardar.setToolTipText("Guardar la dieta");
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -143,6 +145,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
         btnBuscar.setText("BUSCAR");
         btnBuscar.setToolTipText("Buscar dietas en la base de dato");
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -256,6 +259,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         btnModificar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnModificar.setText("MODIFICAR");
         btnModificar.setToolTipText(" Modifica algun dato de la dieta seleccionada");
+        btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -265,6 +269,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         btnEliminar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.setToolTipText("Elimina la dieta selecionada");
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -273,6 +278,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
 
         btnHistorial.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnHistorial.setText("HISTORIAL PESO");
+        btnHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHistorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHistorialActionPerformed(evt);
@@ -306,9 +312,12 @@ public class GestionDieta extends javax.swing.JInternalFrame {
                     .addComponent(btnHistorial)))
         );
 
-        btnSalir.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnSalir.setFont(btnSalir.getFont().deriveFont(btnSalir.getFont().getStyle() | java.awt.Font.BOLD, btnSalir.getFont().getSize()+2));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/remove_6431862 (2).png"))); // NOI18N
         btnSalir.setText("SALIR");
         btnSalir.setToolTipText("Cierra la ventana");
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -334,25 +343,25 @@ public class GestionDieta extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelDieta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
+                        .addComponent(btnSalir)
+                        .addGap(17, 17, 17))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 263, Short.MAX_VALUE)
-                        .addComponent(btnSalir)
-                        .addGap(38, 38, 38))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelDieta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(66, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalir)
+                        .addGap(36, 36, 36))))
         );
 
         pack();

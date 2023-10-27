@@ -45,6 +45,7 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
         btnRporte = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
         setClosable(true);
         setIconifiable(true);
@@ -58,12 +59,15 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 39, -1, -1));
 
         comboHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "DESAYUNO", "ALMUERZO", "MERIENDA", "CENA", "SNACK" }));
+        comboHorario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comboHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboHorarioActionPerformed(evt);
             }
         });
         getContentPane().add(comboHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 36, 216, 35));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         tablaHorario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         tablaHorario.setModel(new javax.swing.table.DefaultTableModel(
@@ -79,8 +83,12 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablaHorario);
 
-        btnRporte.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        btnRporte.setBackground(new java.awt.Color(255, 255, 255));
+        btnRporte.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnRporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/print_9635651 (1).png"))); // NOI18N
         btnRporte.setText("Imprimir Reporte");
+        btnRporte.setBorder(null);
+        btnRporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRporteActionPerformed(evt);
@@ -107,13 +115,16 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRporte)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 77, 620, -1));
 
-        jButton1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/remove_6431862 (2).png"))); // NOI18N
         jButton1.setText("SALIR");
+        jButton1.setBorder(null);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -125,10 +136,14 @@ public class ConsultaPorHorario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboHorarioActionPerformed
-       
+       try{
        String horario = comboHorario.getSelectedItem().toString();
         llenarTabla(horario);
-        
+       }catch(IllegalArgumentException e ){
+           JOptionPane.showMessageDialog(this, "Seleccione un horario por favor!");
+       }catch(Exception ex){
+           JOptionPane.showMessageDialog(this, "Seleccione un horario");
+       }
     }//GEN-LAST:event_comboHorarioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -188,8 +203,8 @@ public void llenarTabla(String horario) {
             }
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "No tenemos registros de comidas en la base de datos");
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(null, "Seleccione un horario Válido");
         }
     }
 }

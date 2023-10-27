@@ -66,6 +66,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
         setClosable(true);
         setIconifiable(true);
@@ -75,6 +76,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         buttonGroup1.add(rbTodos);
         rbTodos.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         rbTodos.setText("Todos");
+        rbTodos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbTodos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbTodosActionPerformed(evt);
@@ -85,6 +87,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         buttonGroup1.add(rbDietasTerminadas);
         rbDietasTerminadas.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         rbDietasTerminadas.setText("Con dietas Terminadas");
+        rbDietasTerminadas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbDietasTerminadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbDietasTerminadasActionPerformed(evt);
@@ -95,6 +98,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         buttonGroup1.add(rbDietasVigentes);
         rbDietasVigentes.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         rbDietasVigentes.setText("Con dietas Vigentes");
+        rbDietasVigentes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbDietasVigentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbDietasVigentesActionPerformed(evt);
@@ -105,6 +109,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         buttonGroup1.add(rbNoPeso);
         rbNoPeso.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         rbNoPeso.setText("Que no llegaron al Peso");
+        rbNoPeso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbNoPeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbNoPesoActionPerformed(evt);
@@ -112,7 +117,9 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         });
         getContentPane().add(rbNoPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 128, -1, -1));
 
-        tablaPacientes.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        tablaPacientes.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         tablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -125,7 +132,8 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
             }
         ));
         tablaPacientes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
-        tablaPacientes.setSelectionBackground(new java.awt.Color(102, 255, 255));
+        tablaPacientes.setSelectionBackground(new java.awt.Color(153, 255, 255));
+        tablaPacientes.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tablaPacientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         tablaPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -136,6 +144,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
         btnAgregarD.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         btnAgregarD.setText("AGREGAR DIETA");
+        btnAgregarD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregarD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarDActionPerformed(evt);
@@ -144,41 +153,67 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
         btnEliminar.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
+        btnPacienteR.setBackground(new java.awt.Color(255, 255, 255));
+        btnPacienteR.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnPacienteR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/print_9635651 (1).png"))); // NOI18N
         btnPacienteR.setText("Imprimir Paciente");
+        btnPacienteR.setBorder(null);
+        btnPacienteR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPacienteR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPacienteRActionPerformed(evt);
             }
         });
 
+        btnReporte.setBackground(new java.awt.Color(255, 255, 255));
+        btnReporte.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/print_9635651 (1).png"))); // NOI18N
         btnReporte.setText("Imprimir Todos");
+        btnReporte.setBorder(null);
+        btnReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReporteActionPerformed(evt);
             }
         });
 
+        btnReporteDietasVig.setBackground(new java.awt.Color(255, 255, 255));
+        btnReporteDietasVig.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnReporteDietasVig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/print_9635651 (1).png"))); // NOI18N
         btnReporteDietasVig.setText("Imprimir Reporte");
+        btnReporteDietasVig.setBorder(null);
+        btnReporteDietasVig.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReporteDietasVig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReporteDietasVigActionPerformed(evt);
             }
         });
 
+        btnRporteDietasTerminadas.setBackground(new java.awt.Color(255, 255, 255));
+        btnRporteDietasTerminadas.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnRporteDietasTerminadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/print_9635651 (1).png"))); // NOI18N
         btnRporteDietasTerminadas.setText("Imprimir Reporte");
+        btnRporteDietasTerminadas.setBorder(null);
+        btnRporteDietasTerminadas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRporteDietasTerminadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRporteDietasTerminadasActionPerformed(evt);
             }
         });
 
+        btnReporteNoLLegaron.setBackground(new java.awt.Color(255, 255, 255));
+        btnReporteNoLLegaron.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnReporteNoLLegaron.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/print_9635651 (1).png"))); // NOI18N
         btnReporteNoLLegaron.setText("Imprimir Reporte");
+        btnReporteNoLLegaron.setBorder(null);
+        btnReporteNoLLegaron.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReporteNoLLegaron.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReporteNoLLegaronActionPerformed(evt);
@@ -189,9 +224,6 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAgregarD, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,6 +240,9 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRporteDietasTerminadas)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,10 +258,10 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                     .addComponent(btnReporte)
                     .addComponent(btnReporteDietasVig)
                     .addComponent(btnReporteNoLLegaron))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 153, 690, 370));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 680, 350));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Fecha :");
@@ -246,14 +281,17 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         jLabel3.setText("Seleccione...");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 91, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/remove_6431862 (2).png"))); // NOI18N
         jButton1.setText("SALIR");
+        jButton1.setBorder(null);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 480, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

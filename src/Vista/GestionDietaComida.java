@@ -62,6 +62,7 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
         jLabel1.setText("Dieta");
 
         cmbDieta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cmbDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmbDieta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbDietaActionPerformed(evt);
@@ -85,6 +86,7 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
 
         btnAgregarComida.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         btnAgregarComida.setText("AGREGAR A DIETA");
+        btnAgregarComida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregarComida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarComidaActionPerformed(evt);
@@ -111,8 +113,11 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jButton1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/remove_6431862 (2).png"))); // NOI18N
         jButton1.setText("SALIR");
+        jButton1.setBorder(null);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -154,7 +159,7 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
                 .addComponent(panelComidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(jButton1)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();

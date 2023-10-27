@@ -62,7 +62,6 @@ public class GestionComida extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setTitle("Gestión Comida.");
         setMinimumSize(new java.awt.Dimension(90, 18));
-        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(800, 675));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -72,100 +71,59 @@ public class GestionComida extends javax.swing.JInternalFrame {
         getContentPane().setLayout(null);
 
         panelComida.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Comida", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
+        panelComida.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Bodoni Bk BT", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bodoni Bk BT", 1, 18)); // NOI18N
         jLabel1.setText("Nombre :");
+        panelComida.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 96, -1));
 
         txtNombre.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
+        panelComida.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 24, 268, -1));
 
-        jLabel2.setFont(new java.awt.Font("Bodoni Bk BT", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Bodoni Bk BT", 1, 18)); // NOI18N
         jLabel2.setText("Detalle:");
+        panelComida.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 65, 96, -1));
 
         txtDetalle.setColumns(20);
         txtDetalle.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         txtDetalle.setRows(5);
         jScrollPane1.setViewportView(txtDetalle);
 
-        jLabel3.setFont(new java.awt.Font("Bodoni Bk BT", 1, 24)); // NOI18N
+        panelComida.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 100, 619, 87));
+
+        jLabel3.setFont(new java.awt.Font("Bodoni Bk BT", 1, 18)); // NOI18N
         jLabel3.setText("Calorias:");
+        panelComida.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 30, 96, -1));
 
         txtCantCalorias.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
+        panelComida.add(txtCantCalorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 24, 96, -1));
+        panelComida.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 28, 33, -1));
 
         btnGuardar.setText("GUARDAR");
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
+        panelComida.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 237, 620, 38));
 
         btnBuscar.setText("BUSCAR");
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
+        panelComida.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 281, 620, 38));
 
         cmbHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "DESAYUNO", "MERIENDA", "ALMUERZO", "CENA", "SNACK" }));
+        cmbHorario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelComida.add(cmbHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 199, 246, 32));
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel4.setText("Horario:");
-
-        javax.swing.GroupLayout panelComidaLayout = new javax.swing.GroupLayout(panelComida);
-        panelComida.setLayout(panelComidaLayout);
-        panelComidaLayout.setHorizontalGroup(
-            panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelComidaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelComidaLayout.createSequentialGroup()
-                        .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelComidaLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(cmbHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelComidaLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCantCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 7, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(panelComidaLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        panelComidaLayout.setVerticalGroup(
-            panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelComidaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtCantCalorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelComidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        panelComida.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 201, -1, -1));
 
         getContentPane().add(panelComida);
         panelComida.setBounds(25, 6, 660, 330);
@@ -190,6 +148,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tablaComidas);
 
         btnModificar.setText("MODIFICAR");
+        btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -197,6 +156,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
         });
 
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -216,7 +176,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
             .addGroup(panelTablaComidasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelTablaComidasLayout.setVerticalGroup(
             panelTablaComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,9 +191,13 @@ public class GestionComida extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(panelTablaComidas);
-        panelTablaComidas.setBounds(25, 333, 660, 330);
+        panelTablaComidas.setBounds(25, 333, 659, 330);
 
+        btnSalir.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/remove_6431862 (2).png"))); // NOI18N
         btnSalir.setText("SALIR");
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);

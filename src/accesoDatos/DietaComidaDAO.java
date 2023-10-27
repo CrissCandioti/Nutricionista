@@ -127,14 +127,14 @@ public final class DietaComidaDAO extends DAO {
         try {
             String sql = "SELECT `idDietaComida`, `idComida`, `idDieta`, `Horario` FROM `dietacomida` WHERE Horario = '" + index + "'";
             consultarBaseDatos(sql);
-            ArrayList<DietaComida> lsitaRetornar = new ArrayList<>();
+            ArrayList<DietaComida> listaRetornar = new ArrayList<>();
 
             ComidaService comida = new ComidaService();
             DietaService dieta = new DietaService();
             while (resultado.next()) {
-                lsitaRetornar.add(new DietaComida(resultado.getInt(1), comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), index));
+                listaRetornar.add(new DietaComida(resultado.getInt(1), comida.buscarComida(resultado.getInt(2)), dieta.buscarDietaPorId(resultado.getInt(3)), index));
             }
-            return lsitaRetornar;
+            return listaRetornar;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al buscar la asociación de la dieta con la comida en el horario especifico");
         } finally {

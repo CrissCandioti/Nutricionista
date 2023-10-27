@@ -93,7 +93,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         panelBotones.add(btnAgregarPaciente);
-        btnAgregarPaciente.setBounds(30, 40, 150, 70);
+        btnAgregarPaciente.setBounds(30, 40, 150, 80);
 
         btnAgregarDieta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/diet_7152806.png"))); // NOI18N
         btnAgregarDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -104,7 +104,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         panelBotones.add(btnAgregarDieta);
-        btnAgregarDieta.setBounds(30, 130, 150, 70);
+        btnAgregarDieta.setBounds(30, 150, 150, 70);
 
         btnAgregarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salad_4780416.png"))); // NOI18N
         btnAgregarComida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -115,7 +115,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         panelBotones.add(btnAgregarComida);
-        btnAgregarComida.setBounds(30, 220, 150, 70);
+        btnAgregarComida.setBounds(30, 250, 150, 70);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel1.setText("Agregar Paciente");
@@ -125,12 +125,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel2.setText("Agregar Dieta");
         panelBotones.add(jLabel2);
-        jLabel2.setBounds(50, 110, 96, 19);
+        jLabel2.setBounds(50, 130, 96, 19);
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel3.setText("Agregar Comida");
         panelBotones.add(jLabel3);
-        jLabel3.setBounds(50, 200, 112, 19);
+        jLabel3.setBounds(50, 230, 112, 19);
 
         btnHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/medical-history_10522820.png"))); // NOI18N
         btnHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -141,12 +141,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         panelBotones.add(btnHistorial);
-        btnHistorial.setBounds(30, 310, 150, 70);
+        btnHistorial.setBounds(30, 350, 150, 70);
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel4.setText("Historial Peso");
         panelBotones.add(jLabel4);
-        jLabel4.setBounds(50, 290, 97, 19);
+        jLabel4.setBounds(50, 330, 97, 19);
 
         btnCrearDieta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/healthy_1813376.png"))); // NOI18N
         btnCrearDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -157,12 +157,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         panelBotones.add(btnCrearDieta);
-        btnCrearDieta.setBounds(30, 410, 150, 70);
+        btnCrearDieta.setBounds(30, 450, 150, 70);
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel5.setText("Crear Dieta");
         panelBotones.add(jLabel5);
-        jLabel5.setBounds(60, 390, 79, 19);
+        jLabel5.setBounds(60, 430, 79, 19);
 
         btnConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shopping-list_7792887.png"))); // NOI18N
         btnConsultas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -173,12 +173,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         panelBotones.add(btnConsultas);
-        btnConsultas.setBounds(30, 500, 150, 70);
+        btnConsultas.setBounds(30, 550, 150, 70);
 
         jLabel7.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel7.setText("Consultas");
         panelBotones.add(jLabel7);
-        jLabel7.setBounds(60, 480, 70, 19);
+        jLabel7.setBounds(60, 530, 70, 19);
 
         escritorio.add(panelBotones);
         panelBotones.setBounds(10, 10, 210, 660);
@@ -189,9 +189,12 @@ public class Principal extends javax.swing.JFrame {
         escritorio.add(jSeparator1);
         jSeparator1.setBounds(230, 10, 9, 870);
 
-        panelConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultas"));
+        panelConsultas.setBackground(new java.awt.Color(255, 255, 255));
+        panelConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Consultas", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         panelConsultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnConsultaComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/diet_7219220.png"))); // NOI18N
+        btnConsultaComida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConsultaComida.setPreferredSize(new java.awt.Dimension(100, 50));
         btnConsultaComida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,6 +211,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel9.setText("Comidas por Horario");
         panelConsultas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
+        btnConsultaPorHorario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/clock_3376187.png"))); // NOI18N
+        btnConsultaPorHorario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConsultaPorHorario.setPreferredSize(new java.awt.Dimension(100, 50));
         btnConsultaPorHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +225,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel10.setText("Listado de Dietas");
         panelConsultas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
 
+        btnConsultaDietas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/diet_7152692.png"))); // NOI18N
+        btnConsultaDietas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConsultaDietas.setPreferredSize(new java.awt.Dimension(100, 50));
         btnConsultaDietas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,6 +239,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel11.setText("Listado de Pacientes");
         panelConsultas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, -1, -1));
 
+        btnConsultaPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/attendance_6612108.png"))); // NOI18N
+        btnConsultaPacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConsultaPacientes.setPreferredSize(new java.awt.Dimension(100, 50));
         btnConsultaPacientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
