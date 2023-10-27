@@ -439,7 +439,7 @@ public class GestionPaciente extends javax.swing.JInternalFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "La celda del documento no puede estar vacia");
         } catch (Exception f) {
-            JOptionPane.showMessageDialog(null, "Error: " + f);
+            JOptionPane.showMessageDialog(null, "Verifique los datos ingresados y vuelva a intentarlo");
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 

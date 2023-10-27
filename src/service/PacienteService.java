@@ -149,7 +149,7 @@ public class PacienteService {
                 JOptionPane.showMessageDialog(null, "La celda del telefono no puede estar vacia");
                 return;
             }
-            if (dao.buscarPacientePorDNI(dni).getDni() != dni && dao.buscarPacientePorDNI(dni) != null) {
+            if (dao.buscarPacientePorDNI(dni) != null && dao.buscarPacientePorID(id).getDni() != dni) {
                 JOptionPane.showMessageDialog(null, "Tenemos registrado otro paciente con ese numero de documento");
                 return;
             }
