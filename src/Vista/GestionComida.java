@@ -126,7 +126,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
         panelComida.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 201, -1, -1));
 
         getContentPane().add(panelComida);
-        panelComida.setBounds(25, 6, 660, 330);
+        panelComida.setBounds(25, 6, 640, 330);
 
         tablaComidas.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         tablaComidas.setModel(new javax.swing.table.DefaultTableModel(
@@ -191,7 +191,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(panelTablaComidas);
-        panelTablaComidas.setBounds(25, 333, 659, 330);
+        panelTablaComidas.setBounds(25, 333, 667, 335);
 
         btnSalir.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/remove_6431862 (2).png"))); // NOI18N
@@ -270,7 +270,6 @@ public class GestionComida extends javax.swing.JInternalFrame {
 
         if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR COMIDA?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
             cs.modificarComida(id, nombre, detalle, calorias);
-            limpiar();
             llenarTabla();
         }
     }//GEN-LAST:event_btnModificarActionPerformed
@@ -316,10 +315,10 @@ public class GestionComida extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelComida;
     private javax.swing.JPanel panelTablaComidas;
     private javax.swing.JTable tablaComidas;
-    private javax.swing.JTextField txtCantCalorias;
-    private javax.swing.JTextArea txtDetalle;
-    private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNombre;
+    public static javax.swing.JTextField txtCantCalorias;
+    public static javax.swing.JTextArea txtDetalle;
+    public static javax.swing.JTextField txtId;
+    public static javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
     public void llenarTabla() {
 

@@ -5,6 +5,7 @@
  */
 package service;
 
+import Vista.GestionComida;
 import Vista.GestionPaciente;
 import accesoDatos.ComidaDAO;
 import entidades.Comida;
@@ -208,11 +209,9 @@ public class ComidaService {
     }
 
     public void limpiar() {
-        GestionPaciente.txtDni.setText("");
-        GestionPaciente.txtDomicilio.setText("");
-        GestionPaciente.txtId.setText("");
-        GestionPaciente.txtNombre.setText("");
-        GestionPaciente.txtTelefono.setText("");
-        GestionPaciente.txtapellido.setText("");
+        GestionComida.txtId.setText("");
+        GestionComida.txtNombre.setText("");
+        GestionComida.txtDetalle.setText("");
+        GestionComida.txtCantCalorias.setText("");
     }
 }
