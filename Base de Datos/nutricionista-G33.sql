@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2023 a las 23:11:59
+-- Tiempo de generación: 28-10-2023 a las 14:08:59
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -34,25 +34,56 @@ CREATE TABLE `comida` (
   `nombre` varchar(100) NOT NULL,
   `detalle` varchar(100) NOT NULL,
   `cantCalorias` int(11) NOT NULL,
-  `horario` varchar(25) NOT NULL
+  `Horario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `comida`
 --
 
-INSERT INTO `comida` (`idComida`, `nombre`, `detalle`, `cantCalorias`, `horario`) VALUES
-(1, 'Tostadas', 'Pan tostado con mermelada', 200, 'DESAYUNO'),
-(2, 'Ensalada', 'Ensalada de pollo', 400, 'ALMUERZO'),
-(3, 'Yogur', 'Yogur con frutas', 150, 'MERIENDA'),
-(4, 'Salmón', 'Salmón a la parrilla', 350, 'CENA'),
-(5, 'Frutos secos', 'Mezcla de frutos secos', 250, 'SNACK'),
-(6, 'Cereal', 'Cereal con leche y galletas', 300, 'DESAYUNO'),
-(7, 'Pasta', 'Pasta con salsa de tomate', 450, 'ALMUERZO'),
-(8, 'Manzana', 'Manzana con mantequilla de maní', 180, 'MERIENDA'),
-(9, 'Tofu', 'Tofu a la parrilla', 320, 'CENA'),
-(10, 'Galletas', 'Galletas integrales', 200, 'SNACK'),
-(11, 'Ensalda', 'Ensalada con atun', 100, 'ALMUERZO');
+INSERT INTO `comida` (`idComida`, `nombre`, `detalle`, `cantCalorias`, `Horario`) VALUES
+(57, 'Batido de Bananas', 'batido de bananas y leche', 250, 'DESAYUNO'),
+(58, 'Avena con plátano', 'Avena cocida con plátano y almendras', 250, 'DESAYUNO'),
+(59, 'Yogur con fresas', 'Yogur natural con fresas frescas y miel', 200, 'DESAYUNO'),
+(60, 'Tostadas integrales', 'Tostadas integrales con aguacate y huevo pochado', 300, 'DESAYUNO'),
+(61, 'Batido de proteínas', 'Batido de proteínas con espinacas y frutas', 220, 'DESAYUNO'),
+(62, 'Salmón a la parrilla', 'Salmón fresco a la parrilla con espárragos y quinua', 350, 'ALMUERZO'),
+(63, 'Ensalada de pollo', 'Ensalada de pollo a la parrilla con aguacate y vinagreta', 400, 'ALMUERZO'),
+(64, 'Wrap de pavo', 'Wrap de pavo con verduras y hummus', 320, 'ALMUERZO'),
+(65, 'Ensalada de garbanzos', 'Ensalada de garbanzos con atún y aceitunas', 300, 'ALMUERZO'),
+(66, 'Tofu con brócoli', 'Tofu salteado con brócoli y salsa de soja', 280, 'ALMUERZO'),
+(67, 'Hummus con zanahorias', 'Hummus casero con zanahorias crujientes', 200, 'MERIENDA'),
+(68, 'Yogur griego con frutas', 'Yogur griego con fresas y arándanos', 180, 'MERIENDA'),
+(69, 'Almendras', 'Almendras crudas para un bocadillo saludable', 160, 'MERIENDA'),
+(70, 'Manzana con mantequilla de almendras', 'Manzana con mantequilla de almendras', 220, 'MERIENDA'),
+(71, 'Salmón al horno', 'Salmón al horno con espárragos y quinua', 350, 'CENA'),
+(72, 'Ensalada de atún', 'Ensalada de atún con espinacas, huevo duro y aceite de oliva', 220, 'CENA'),
+(73, 'Tofu salteado con brócoli', 'Tofu salteado con brócoli y salsa de soja baja en sodio', 220, 'CENA'),
+(74, 'Sopa de lentejas', 'Sopa casera de lentejas con verduras', 180, 'CENA'),
+(75, 'Pechuga de pavo', 'Pechuga de pavo magra con espinacas y tomates', 180, 'CENA'),
+(76, 'Quinua con verduras', 'Quinua cocida con brócoli, pimientos y champiñones', 250, 'ALMUERZO'),
+(77, 'Pollo a la plancha', 'Pechuga de pollo a la plancha con brócoli al vapor', 300, 'ALMUERZO'),
+(78, 'Arroz a la valenciana', 'Arroz con verduras', 450, 'DESAYUNO'),
+(79, 'Manzana', 'Fruta fresca', 52, 'SNACK'),
+(80, 'Zanahoria', 'Vegetal crudo', 41, 'SNACK'),
+(81, 'Yogur natural', 'Lácteo bajo en grasa', 59, 'SNACK'),
+(82, 'Almendras', 'Nueces crudas', 576, 'SNACK'),
+(83, 'Hummus', 'Dip de garbanzos', 166, 'SNACK'),
+(84, 'Palomitas de maíz', 'Granos de maíz reventados', 375, 'SNACK'),
+(85, 'Edamame', 'Soja verde inmadura', 122, 'SNACK'),
+(86, 'Pepino', 'Vegetal fresco', 15, 'SNACK'),
+(87, 'Queso cottage', 'Lácteo bajo en grasa', 98, 'SNACK'),
+(88, 'Huevo duro', 'Proteína completa', 68, 'SNACK'),
+(89, 'Avena', 'Grano entero cocido', 154, 'SNACK'),
+(90, 'Plátano', 'Fruta fresca', 105, 'SNACK'),
+(91, 'Ciruelas pasas', 'Fruta seca', 240, 'SNACK'),
+(92, 'Naranja', 'Fruta fresca', 43, 'SNACK'),
+(93, 'Fresas', 'Fruta fresca', 32, 'SNACK'),
+(94, 'Uvas', 'Fruta fresca', 69, 'SNACK'),
+(95, 'Kiwi', 'Fruta fresca', 41, 'SNACK'),
+(96, 'Melocotón', 'Fruta fresca', 39, 'SNACK'),
+(97, 'Piña', 'Fruta fresca', 50, 'SNACK'),
+(98, 'Mango', 'Fruta fresca', 60, 'SNACK');
 
 -- --------------------------------------------------------
 
@@ -75,28 +106,11 @@ CREATE TABLE `dieta` (
 --
 
 INSERT INTO `dieta` (`idDieta`, `nombre`, `idPaciente`, `fechaInicial`, `pesoInicial`, `pesoFinal`, `fechaFinal`) VALUES
-(1, 'Mediterránea', 1, '2023-10-01', 150, 140, '2023-10-15'),
-(2, 'Keto', 2, '2023-10-02', 160, 150, '2023-10-16'),
-(3, 'Paleo', 3, '2023-10-03', 170, 160, '2023-10-17'),
-(4, 'Vegana', 4, '2023-10-04', 180, 170, '2023-10-18'),
-(5, 'Vegetariana', 5, '2023-10-05', 190, 180, '2023-10-19'),
-(6, 'Atkins', 6, '2023-10-06', 200, 190, '2023-10-20'),
-(7, 'Ayuno Intermitente', 7, '2023-10-07', 210, 200, '2023-10-21'),
-(8, 'DASH', 8, '2023-10-08', 220, 210, '2023-10-22'),
-(9, 'Zona', 9, '2023-10-09', 230, 220, '2023-10-23'),
-(10, 'Sopa de Col', 10, '2023-10-10', 240, 250, '2023-10-24'),
-(11, 'Guerrero', 11, '2023-10-11', 250, 240, '2023-10-25'),
-(12, 'Genotipo', 12, '2023-10-12', 260, 250, '2023-10-26'),
-(13, 'Desintoxicación', 13, '2023-10-13', 270, 260, '2023-10-27'),
-(14, 'Flexitariana', 14, '2023-10-14', 280, 270, '2023-10-28'),
-(15, 'Montaña', 15, '2023-10-15', 290, 280, '2023-10-29'),
-(16, 'Playa', 16, '2023-10-16', 300, 290, '2023-10-30'),
-(17, 'South Beach', 17, '2023-10-17', 310, 300, '2023-10-31'),
-(18, 'Sin Gluten', 18, '2023-10-18', 320, 310, '2023-11-01'),
-(19, 'Baja en Carbohidratos', 19, '2023-10-19', 330, 320, '2023-11-02'),
-(20, 'Cetogénica', 20, '2023-10-20', 340, 330, '2023-11-03'),
-(21, 'Hipertrofia', 21, '2023-10-23', 100, 80, '2023-10-25'),
-(22, 'Ayuno intermitente', 22, '2023-10-23', 100, 70, '2023-10-24');
+(16, 'Mediterranea', 48, '2023-10-15', 80, 60, '2023-12-15'),
+(17, 'Hiposodica', 44, '2023-10-15', 100, 90, '2023-12-15'),
+(18, 'Diabetica', 46, '2023-10-16', 80, 70, '2023-11-16'),
+(19, 'hipertrofica', 46, '2023-08-16', 95, 70, '2023-10-16'),
+(20, 'cualquiera', 40, '2023-09-01', 100, 80, '2023-10-01');
 
 -- --------------------------------------------------------
 
@@ -116,19 +130,29 @@ CREATE TABLE `dietacomida` (
 --
 
 INSERT INTO `dietacomida` (`idDietaComida`, `idComida`, `idDieta`, `Horario`) VALUES
-(1, 1, 1, 'DESAYUNO'),
-(2, 2, 2, 'ALMUERZO'),
-(3, 3, 3, 'MERIENDA'),
-(4, 4, 4, 'CENA'),
-(5, 5, 5, 'SNACK'),
-(6, 6, 6, 'DESAYUNO'),
-(7, 7, 7, 'ALMUERZO'),
-(8, 8, 8, 'MERIENDA'),
-(9, 9, 9, 'CENA'),
-(10, 10, 10, 'SNACK'),
-(12, 6, 21, 'DESAYUNO'),
-(13, 6, 21, 'DESAYUNO'),
-(14, 2, 21, 'ALMUERZO');
+(52, 57, 16, 'DESAYUNO'),
+(53, 58, 16, 'DESAYUNO'),
+(54, 61, 16, 'DESAYUNO'),
+(55, 63, 16, 'ALMUERZO'),
+(56, 77, 16, 'ALMUERZO'),
+(57, 62, 16, 'ALMUERZO'),
+(58, 71, 16, 'CENA'),
+(59, 74, 16, 'CENA'),
+(60, 70, 16, 'MERIENDA'),
+(61, 68, 16, 'MERIENDA'),
+(62, 58, 17, 'DESAYUNO'),
+(63, 57, 17, 'DESAYUNO'),
+(64, 61, 17, 'DESAYUNO'),
+(65, 77, 17, 'ALMUERZO'),
+(66, 62, 17, 'ALMUERZO'),
+(67, 76, 17, 'ALMUERZO'),
+(68, 68, 17, 'MERIENDA'),
+(69, 69, 17, 'MERIENDA'),
+(70, 72, 17, 'CENA'),
+(71, 69, 18, 'MERIENDA'),
+(72, 78, 18, 'DESAYUNO'),
+(73, 57, 18, 'DESAYUNO'),
+(74, 72, 20, 'CENA');
 
 -- --------------------------------------------------------
 
@@ -138,9 +162,9 @@ INSERT INTO `dietacomida` (`idDietaComida`, `idComida`, `idDieta`, `Horario`) VA
 
 CREATE TABLE `historial` (
   `idHistorial` int(11) NOT NULL,
-  `idPaciente` int(11) DEFAULT NULL,
-  `peso` double DEFAULT NULL,
-  `fechaRegistro` date DEFAULT NULL
+  `idPaciente` int(11) NOT NULL,
+  `peso` double NOT NULL,
+  `fechaRegistro` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -148,37 +172,25 @@ CREATE TABLE `historial` (
 --
 
 INSERT INTO `historial` (`idHistorial`, `idPaciente`, `peso`, `fechaRegistro`) VALUES
-(1, 1, 70.5, '2020-01-10'),
-(2, 2, 68.2, '2021-02-19'),
-(3, 3, 75, '2022-03-05'),
-(4, 4, 62.8, '2021-05-20'),
-(5, 5, 80.1, '2021-07-30'),
-(6, 6, 64.7, '2020-01-15'),
-(7, 7, 72.3, '2022-01-11'),
-(8, 8, 69.9, '2023-03-12'),
-(9, 9, 78.4, '2022-05-13'),
-(10, 10, 71, '2020-10-14'),
-(11, 11, 73.2, '2021-12-20'),
-(12, 12, 76.5, '2023-11-16'),
-(13, 13, 67.8, '2022-08-18'),
-(14, 14, 79.2, '2021-05-19'),
-(15, 15, 63.4, '2020-03-20'),
-(16, 16, 74.6, '2020-09-22'),
-(17, 17, 70.2, '2020-03-21'),
-(18, 18, 66, '2021-05-25'),
-(19, 19, 82.3, '2022-02-26'),
-(20, 20, 68.9, '2022-01-27'),
-(21, 10, 120, '2023-10-25'),
-(22, 10, 250, '2023-10-25'),
-(23, 21, 100, '2023-10-23'),
-(24, 21, 90, '2023-10-25'),
-(25, 21, 95, '2023-10-25'),
-(26, 21, 91, '2023-10-25'),
-(27, 21, 88, '2023-10-25'),
-(28, 21, 70, '2023-10-23'),
-(29, 21, 60, '2023-10-23'),
-(30, 22, 70, '2023-10-23'),
-(32, 24, 100, '2023-10-23');
+(11, 48, 70, '2023-10-15'),
+(12, 44, 100, '2023-10-15'),
+(13, 44, 97, '2023-10-15'),
+(14, 46, 80, '2023-10-16'),
+(15, 46, 79, '2023-10-16'),
+(16, 46, 95, '2023-08-16'),
+(18, 40, 100, '2023-09-01'),
+(19, 40, 99, '2023-10-13'),
+(20, 40, 95, '2023-10-14'),
+(21, 40, 94, '2023-10-15'),
+(22, 40, 92, '2023-10-06'),
+(23, 40, 90, '2023-10-12'),
+(24, 40, 79, '2023-10-14'),
+(25, 40, 80, '2023-10-14'),
+(26, 40, 81, '2023-10-16'),
+(27, 54, 120, '2023-10-20'),
+(28, 46, 93, '2023-10-20'),
+(29, 46, 80, '2023-10-20'),
+(30, 56, 100, '2023-10-25');
 
 -- --------------------------------------------------------
 
@@ -200,29 +212,28 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`idPaciente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono`) VALUES
-(1, 'Pérez', 'Juan', 12345678, 'Calle A, Ciudad A', '555-1111'),
-(2, 'López', 'María', 23456789, 'Calle B, Ciudad B', '555-2222'),
-(3, 'González', 'Carlos', 34567890, 'Calle C, Ciudad C', '555-3333'),
-(4, 'Rodríguez', 'Ana', 45678901, 'Calle D, Ciudad D', '555-4444'),
-(5, 'Martínez', 'Luis', 56789012, 'Calle E, Ciudad E', '555-5555'),
-(6, 'Sánchez', 'Laura', 67890123, 'Calle F, Ciudad F', '555-6666'),
-(7, 'Fernández', 'Diego', 78901234, 'Calle G, Ciudad G', '555-7777'),
-(8, 'Torres', 'Patricia', 89012345, 'Calle H, Ciudad H', '555-8888'),
-(9, 'Romero', 'Jorge', 90123456, 'Calle I, Ciudad I', '555-9999'),
-(10, 'Díaz', 'Carmen', 12345677, 'Calle J, Ciudad J', '555-1010'),
-(11, 'Pérez', 'Javier', 23456778, 'Calle K, Ciudad K', '555-1111'),
-(12, 'García', 'María', 34567879, 'Calle L, Ciudad L', '555-1212'),
-(13, 'Rodríguez', 'Daniel', 45678980, 'Calle M, Ciudad M', '555-1313'),
-(14, 'Martínez', 'Laura', 56789091, 'Calle N, Ciudad N', '555-1414'),
-(15, 'Sánchez', 'Paula', 67890102, 'Calle O, Ciudad O', '555-1515'),
-(16, 'González', 'Martín', 78901213, 'Calle P, Ciudad P', '555-1616'),
-(17, 'Fernández', 'Andrea', 89012324, 'Calle Q, Ciudad Q', '555-1717'),
-(18, 'Torres', 'Francisco', 90123435, 'Calle R, Ciudad R', '555-1818'),
-(19, 'Romero', 'María', 12345656, 'Calle S, Ciudad S', '555-1919'),
-(20, 'Díaz', 'Guillermo', 23456767, 'Calle T, Ciudad T', '555-2020'),
-(21, 'Candioti', 'Cristian', 37685390, 'Jr Viñas', '034155316928'),
-(22, 'Candioti', 'Pedro', 48599300, 'Caferata', '0342123644'),
-(24, 'Alejo', 'Carlos', 2222222, 'Barcos 20', '0333');
+(30, 'González', 'María', 10000001, 'Calle A, Nº 123', '555-1234'),
+(31, 'Rodríguez', 'Juan', 10000002, 'Avenida B, Nº 456', '555-2345'),
+(32, 'López', 'Carlos', 10000003, 'Calle C, Nº 789', '555-3456'),
+(33, 'Pérez', 'Laura', 10000004, 'Avenida D, Nº 012', '555-4567'),
+(34, 'Martínez', 'Diego', 10000005, 'Calle E, Nº 1234', '555-5678'),
+(35, 'Fernández', 'Ana', 10000006, 'Avenida F, Nº 2345', '555-6789'),
+(36, 'Sánchez', 'Pedro', 10000007, 'Calle G, Nº 3456', '555-7890'),
+(37, 'Ramírez', 'Luis', 10000008, 'Avenida H, Nº 4567', '555-8901'),
+(38, 'Torres', 'Marta', 10000009, 'Calle I, Nº 5678', '555-9012'),
+(39, 'Gómez', 'Javier', 10000010, 'Avenida J, Nº 6789', '555-1234'),
+(40, 'Luna', 'Sofía', 10000011, 'Calle K, Nº 7890', '555-2345'),
+(41, 'Díaz', 'Andrés', 10000012, 'Avenida L, Nº 8901', '555-3456'),
+(42, 'Vargas', 'Carmen', 10000013, 'Calle M, Nº 9012', '555-4567'),
+(43, 'Ortega', 'Miguel', 10000014, 'Avenida N, Nº 0123', '555-5678'),
+(44, 'Chávez', 'Elena', 10000015, 'Calle O, Nº 1234', '555-6789'),
+(45, 'Silva', 'Ricardo', 10000016, 'Avenida P, Nº 2345', '555-7890'),
+(46, 'Ríos', 'Luisa', 10000017, 'Calle Q, Nº 3456', '555-8901'),
+(47, 'Mendoza', 'Alejandro', 10000018, 'Avenida R, Nº 4567', '555-9012'),
+(48, 'Castro', 'Valeria', 10000019, 'Calle S, Nº 5678', '555-1234'),
+(49, 'Núñez', 'Fernando', 10000020, 'Avenida T, Nº 6789', '555-2345'),
+(54, 'Gomez', 'Cristian', 32413421, 'Pje monserrat 2528', '4344467'),
+(56, 'Aguilar', 'pedro', 12312321, 'asdasd', '12345');
 
 --
 -- Índices para tablas volcadas
@@ -246,8 +257,8 @@ ALTER TABLE `dieta`
 --
 ALTER TABLE `dietacomida`
   ADD PRIMARY KEY (`idDietaComida`),
-  ADD KEY `idComida` (`idComida`),
-  ADD KEY `idDieta` (`idDieta`);
+  ADD KEY `dietacomida_ibfk_1` (`idComida`),
+  ADD KEY `dietacomida_ibfk_2` (`idDieta`);
 
 --
 -- Indices de la tabla `historial`
@@ -271,31 +282,31 @@ ALTER TABLE `paciente`
 -- AUTO_INCREMENT de la tabla `comida`
 --
 ALTER TABLE `comida`
-  MODIFY `idComida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idComida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT de la tabla `dieta`
 --
 ALTER TABLE `dieta`
-  MODIFY `idDieta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idDieta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `dietacomida`
 --
 ALTER TABLE `dietacomida`
-  MODIFY `idDietaComida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idDietaComida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `idHistorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `idHistorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `idPaciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idPaciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- Restricciones para tablas volcadas
@@ -305,20 +316,20 @@ ALTER TABLE `paciente`
 -- Filtros para la tabla `dieta`
 --
 ALTER TABLE `dieta`
-  ADD CONSTRAINT `dieta_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`idPaciente`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `dieta_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`idPaciente`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `dietacomida`
 --
 ALTER TABLE `dietacomida`
-  ADD CONSTRAINT `dietacomida_ibfk_1` FOREIGN KEY (`idComida`) REFERENCES `comida` (`idComida`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `dietacomida_ibfk_2` FOREIGN KEY (`idDieta`) REFERENCES `dieta` (`idDieta`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `dietacomida_ibfk_1` FOREIGN KEY (`idComida`) REFERENCES `comida` (`idComida`) ON DELETE CASCADE,
+  ADD CONSTRAINT `dietacomida_ibfk_2` FOREIGN KEY (`idDieta`) REFERENCES `dieta` (`idDieta`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `historial`
 --
 ALTER TABLE `historial`
-  ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`idPaciente`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`idPaciente`) REFERENCES `paciente` (`idPaciente`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
