@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class DietaService {
 
-    public void crearDieta(String nombre, int idPaciente, LocalDate fechaInicial, double pesoInicial, double pesoFinal, LocalDate fechaFinal) {
+    public void crearDieta(String nombre, int idPaciente, LocalDate fechaInicial, double pesoInicial, double pesoFinal, LocalDate fechaFinal, int altura) {
         try {
             DietaDAO dao = new DietaDAO();
             HistorialService hs = new HistorialService();
@@ -48,7 +48,7 @@ public class DietaService {
                 JOptionPane.showMessageDialog(null, "El paciente ya esta registrado a una dieta, modifique u elimine la que ya tiene");
                 return;
             }
-            dao.guardarDieta(new Dieta(nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal));
+            dao.guardarDieta(new Dieta(nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal,altura));
             JOptionPane.showMessageDialog(null, "Se guardo correctamente la dieta");
             hs.crearHistorial(idPaciente, pesoInicial, fechaInicial);
             limpiar();
@@ -57,7 +57,7 @@ public class DietaService {
         }
     }
 
-    public void modificarDieta(int idDieta, String nombre, int idPaciente, LocalDate fechaInicial, double pesoInicial, double pesoFinal, LocalDate fechaFinal) {
+    public void modificarDieta(int idDieta, String nombre, int idPaciente, LocalDate fechaInicial, double pesoInicial, double pesoFinal, LocalDate fechaFinal,int altura) {
         try {
             DietaDAO dao = new DietaDAO();
             PacienteService ps = new PacienteService();
@@ -76,7 +76,7 @@ public class DietaService {
                     return;
                 }
             }
-            dao.modificarDieta(new Dieta(idDieta, nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal));
+            dao.modificarDieta(new Dieta(idDieta, nombre, ps.buscarPacientePorID(idPaciente), fechaInicial, pesoInicial, pesoFinal, fechaFinal, altura));
             JOptionPane.showMessageDialog(null, "Se modificar correctamente la dieta");
             limpiar();
         } catch (Exception e) {

@@ -29,7 +29,7 @@ public final class DietaDAO extends DAO {
      */
     public void guardarDieta(Dieta aux) {
         try {
-            String sql = "INSERT INTO `dieta`(`nombre`, `idPaciente`, `fechaInicial`, `pesoInicial`, `pesoFinal`, `fechaFinal`) VALUES ('" + aux.getNombre() + "'," + aux.getIdPaciente().getIdPaciente() + ",'" + aux.getFechaInicial() + "'," + aux.getPesoInicial() + "," + aux.getPesoFinal() + ",'" + aux.getFechaFinal() + "')";
+            String sql = "INSERT INTO `dieta`(`nombre`, `idPaciente`, `fechaInicial`, `pesoInicial`, `pesoFinal`, `fechaFinal`,`altura`) VALUES ('" + aux.getNombre() + "'," + aux.getIdPaciente().getIdPaciente() + ",'" + aux.getFechaInicial() + "'," + aux.getPesoInicial() + "," + aux.getPesoFinal() + ",'" + aux.getFechaFinal() + "'," + aux.getAltura() + ")";
             insertarModificarEliminarBaseDatos(sql);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al guardar la dieta en la base de datos");
@@ -69,7 +69,7 @@ public final class DietaDAO extends DAO {
                 //fechaFinal
                 java.sql.Date fechaSQLFechaFinal = resultado.getDate(7);
                 LocalDate fechaFinal = fechaSQLFechaFinal.toLocalDate();
-                listaRetornar.add(new Dieta(resultado.getInt(1), resultado.getString(2), ps.buscarPacientePorID(IDPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal));
+                listaRetornar.add(new Dieta(resultado.getInt(1), resultado.getString(2), ps.buscarPacientePorID(IDPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal,resultado.getInt(8)));
             }
             return listaRetornar;
         } catch (Exception e) {
@@ -98,7 +98,7 @@ public final class DietaDAO extends DAO {
                 //fechaFinal
                 java.sql.Date fechaSQLFechaFinal = resultado.getDate(7);
                 LocalDate fechaFinal = fechaSQLFechaFinal.toLocalDate();
-                aux = new Dieta(id, resultado.getString(2), ps.buscarPacientePorID(IDPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal);
+                aux = new Dieta(id, resultado.getString(2), ps.buscarPacientePorID(IDPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal,resultado.getInt(8));
             }
             return aux;
         } catch (Exception e) {
@@ -204,7 +204,7 @@ public final class DietaDAO extends DAO {
                 //fechaFinal
                 java.sql.Date fechaSQLFechaFinal = resultado.getDate(7);
                 LocalDate fechaFinal = fechaSQLFechaFinal.toLocalDate();
-                aux = new Dieta(IDdieta, resultado.getString(2), p.buscarPacientePorID(idPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal);
+                aux = new Dieta(IDdieta, resultado.getString(2), p.buscarPacientePorID(idPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal,resultado.getInt(8));
             }
             return aux;
         } catch (Exception e) {
