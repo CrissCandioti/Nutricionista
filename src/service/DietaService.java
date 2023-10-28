@@ -38,12 +38,12 @@ public class DietaService {
                 JOptionPane.showMessageDialog(null, "El nombre no puede comenzar con numeros");
                 return;
             }
-            for (char caracter : nombre.toCharArray()) {
-                if (Character.isDigit(caracter)) {
-                    JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
-                    return;
-                }
-            }
+//            for (char caracter : nombre.toCharArray()) {
+//                if (Character.isDigit(caracter)) {
+//                    JOptionPane.showMessageDialog(null, "El nombre no puede contener caracteres numericos");
+//                    return;
+//                }
+//            }
             if (dao.dietaPorPaciente(idPaciente) != null) {
                 JOptionPane.showMessageDialog(null, "El paciente ya esta registrado a una dieta, modifique u elimine la que ya tiene");
                 return;
