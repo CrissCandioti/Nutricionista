@@ -6,7 +6,9 @@
 package nutricionista;
 
 import Vista.Principal;
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatDraculaIJTheme;
 
 /**
  *
@@ -18,8 +20,10 @@ public class Nutricionista {
      * @param args the command line arguments
      */
     public static void main(String[] args) {      
-      FlatCyanLightIJTheme.setup();
-        Principal p = new Principal();
+      FlatArcOrangeIJTheme.setup();
+       
+      
+      Principal p = new Principal();
         p.setVisible(true);
         p.setLocationRelativeTo(null);
     }

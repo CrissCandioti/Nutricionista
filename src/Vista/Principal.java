@@ -250,7 +250,7 @@ public class Principal extends javax.swing.JFrame {
         panelConsultas.add(btnConsultaPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, -1, -1));
 
         escritorio.add(panelConsultas);
-        panelConsultas.setBounds(240, 10, 690, 100);
+        panelConsultas.setBounds(240, 10, 700, 100);
 
         jMenu1.setText("Archivo");
 
@@ -368,10 +368,10 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuComidaActionPerformed
-         panelConsultas.setVisible(false);
+        panelConsultas.setVisible(false);
         GestionComida c = new GestionComida();
         ControlaInstancia(c);
-        
+
     }//GEN-LAST:event_menuComidaActionPerformed
 
     private void menuPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPacienteActionPerformed
@@ -381,47 +381,49 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuPacienteActionPerformed
 
     private void menuDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDietaActionPerformed
-          panelConsultas.setVisible(false);
+        panelConsultas.setVisible(false);
         GestionDieta gd = new GestionDieta();
         ControlaInstancia(gd);
     }//GEN-LAST:event_menuDietaActionPerformed
 
     private void menuHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHistorialActionPerformed
-         panelConsultas.setVisible(false);
+        panelConsultas.setVisible(false);
         GestionHistorial gh = new GestionHistorial();
         ControlaInstancia(gh);
     }//GEN-LAST:event_menuHistorialActionPerformed
 
     private void menuComidaDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuComidaDietaActionPerformed
-       panelConsultas.setVisible(false);
+        panelConsultas.setVisible(false);
         GestionDietaComida dc = new GestionDietaComida();
         ControlaInstancia(dc);
     }//GEN-LAST:event_menuComidaDietaActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-         
-        ConsultasComida cc= new ConsultasComida();
+        panelConsultas.setVisible(true);
+        ConsultasComida cc = new ConsultasComida();
         Controla(cc);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        
+        panelConsultas.setVisible(true);
         ConsultaDietas cd = new ConsultaDietas();
         Controla(cd);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        ConsultaPorHorario ch=new ConsultaPorHorario();
+        panelConsultas.setVisible(true);
+        ConsultaPorHorario ch = new ConsultaPorHorario();
         Controla(ch);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        panelConsultas.setVisible(true);
         ConsultaPacientes cp = new ConsultaPacientes();
         Controla(cp);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-         int confirm = JOptionPane.showConfirmDialog(
+        int confirm = JOptionPane.showConfirmDialog(
                 this,
                 "¿Estás seguro de que quieres cerrar la aplicación?",
                 "Confirmar Cierre",
@@ -435,40 +437,39 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
     // métodos realizados en los botones de vista Principal...
     private void btnAgregarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPacienteActionPerformed
-         panelConsultas.setVisible(false);
+        panelConsultas.setVisible(false);
         GestionPaciente gp = new GestionPaciente();
         ControlaInstancia(gp);
     }//GEN-LAST:event_btnAgregarPacienteActionPerformed
 
     private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
-          panelConsultas.setVisible(false);
+        panelConsultas.setVisible(false);
         GestionHistorial gh = new GestionHistorial();
         ControlaInstancia(gh);
     }//GEN-LAST:event_btnHistorialActionPerformed
 
     private void btnCrearDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearDietaActionPerformed
-          panelConsultas.setVisible(false);
+        panelConsultas.setVisible(false);
         GestionDietaComida dc = new GestionDietaComida();
         ControlaInstancia(dc);
     }//GEN-LAST:event_btnCrearDietaActionPerformed
 
     private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
-        
+
         try {
             for (JInternalFrame frame : escritorio.getAllFrames()) {
-            
-                frame.dispose(); 
-                
-            
-        }
+
+                frame.dispose();
+
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
         panelConsultas.setVisible(true);
-        GestionDietaComida dc = new GestionDietaComida();
-        dc.dispose();
-        
-       
+//        GestionDietaComida dc = new GestionDietaComida();
+//        dc.dispose();
+
+
     }//GEN-LAST:event_btnConsultasActionPerformed
 
     private void btnAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarComidaActionPerformed
@@ -484,27 +485,25 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarDietaActionPerformed
 
     private void btnConsultaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaComidaActionPerformed
-        ConsultasComida cc= new ConsultasComida();
+        ConsultasComida cc = new ConsultasComida();
         Controla(cc);
-        
+
     }//GEN-LAST:event_btnConsultaComidaActionPerformed
 
     private void btnConsultaPorHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaPorHorarioActionPerformed
-       ConsultaPorHorario ch=new ConsultaPorHorario();
+        ConsultaPorHorario ch = new ConsultaPorHorario();
         Controla(ch);
     }//GEN-LAST:event_btnConsultaPorHorarioActionPerformed
 
     private void btnConsultaDietasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaDietasActionPerformed
-         ConsultaDietas cd = new ConsultaDietas();
+        ConsultaDietas cd = new ConsultaDietas();
         Controla(cd);
     }//GEN-LAST:event_btnConsultaDietasActionPerformed
 
     private void btnConsultaPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaPacientesActionPerformed
-         ConsultaPacientes cp = new ConsultaPacientes();
+        ConsultaPacientes cp = new ConsultaPacientes();
         Controla(cp);
     }//GEN-LAST:event_btnConsultaPacientesActionPerformed
-
-  
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -557,13 +556,12 @@ public class Principal extends javax.swing.JFrame {
         }
 
         // Si no está abierto, crea una nueva instancia 
-        
         escritorio.add(inter);
         inter.setVisible(true);
         inter.setLocation(240, 20);
     }
 
- public void Controla(JInternalFrame inter) {
+    public void Controla(JInternalFrame inter) {
 
         for (JInternalFrame frame : escritorio.getAllFrames()) {
             if (frame.getClass().equals(inter.getClass())) {
@@ -573,10 +571,8 @@ public class Principal extends javax.swing.JFrame {
         }
 
         // Si no está abierto, crea una nueva instancia 
-        
         escritorio.add(inter);
         inter.setVisible(true);
-        inter.setLocation(240,107);
+        inter.setLocation(240, 107);
     }
 }
-

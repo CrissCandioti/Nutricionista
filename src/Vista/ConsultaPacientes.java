@@ -71,6 +71,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setTitle("Listado de Pacientes");
+        setPreferredSize(new java.awt.Dimension(817, 570));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buttonGroup1.add(rbTodos);
@@ -258,7 +259,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                     .addComponent(btnReporte)
                     .addComponent(btnReporteDietasVig)
                     .addComponent(btnReporteNoLLegaron))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 680, 350));
@@ -291,7 +292,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -440,6 +441,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
             modelo.addColumn("Apellido");
             modelo.addColumn("Nombre");
+            modelo.addColumn("DNI");
             modelo.addColumn("Domicilio");
             modelo.addColumn("Teléfono");
 
@@ -454,8 +456,9 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
 
                 modelo.setValueAt(getP.getApellido(), i, 0);
                 modelo.setValueAt(getP.getNombre(), i, 1);
-                modelo.setValueAt(getP.getDomicilio(), i, 2);
-                modelo.setValueAt(getP.getTelefono(), i, 3);
+                modelo.setValueAt(getP.getDni(), i, 2);
+                modelo.setValueAt(getP.getDomicilio(), i, 3);
+                modelo.setValueAt(getP.getTelefono(), i, 4);
 
             }
         } catch (NullPointerException e) {
@@ -518,7 +521,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
 
-            modelo.addColumn("Apellido ");
+            modelo.addColumn("Dieta ");
             modelo.addColumn("Apellido Paciente");
             modelo.addColumn("Nombre Paciente");
             modelo.addColumn("Fecha Inicial");
@@ -561,7 +564,7 @@ public class ConsultaPacientes extends javax.swing.JInternalFrame {
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
 
-            modelo.addColumn("Apellido ");
+            modelo.addColumn("Dieta ");
             modelo.addColumn("Apellido Paciente");
             modelo.addColumn("Nombre Paciente");
             modelo.addColumn("Fecha Inicial");

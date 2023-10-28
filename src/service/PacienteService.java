@@ -26,7 +26,7 @@ public class PacienteService {
 
     public void crearPaciente(String apellido, String nombre, int dni, String domicilio, String telefono) {
         try {
-           
+
             PacienteDAO dao = new PacienteDAO();
             /**
              * Se crean dos variables con los nombre dniReglamentarioMinimo y
@@ -43,7 +43,7 @@ public class PacienteService {
             String cadenaDni = Integer.toString(dni);
             String cadenaDniReglamentarioMinimo = Integer.toString(dniReglamentarioMinimo);
             String cadenaDniReglamentarioMaximo = Integer.toString(dniReglamentarioMaximo);
-           
+
             if (apellido.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "La celda del apellido no puede estar vacia");
                 return;
@@ -113,10 +113,10 @@ public class PacienteService {
             if (!telefono.matches("\\d+")) {
                 JOptionPane.showMessageDialog(null, "El telefono solamente debe contener digitos numericos");
                 return;
-            }            
+            }
             dao.guardarPaciente(new Paciente(apellido, nombre, dni, domicilio, telefono));
             JOptionPane.showMessageDialog(null, "Se guardo con exito el paciente");
-            limpiar();                                     
+            limpiar();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al crear el paciente");
         }
@@ -203,7 +203,7 @@ public class PacienteService {
     public void eliminarPaciente(int ID) {
         try {
             PacienteDAO dao = new PacienteDAO();
-            
+
             dao.eliminarPaciente(ID);
             JOptionPane.showMessageDialog(null, "Se elimino con exito el paciente");
         } catch (Exception e) {
@@ -240,12 +240,12 @@ public class PacienteService {
         }
         return null;
     }
-    
+
     public void limpiar() {
         GestionPaciente.txtDni.setText("");
         GestionPaciente.txtDomicilio.setText("");
         GestionPaciente.txtId.setText("");
-       GestionPaciente.txtNombre.setText("");
+        GestionPaciente.txtNombre.setText("");
         GestionPaciente.txtTelefono.setText("");
         GestionPaciente.txtapellido.setText("");
     }

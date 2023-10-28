@@ -279,6 +279,8 @@ public void llenarComboPaciente() {
             HistorialService hs = new HistorialService();
 
             int idPaciente = cmbPaciente.getItemAt(cmbPaciente.getSelectedIndex()).getIdPaciente();
+            
+            
             ArrayList hist = hs.listaHistorialesPorPaciente(idPaciente);
 
             //le otorgo un modelo a la tabla

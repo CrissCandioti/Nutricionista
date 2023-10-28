@@ -8,14 +8,12 @@ package Vista;
 import entidades.Comida;
 import entidades.Dieta;
 import entidades.Horario;
-import entidades.Paciente;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import service.ComidaService;
 import service.DietaComidaService;
 import service.DietaService;
-import service.PacienteService;
 
 /**
  *
