@@ -170,26 +170,25 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
 
     private void btnAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarComidaActionPerformed
         try {
-            
-            
+
             DietaComidaService cd = new DietaComidaService();
-                    
+
             int idDieta = cmbDieta.getItemAt(cmbDieta.getSelectedIndex()).getIdDieta();
 //            System.out.println("dieta " + idDieta);
-            
-           DefaultTableModel modelo = (DefaultTableModel) tablaComida.getModel();
-            int idComida =(int) modelo.getValueAt(tablaComida.getSelectedRow(), 0) ;
+
+            DefaultTableModel modelo = (DefaultTableModel) tablaComida.getModel();
+            int idComida = (int) modelo.getValueAt(tablaComida.getSelectedRow(), 0);
             System.out.println("comida " + idComida);
-            
+
             String horario = modelo.getValueAt(tablaComida.getSelectedRow(), 3).toString();
-            
+
 //            System.out.println(horario);
-            
-            
             cd.crearDietaComida(idComida, idDieta, Horario.valueOf(horario));
-            
+
+        } catch (ArrayIndexOutOfBoundsException f) {
+            JOptionPane.showMessageDialog(this, "Eliga una comida para poder continuar");
         } catch (Exception e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(this, "Verifique los datos y vuelva a intentar");
         }
     }//GEN-LAST:event_btnAgregarComidaActionPerformed
 
@@ -209,19 +208,19 @@ public class GestionDietaComida extends javax.swing.JInternalFrame {
     private javax.swing.JTable tablaComida;
     // End of variables declaration//GEN-END:variables
 public void llenarComboDieta() {
-       DietaService ds = new DietaService();
+        DietaService ds = new DietaService();
 
         try {
             for (Dieta object : ds.listaDietas()) {
                 cmbDieta.addItem(object);
             }
 
-            
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-public void llenarTabla() {
+
+    public void llenarTabla() {
 
         try {
             ComidaService cs = new ComidaService();
@@ -230,10 +229,10 @@ public void llenarTabla() {
 
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
-           
+
             modelo.addColumn("Código");
             modelo.addColumn("Nombre");
-            
+
             modelo.addColumn("Calorias");
             modelo.addColumn("Horario");
 
@@ -245,15 +244,15 @@ public void llenarTabla() {
             for (int i = 0; i < comidas.size(); i++) {
                 modelo.addRow(comida);
                 Comida getC = (Comida) comidas.get(i);
-              
-                modelo.setValueAt(getC.getIdComida(), i, 0);           
-                modelo.setValueAt(getC.getNombre(), i, 1);           
+
+                modelo.setValueAt(getC.getIdComida(), i, 0);
+                modelo.setValueAt(getC.getNombre(), i, 1);
                 modelo.setValueAt(getC.getCantCalorias(), i, 2);
                 modelo.setValueAt(getC.getHorario().toString(), i, 3);
 
             }
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "No tenemos registros de comidas en la base de datos"+e);
+            JOptionPane.showMessageDialog(null, "No tenemos registros de comidas en la base de datos" + e);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
