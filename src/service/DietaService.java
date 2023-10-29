@@ -162,5 +162,6 @@ public class DietaService {
         GestionDieta.cmbPaciente.setSelectedItem(null);
         GestionDieta.dateFin.setDate(null);
         GestionDieta.dateInicio.setDate(null);
+        GestionDieta.txtAltura.setText("");
     }
 }

@@ -490,7 +490,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
                 ds.modificarDieta(id, nombre, idPaciente, LocalDate.parse(fechaI), pesoI, pesoF, LocalDate.parse(fechaF), altura);
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Ingrese numeros en Peso inicial y Peso Final");
+            JOptionPane.showMessageDialog(this, "Ingrese los datos numericos correspondientes en sus respectivas celdas");
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 

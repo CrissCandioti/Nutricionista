@@ -42,7 +42,7 @@ public final class DietaDAO extends DAO {
      */
     public void modificarDieta(Dieta aux) {
         try {
-            String sql = "UPDATE `dieta` SET `nombre`='" + aux.getNombre() + "',`idPaciente`=" + aux.getIdPaciente().getIdPaciente() + ",`fechaInicial`='" + aux.getFechaInicial() + "',`pesoInicial`='" + aux.getPesoInicial() + "',`pesoFinal`=" + aux.getPesoFinal() + ",`fechaFinal`='" + aux.getFechaFinal() + "' WHERE idDieta = " + aux.getIdDieta();
+            String sql = "UPDATE `dieta` SET `idDieta`='" + aux.getIdDieta() + "',`nombre`='" + aux.getNombre() + "',`idPaciente`='" + aux.getIdPaciente().getIdPaciente() + "',`fechaInicial`='" + aux.getFechaFinal() + "',`pesoInicial`=" + aux.getPesoInicial() + ",`pesoFinal`=" + aux.getPesoFinal() + ",`fechaFinal`='" + aux.getFechaFinal() + "',`altura`=" + aux.getAltura() + " WHERE idDieta = " + aux.getIdDieta();
             insertarModificarEliminarBaseDatos(sql);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al modificar la dieta en la base de datos");
@@ -69,7 +69,7 @@ public final class DietaDAO extends DAO {
                 //fechaFinal
                 java.sql.Date fechaSQLFechaFinal = resultado.getDate(7);
                 LocalDate fechaFinal = fechaSQLFechaFinal.toLocalDate();
-                listaRetornar.add(new Dieta(resultado.getInt(1), resultado.getString(2), ps.buscarPacientePorID(IDPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal,resultado.getInt(8)));
+                listaRetornar.add(new Dieta(resultado.getInt(1), resultado.getString(2), ps.buscarPacientePorID(IDPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal, resultado.getInt(8)));
             }
             return listaRetornar;
         } catch (Exception e) {
@@ -98,7 +98,7 @@ public final class DietaDAO extends DAO {
                 //fechaFinal
                 java.sql.Date fechaSQLFechaFinal = resultado.getDate(7);
                 LocalDate fechaFinal = fechaSQLFechaFinal.toLocalDate();
-                aux = new Dieta(id, resultado.getString(2), ps.buscarPacientePorID(IDPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal,resultado.getInt(8));
+                aux = new Dieta(id, resultado.getString(2), ps.buscarPacientePorID(IDPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal, resultado.getInt(8));
             }
             return aux;
         } catch (Exception e) {
@@ -204,7 +204,7 @@ public final class DietaDAO extends DAO {
                 //fechaFinal
                 java.sql.Date fechaSQLFechaFinal = resultado.getDate(7);
                 LocalDate fechaFinal = fechaSQLFechaFinal.toLocalDate();
-                aux = new Dieta(IDdieta, resultado.getString(2), p.buscarPacientePorID(idPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal,resultado.getInt(8));
+                aux = new Dieta(IDdieta, resultado.getString(2), p.buscarPacientePorID(idPaciente), fechaInicial, resultado.getDouble(5), resultado.getDouble(6), fechaFinal, resultado.getInt(8));
             }
             return aux;
         } catch (Exception e) {
