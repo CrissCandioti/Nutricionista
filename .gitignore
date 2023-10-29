@@ -2,3 +2,5 @@
 *.class
 nbproject/private/private.xml
 nbproject/private/private.xml
+build/classes/accesoDatos/DAO.class
+nbproject/private/private.properties
