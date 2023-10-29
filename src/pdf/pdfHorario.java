@@ -98,6 +98,8 @@ public final class pdfHorario extends DAO {
             JOptionPane.showMessageDialog(null, "Se generó con éxito el Reporte Horario");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al generar el reporte PDF " + e);
+        } finally {
+        desconectarBaseDatos();
         }
     }
 }

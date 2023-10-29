@@ -83,6 +83,8 @@ public final class pdfPaciente extends DAO {
             JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte Tabla Paciente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
+        } finally {
+        desconectarBaseDatos();
         }
     }
 
@@ -154,6 +156,8 @@ public final class pdfPaciente extends DAO {
             JOptionPane.showMessageDialog(null, "Se generó con éxito el Reporte Por Paciente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el PDF" + e);
+        } finally {
+        desconectarBaseDatos();
         }
     }
 }

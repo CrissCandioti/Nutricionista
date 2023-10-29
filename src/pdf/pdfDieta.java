@@ -79,6 +79,8 @@ public final class pdfDieta extends DAO {
             JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte Pacientes Dieta Vigente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el reporte PDF " + e);
+        } finally {
+        desconectarBaseDatos();
         }
     }
 
@@ -137,6 +139,8 @@ public final class pdfDieta extends DAO {
             JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte Pacientes Dieta Terminada");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el reporte PDF " + e);
+        } finally {
+        desconectarBaseDatos();
         }
     }
 
@@ -201,6 +205,8 @@ public final class pdfDieta extends DAO {
             JOptionPane.showMessageDialog(null, "Se genero con exito el Reporte Pacientes Dieta Que No Llegaron Al Peso");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al crear el reporte PDF " + e);
+        } finally {
+        desconectarBaseDatos();
         }
     }
 }

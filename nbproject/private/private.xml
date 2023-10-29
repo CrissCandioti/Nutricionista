@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/criss/OneDrive/Documentos/NetBeansProjects/Nutricionista/src/nutricionista/Nutricionista.java</file>
-            <file>file:/C:/Users/criss/OneDrive/Documentos/NetBeansProjects/Nutricionista/src/pdf/pdfDieta.java</file>
-            <file>file:/C:/Users/criss/OneDrive/Documentos/NetBeansProjects/Nutricionista/src/service/DietaService.java</file>
-            <file>file:/C:/Users/criss/OneDrive/Documentos/NetBeansProjects/Nutricionista/src/accesoDatos/DietaDAO.java</file>
-            <file>file:/C:/Users/criss/OneDrive/Documentos/NetBeansProjects/Nutricionista/src/Vista/ConsultaPacientes.java</file>
-        </group>
         <group name="Guias">
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/Principal.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/ConsultaPacientes.java</file>
@@ -34,6 +27,9 @@
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/ConsultasComida.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/Vista/GestionDieta.java</file>
             <file>file:/E:/Curso%20Arg%20PROGRAMA%204.0/Nutricionista/src/pdf/pdfDietaComida.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/criss/OneDrive/Documentos/NetBeansProjects/Nutricionista/src/nutricionista/Nutricionista.java</file>
         </group>
     </open-files>
 </project-private>
