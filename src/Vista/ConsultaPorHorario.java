@@ -174,7 +174,8 @@ public void llenarTabla(String horario) {
 
             
             ArrayList<DietaComida> dietComida = dc.listaPorHorario(Horario.valueOf(horario));
-
+            
+            
             //le otorgo un modelo a la tabla
             DefaultTableModel modelo = new DefaultTableModel();
             

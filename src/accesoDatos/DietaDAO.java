@@ -86,7 +86,7 @@ public final class DietaDAO extends DAO {
      */
     public Dieta buscarDietaPorId(int id) {
         try {
-            String sql = "SELECT `idDieta`, `nombre`, `idPaciente`, `fechaInicial`, `pesoInicial`, `pesoFinal`, `fechaFinal` FROM `dieta` WHERE idDieta = " + id;
+            String sql = "SELECT `idDieta`, `nombre`, `idPaciente`, `fechaInicial`, `pesoInicial`, `pesoFinal`, `fechaFinal`,`altura` FROM `dieta` WHERE idDieta = " + id;
             consultarBaseDatos(sql);
             PacienteService ps = new PacienteService();
             Dieta aux = null;

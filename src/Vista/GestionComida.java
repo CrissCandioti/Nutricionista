@@ -62,7 +62,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setTitle("Gestión Comida.");
         setMinimumSize(new java.awt.Dimension(90, 18));
-        setPreferredSize(new java.awt.Dimension(800, 675));
+        setPreferredSize(new java.awt.Dimension(800, 680));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -191,7 +191,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(panelTablaComidas);
-        panelTablaComidas.setBounds(25, 333, 667, 335);
+        panelTablaComidas.setBounds(25, 333, 659, 330);
 
         btnSalir.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/remove_6431862 (2).png"))); // NOI18N
