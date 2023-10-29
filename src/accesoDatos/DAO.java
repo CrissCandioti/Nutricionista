@@ -35,7 +35,7 @@ public abstract class DAO {
 
     private final String USER = "root";
     private final String PASSWORD = "";
-    private final String DATABASE = "nutricion1";
+    private final String DATABASE = "nutricionista";
     private final String DRIVER = "org.mariadb.jdbc.Driver";
 
     /*
