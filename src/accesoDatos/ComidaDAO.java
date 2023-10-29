@@ -40,7 +40,7 @@ public final class ComidaDAO extends DAO {
      */
     public void modificarComidaBaseDatos(Comida aux) {
         try {
-            String sql = "UPDATE `comida` SET `nombre`='" + aux.getNombre() + "',`detalle`='" + aux.getDetalle() + "',`cantCalorias`=" + aux.getCantCalorias() + " WHERE idComida = " + aux.getIdComida();
+            String sql = "UPDATE `comida` SET `nombre`='" + aux.getNombre() + "',`detalle`='" + aux.getDetalle() + "',`cantCalorias`=" + aux.getCantCalorias() + ",`Horario`='"+aux.getHorario()+"' WHERE idComida = " + aux.getIdComida();
             insertarModificarEliminarBaseDatos(sql);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al modificar la comida en la base de datos");
@@ -66,11 +66,12 @@ public final class ComidaDAO extends DAO {
      */
     public Comida buscarComidaBaseDatos(int ID) {
         try {
-            String sql = "SELECT `idComida`, `nombre`, `detalle`, `cantCalorias` FROM `comida` WHERE idComida = " + ID;
+            String sql = "SELECT `idComida`, `nombre`, `detalle`, `cantCalorias`,`horario` FROM `comida` WHERE idComida = " + ID;
             consultarBaseDatos(sql);
             Comida aux = null;
             while (resultado.next()) {
-                aux = new Comida(ID, resultado.getString(2), resultado.getString(3), resultado.getInt(4));
+                String horario = resultado.getString(5);
+                aux = new Comida(ID, resultado.getString(2), resultado.getString(3), resultado.getInt(4),Horario.valueOf(horario));
             }
             return aux;
         } catch (Exception e) {

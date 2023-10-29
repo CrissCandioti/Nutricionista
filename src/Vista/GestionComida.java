@@ -253,6 +253,7 @@ public class GestionComida extends javax.swing.JInternalFrame {
             txtNombre.setText(c.getNombre());
             txtDetalle.setText(c.getDetalle());
             txtCantCalorias.setText("" + c.getCantCalorias());
+            cmbHorario.setSelectedItem(c.getHorario().toString());
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al intentar seleccionar la materia");
@@ -267,9 +268,10 @@ public class GestionComida extends javax.swing.JInternalFrame {
         String nombre = txtNombre.getText();
         String detalle = txtDetalle.getText();
         int calorias = Integer.parseInt(txtCantCalorias.getText());
+        String horario = cmbHorario.getSelectedItem().toString();
 
         if (JOptionPane.showConfirmDialog(null, "ESTA SEGURO DE MODIFICAR COMIDA?", "SALIR", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
-            cs.modificarComida(id, nombre, detalle, calorias);
+            cs.modificarComida(id, nombre, detalle, calorias,Horario.valueOf(horario));
             llenarTabla();
         }
     }//GEN-LAST:event_btnModificarActionPerformed

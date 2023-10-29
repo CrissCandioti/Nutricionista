@@ -106,7 +106,7 @@ public class ComidaService {
      * las restricciones, se diferencia en su tarea principal que es la de
      * modificar la comida que esta registrada en la base de datos.
      */
-    public void modificarComida(int idComida, String nombre, String detalle, int cantCalorias) {
+    public void modificarComida(int idComida, String nombre, String detalle, int cantCalorias, Horario horario) {
         try {
             ComidaDAO dao = new ComidaDAO();
             if (dao.buscarComidaBaseDatos(idComida) == null) {
@@ -140,7 +140,7 @@ public class ComidaService {
                 JOptionPane.showMessageDialog(null, "La celda del detalle no puede contener mas de 100 caracteres");
                 return;
             }
-            dao.modificarComidaBaseDatos(new Comida(idComida, nombre, detalle, cantCalorias));
+            dao.modificarComidaBaseDatos(new Comida(idComida, nombre, detalle, cantCalorias, horario));
             JOptionPane.showMessageDialog(null, "Se modifico correctamente la comida");
             limpiar();
         } catch (Exception e) {

@@ -443,6 +443,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
             txtNombre.setText(d.getNombre());
             txtPesoFinal.setText("" + d.getPesoFinal());
             txtPesoInicial.setText("" + d.getPesoInicial());
+            txtAltura.setText(""+d.getAltura());
             //Forma de setear fechaInicial
             LocalDate fechaI = d.getFechaInicial();
             java.util.Date utilDate = java.util.Date.from(fechaI.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -577,6 +578,7 @@ public class GestionDieta extends javax.swing.JInternalFrame {
         cmbPaciente.setSelectedItem(null);
         dateFin.setDate(null);
         dateInicio.setDate(null);
+        txtAltura.setText("");
     }
 
     public void llenarTabla(int id) {
