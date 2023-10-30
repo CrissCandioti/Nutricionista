@@ -37,9 +37,9 @@ public final class DietaComidaDAO extends DAO {
         }
     }
 
-    public void eliminarDietaComida(int ID) {
+    public void eliminarDietaComidaPorIdComida(int IDcomida, int idDieta) {
         try {
-            String sql = "DELETE FROM `dietacomida` WHERE idDietaComida = " + ID;
+            String sql = "DELETE FROM `dietacomida` WHERE idComida = " +IDcomida+" and idDieta = "+ idDieta;
             insertarModificarEliminarBaseDatos(sql);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Se produjo un error al eliminar la dietaComida de la base de datos");

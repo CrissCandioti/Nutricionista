@@ -5,6 +5,7 @@
  */
 package service;
 
+import accesoDatos.ComidaDAO;
 import accesoDatos.DietaComidaDAO;
 import entidades.Comida;
 import entidades.DietaComida;
@@ -84,14 +85,10 @@ public class DietaComidaService {
         }
     }
 
-    public void eliminarDietaComida(int IDDietaComida) {
+    public void eliminarDietaComida(int IDComida, int IDDieta) {
         try {
             DietaComidaDAO dao = new DietaComidaDAO();
-            if (dao.buscarDietaComidaPorId(IDDietaComida) == null) {
-                JOptionPane.showMessageDialog(null, "No se encontro la asociación de la dieta con la comida para su eliminacion");
-                return;
-            }
-            dao.eliminarDietaComida(IDDietaComida);
+           dao.eliminarDietaComidaPorIdComida(IDComida,IDDieta);
             JOptionPane.showMessageDialog(null, "Se elimino correctamente la asociación de la dieta con la comida");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al eliminar la asociación de la dieta con la comida");
