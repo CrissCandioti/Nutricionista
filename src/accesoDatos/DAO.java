@@ -33,10 +33,10 @@ public abstract class DAO {
     protected Statement sentencia = null;//La variable resultado es la que extrae la informacion de la base de datos para mostrarla, no realiza ninguna modificacion.
     protected ResultSet resultado = null;//La variable sentencia es la que almacena la infromacion de los comandos para insertar,modifica,eliminar de la base.
 
-    private final String USER = "root";
-    private final String PASSWORD = "";
-    private final String DATABASE = "nutricionista";
-    private final String DRIVER = "org.mariadb.jdbc.Driver";
+    private final String USER = "umrzah15xxwziavs";
+    private final String PASSWORD = "a9OoID9iXJSkMhYpCqg0";
+    private final String DATABASE = "bvtnceknfohfa6lg5npx";
+    private final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
     /*
      * Metodo que va a heredar a sus clases hijas la cual realiza la coneccion a
@@ -45,7 +45,7 @@ public abstract class DAO {
     protected void coneccionBaseDatos() throws ClassNotFoundException, SQLException {
         try {
             Class.forName(DRIVER);
-            String urlBaseDatos = "jdbc:mariadb://localhost:3306/" + DATABASE + "?zeroDateTimeBehavior=convertToNull";
+            String urlBaseDatos = "jdbc:mysql://bvtnceknfohfa6lg5npx-mysql.services.clever-cloud.com:3306/" + DATABASE;
             coneccion = DriverManager.getConnection(urlBaseDatos, USER, PASSWORD);
             // Deshabilitar el modo de autocommit
             coneccion.setAutoCommit(false);
